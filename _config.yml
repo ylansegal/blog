@@ -4,7 +4,7 @@
 
 url: http://ylan.segal-family.com
 title: Ylan Segal
-subtitle: On Coding and such
+subtitle: On Coding And Such
 author: Ylan Segal
 simple_search: http://google.com/search
 description: My name is Ylan Segal and I code. Take a look around, here is where I post about bits that interest me.
@@ -93,7 +93,7 @@ disqus_short_name:
 disqus_show_comment_count: false
 
 # Google Analytics
-google_analytics_tracking_id:
+google_analytics_tracking_id: UA-XXXXXX-YY
 
 # Facebook Like
 facebook_like: false
