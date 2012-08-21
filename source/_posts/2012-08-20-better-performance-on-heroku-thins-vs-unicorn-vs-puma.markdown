@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Better Performance On Heroku: Thins vs. Unicorn vs. Puma"
+title: "Better Performance On Heroku: Thin vs. Unicorn vs. Puma"
 date: 2012-08-20 20:01
 comments: true
 categories: 
@@ -11,7 +11,7 @@ categories:
 Heroku's Cedar stack provides great flexibility in the type of processes you can run, including the 
 ability to choose which application server to deploy.
 
-I have been running thin, since it's the recommended option and also the safe default, since that is 
+I have been running [thin][5], since it's the recommended option and also the safe default, since that is 
 what the app was running in the Bamboo stack, before migrating to Cedar. 
 
 However, I have read recently about [getting better performance][1] out of the same amount of dynos, and my 
@@ -28,7 +28,7 @@ To test, I used [siege][4]:
 	siege -c$i -t30s $URL
 ```
 
-I used different levels of concurrency (1, 5, 10, 20, 40, 80), testing each for 30 seconds and focused on the average response time for an approximation of performance.
+I used different levels of concurrency (i: 1, 5, 10, 20, 40, 80), testing each for 30 seconds and focused on the average response time for an approximation of performance.
 
 ## Results & Interpretation
 
@@ -41,3 +41,4 @@ As the graph above shows, there doesn't seem to be a significant difference in p
 [2]: http://puma.io/
 [3]: http://unicorn.bogomips.org/
 [4]: http://www.joedog.org/siege-home/
+[5]: http://code.macournoyer.com/thin/
