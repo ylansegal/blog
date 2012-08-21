@@ -9,7 +9,7 @@ categories:
 ---
 
 Heroku's Cedar stack provides great flexibility in the type of processes you can run, including the 
-ability to choose which application server to deploy. 
+ability to choose which application server to deploy.
 
 I have been running thin, since it's the recommended option and also the safe default, since that is 
 what the app was running in the Bamboo stack, before migrating to Cedar. 
@@ -19,7 +19,7 @@ interest was piqued. Before heading straight for [Unicorn][3], I decided to give
 
 ## Methodology
 
-I decided that for any benchamrk to be meaningfull for me, I would need to measure *my app's* performance using all 3 servers. I used the default thin and puma configuration and used Unicorn with 3 worker processes. 
+I decided that for any benchmark to be meaningful for me, I would need to measure *my app's* performance using all 3 servers. I used the default thin and puma configuration and used Unicorn with 3 worker processes. 
 The app itself uses Rails 3.2.8, running on ruby 1.9.3, with a Postgres database and Memcached. I tested the homepage for the app, which is heavily cached and should only require a single DB query for the current user. All tests were run when the caches were warm. 
 
 To test, I used [siege][4]:
@@ -30,11 +30,11 @@ To test, I used [siege][4]:
 
 I used different levels of concurrency (1, 5, 10, 20, 40, 80), testing each for 30 seconds and focused on the average response time for an approximation of performance.
 
-## Results & Intrepretation
+## Results & Interpretation
 
 {% img /assets/images/response-time-thin-puma-unicorn.png %}
 
-As the graph above shows, there doesn't seem to be a significant difference in performance using the 3 diffrent servers up to 10 concurrent requests. After that, thin starts performing much worse than puma or unicorn. Overall, it looks like unicorn is a better bet. Of course, YMMV depending on your system's particulars. 
+As the graph above shows, there doesn't seem to be a significant difference in performance using the 3 different servers up to 10 concurrent requests. After that, thin starts performing much worse than puma or unicorn. Overall, it looks like unicorn is a better bet. Of course, YMMV depending on your system's particulars. 
 
 
 [1]: http://michaelvanrooijen.com/articles/2011/06/01-more-concurrency-on-a-single-heroku-dyno-with-the-new-celadon-cedar-stack/
