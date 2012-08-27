@@ -17,6 +17,8 @@ what the app was running in the Bamboo stack, before migrating to Cedar.
 However, I have read recently about [getting better performance][1] out of the same amount of dynos, and my 
 interest was piqued. Before heading straight for [Unicorn][3], I decided to give [Puma][2], the new kid on the block a try.
 
+<!-- more -->
+
 ## Methodology
 
 I decided that for any benchmark to be meaningful for me, I would need to measure *my app's* performance using all 3 servers. I used the default thin and puma configuration and used Unicorn with 3 worker processes. 
