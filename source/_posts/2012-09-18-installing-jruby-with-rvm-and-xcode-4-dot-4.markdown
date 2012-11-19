@@ -3,7 +3,7 @@ layout: post
 title: "Installing jruby with rvm and XCode 4.4"
 date: 2012-09-18 21:23
 comments: true
-categories: 
+categories:
 - rvm
 - jruby
 - xcode

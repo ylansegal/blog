@@ -21,7 +21,7 @@ pass ```nil``` as the argument values.
  code that will get run later, the problem manifested itself far away from where it was introduced. In any case, it can
  be illustrated like this:
 
-```
+{% codeblock lang:ruby %}
 # ruby 1.8
 >> l = lambda { 'Hello World!' }
 => #<Proc:0x0000000106db80d8@(irb):8>
@@ -29,11 +29,11 @@ pass ```nil``` as the argument values.
 => "Hello World!"
 >> l.call('a')
 => "Hello World!"
-```
+{% endcodeblock %}
 
 In ruby 1.9 on the other hand, we get:
 
-```
+{% codeblock lang:ruby %}
 # ruby 1.9
 >> l = lambda { 'Hello World!' }
 => #<Proc:0x007f8fa4edba80@(irb):10 (lambda)>
@@ -45,11 +45,12 @@ ArgumentError: wrong number of arguments (1 for 0)
 	from (irb):12:in `call'
 	from (irb):12
 	from /Users/ylansegal/.rvm/rubies/ruby-1.9.3-p286/bin/irb:16:in `<main>'
-```
+{% endcodeblock %}
+
 By design, the lambda's will complain if the number of arguments when defining is different than when calling. Procs,
 it's close cousins, do not:
 
-```
+{% codeblock lang:ruby %}
 # This works in both ruby 1.8 and 1.9
 >> p = Proc.new { 'Hello World!' }
 => #<Proc:0x0000000106daf370@(irb):11>
@@ -57,7 +58,7 @@ it's close cousins, do not:
 => "Hello World!"
 >> p.call('a')
 => "Hello World!"
-```
+{% endcodeblock %}
 
 In my particular case, the lambda was defining a default value for a DataMapper property. When calling, data mapper
 checked if it quacked like a Proc (by using ```respond_to?(:call)```) and proceeded to call with two arguments: The
