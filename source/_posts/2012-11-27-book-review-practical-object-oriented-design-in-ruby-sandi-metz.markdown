@@ -23,3 +23,6 @@ Among the techniques discussed:
 * To write great APIs, focus on the messages being sent between objects. (She shows why you would actually __want to__
 use a UML diagram)
 * By creating role tests and applying them to test doubles, you can avoid the 'leaving the dream' problem, where stubs in tests obscure the fact that objects interfaces have changed.
+
+Links: [Publisher Site](http://www.informit.com/store/practical-object-oriented-design-in-ruby-an-agile-primer-9780321721334),
+[Amazon.com](http://www.amazon.com/gp/product/0321721330)
