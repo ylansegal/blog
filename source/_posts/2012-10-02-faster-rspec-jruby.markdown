@@ -9,6 +9,10 @@ categories:
 - rspec
 ---
 
+**UPDATE**: You can use bundler binstubs to squeeze a [bit more performance][6]
+
+---
+
 Much has been said about Rails slow start-up time on large projects. It is especially painful when
 trying to do TDD and each test takes 30 seconds to run, mainly in startup time.
 
@@ -76,3 +80,4 @@ It leverages the ```lsof``` to search for open ports, and changes the command ap
 [3]: https://github.com/burke/zeus
 [4]: https://github.com/commondream/tconsole
 [5]: http://kenai.com/projects/jruby/pages/JRubyWithNailgun
+[6]: /blog/2013/03/27/fater-rspec-jruby/
