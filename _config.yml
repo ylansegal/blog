@@ -88,10 +88,6 @@ pinboard_count: 3
 delicious_user:
 delicious_count: 3
 
-# Disqus Comments
-disqus_short_name: ylansegalsblog
-disqus_show_comment_count: true
-
 # Google Analytics
 google_analytics_tracking_id: UA-34233907-1
 
