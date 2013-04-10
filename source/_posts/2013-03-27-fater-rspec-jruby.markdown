@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Fater Rspec: jRuby, Spork, Nailgun and Bundler Binstubs"
+title: "Faster Rspec: jRuby, Spork, Nailgun and Bundler Binstubs"
 date: 2013-03-27 20:05
 comments: true
 categories:
