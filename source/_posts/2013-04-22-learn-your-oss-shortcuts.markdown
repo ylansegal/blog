@@ -12,6 +12,8 @@ I follow a certain number of ruby-related blogs and have noticed regular of call
 
 On the other hand, when I switched from TextMate to Sublime Text, there was almost no drop in productivity. Part of it has to do with similar functionality being mapped to the same keys, like command-t. However, I believe that there is more to it.
 
+<!-- more -->
+
 ## Modes
 
 Vim operates on a different paradigm than any other text editing application out there: It has modes. Normal. Insert. Command. It is the source of it's power, it is said. That may be. It is also one the biggest barriers: Every other place on my computer were text is entered and edited works in a different manner. You just enter the writing area, and type. This works for my email client, my word processor, my spreadsheet, my chat client, my terminal and all the places that my browsers takes me.
