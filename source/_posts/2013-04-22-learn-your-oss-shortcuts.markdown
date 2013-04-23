@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Learn Your OS' Shortcuts"
+title: "Forget Vim: Learn Your OS' Shortcuts For Productivity"
 date: 2013-04-22 21:43
 comments: true
 categories:
