@@ -9,6 +9,7 @@ ssh_port       = "22"
 document_root  = "/home/public/"
 rsync_delete   = true
 deploy_default = "rsync"
+rsync_args = ""
 
 # This will be configured for you when you run config_deploy
 deploy_branch  = "gh-pages"
