@@ -16,7 +16,7 @@ If you found something interesting, you can reach me on twitter [@ylansegal][5] 
 
 ## About This Blog
 
- I use [Octopress][1] to create this blog, themed with [Darkstipes][3]. All content is written in [Markdown][3]. Hosted on [Nearly Free Speech][4]
+ I use [Octopress][1] to create this blog, themed with [Darkstipes][2]. All content is written in [Markdown][3]. Hosted on [Nearly Free Speech][4]
 
  [1]: http://octopress.org/
  [2]: https://github.com/amelandri/darkstripes
