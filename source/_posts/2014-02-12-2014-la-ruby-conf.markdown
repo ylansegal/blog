@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "'2014 LA Ruby Conf'"
+title: "2014 LA Ruby Conf"
 date: 2014-02-12 16:44
 comments: true
 categories: 
