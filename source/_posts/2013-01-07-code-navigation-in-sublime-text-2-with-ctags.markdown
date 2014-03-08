@@ -15,7 +15,7 @@ How about another shortcut to jump back to your previous position. Here is how t
 
 This magic is made possible by [CTags][2] and the awesome [Sublime Text 2 Plug-In][3].
 
-{% blockquote Ctags, http://ctags.sourceforge.net/whatis.html, 'What is ctags' %}
+{% blockquote Ctags, http://ctags.sourceforge.net/whatis.html 'What is ctags' %}
 Ctags generates an index (or tag) file of language objects found in source files that allows these items to be quickly and easily located by a text editor or other utility. A tag signifies a language object for which an index entry is available (or, alternatively, the index entry created for that object).
 {% endblockquote %}
 
