@@ -8,7 +8,7 @@ categories:
 - performance
 ---
 
-**UPDATE**: I recetly took unicorn and puma for [another spin][6]
+**UPDATE**: I recently took unicorn and puma for [another spin][6]
 
 ---
 
