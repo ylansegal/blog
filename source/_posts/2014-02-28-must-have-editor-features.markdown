@@ -3,7 +3,7 @@ layout: post
 title: "Must-have Editor Features: An Atom Review"
 date: 2014-02-28 09:23
 comments: true
-categories: 
+categories:
 - productivity
 - sublime_text_2
 - atom
@@ -15,7 +15,7 @@ I got an invite for [Atom][1] yesterday. I spent a few hours using it, as oppose
 
 ### Text Navigation and Manipulation
 
-Navigating text withing the current file in your editor and manipulating that text efficiently is a basic need for software developers. Since I prefer to [use my OS's shortucts][3], instead of editor-specific ones, this was seamless. 
+Navigating text within the current file in your editor and manipulating that text efficiently is a basic need for software developers. Since I prefer to [use my OS's shortucts][3], instead of editor-specific ones, this was seamless.
 
 There is one exception though: Multiple cursor selection ([command]-[d]). I use that very often. Luckily, Atom has the same functionality as Sublime.
 
@@ -29,9 +29,9 @@ There is a certain amount of operations that I don't perform often enough to kno
 
 ### Code Navigation
 
-I was really happy to see that code navigation (like jumping to class and method definition) is done through ctags. I [use it in sublime too][4]. However, it seems that the implementation is still lacking. For my large Rails app, it would sometimes go to definitions without problems and sometimes it would just not find a method definition, even for a unique name across the code-base. Sublime's plug-in handled it just fine with the same ctags file. 
+I was really happy to see that code navigation (like jumping to class and method definition) is done through ctags. I [use it in sublime too][4]. However, it seems that the implementation is still lacking. For my large Rails app, it would sometimes go to definitions without problems and sometimes it would just not find a method definition, even for a unique name across the code-base. Sublime's plug-in handled it just fine with the same ctags file.
 
-Additionally, it seems you can jump to a symbol definition, but not jump back. I find this essential. 
+Additionally, it seems you can jump to a symbol definition, but not jump back. I find this essential.
 
 The current ctgas support is lacking.
 
