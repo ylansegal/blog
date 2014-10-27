@@ -11,7 +11,7 @@ categories:
 
 Recently I found myself doing pretty interesting things with relational databases that are way, way above what `ActiveRecord` allows you to do (even if I where to condone the use of SQL fragments like `Person.order('YOUR_FIELD DESC')`, which I don't). Arel, which powers `ActiveRecord` is very powerful for that sort of thing, if a little under-documented. The post by Jiří Pospíšil helped out a lot.
 
-### [Move Fast, Breat Nothing][2]
+### [Move Fast, Break Nothing][2]
 
 In the post (also a talk), Zach Holman describes how Github continues to innovate and add features to their product, without breaking existing functionality. This post is interesting at the technical level, but also covers how the do team and company structure and communication in a way that doesn't weight them down. Highly recommended.
 
