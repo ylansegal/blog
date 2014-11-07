@@ -136,7 +136,7 @@ Notice that to arrive at this graph, the only thing we changed was the field we 
 
 Quick and dirty data analysis on the command line is pretty easy if you know a bit of unix and some awk!
 
-[source_data]: http://worldcup2014-mjozwiak.rhcloud.com/
+[data_source]: http://worldcup2014-mjozwiak.rhcloud.com/
 [gist_source_data]: https://gist.github.com/ylansegal/2d5a0ff0c87653b06c9f
 [data_hacks]: https://github.com/bitly/data_hacks
 [shell_history]: http://www.smallmeans.com/notes/shell-history/
