@@ -19,5 +19,5 @@ This work is a great addition to the bookshelf of team members or leaders just s
 Links:
 ------
 
-- [Publisher Site][http://www.mypearsonstore.com/bookstore/being-agile-eleven-breakthrough-techniques-to-keep-9780133375626]
-- [Amazon][http://www.amazon.com/Being-Agile-Breakthrough-Techniques-Waterfalling/dp/0133375625]
+- [Publisher Site](http://www.mypearsonstore.com/bookstore/being-agile-eleven-breakthrough-techniques-to-keep-9780133375626)
+- [Amazon](http://www.amazon.com/Being-Agile-Breakthrough-Techniques-Waterfalling/dp/0133375625)
