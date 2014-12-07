@@ -46,11 +46,11 @@ For shortcuts to be learned and become second nature, they need to be repeated. 
 
 ---
 
-The last 6 commands can be modified by with [shift] to expand the selection. 
+The last 6 commands can be modified by with [shift] to expand the selection.
 
 Of course, I do use a few editor-specific shortcuts, but I prefer OS shortcuts when available, even if it means an extra keystroke. For example, in Sublime Text if you have no selection, typing [command]-[x] will cut the whole line, effectively deleting it. However, this trick does not work everywhere else. Instead, I use [command]-[delete], [delete] which deletes the whole line, and then the carriage return.
 
-Some of the Sublime Text 2 shortcuts that I can't live without: 
+Some of the Sublime Text 2 shortcuts that I can't live without:
 
 | Command       | Action                                         |  
 | ---------     | --------                                       |  
@@ -64,7 +64,7 @@ Note that because of their nature, I am not likely to reach for these commands w
 
 ## Making iTerm 2 Play Along
 
-I mentioned UNIX tools: I spend a decent amount of my time in iTerm. I use git's command line client (with a few aliases of course), usually run my specs from the database, debug data in my database shell, etc. Most of the above shortcuts don't work there as ```bash``` and ```zsh``` have their own key bindings. However, it is not hard to have iTerm do the translation for you: In the preferences, you can map a keyboard shortcut to hex codes. Most of the bash standard shortcuts map directly to one of those. 
+I mentioned UNIX tools: I spend a decent amount of my time in iTerm2. I use git's command line client (with a few aliases of course), usually run my specs from the database, debug data in my database shell, etc. Most of the above shortcuts don't work there as ```bash``` and ```zsh``` have their own key bindings. However, it is not hard to have iTerm do the translation for you: In the preferences, you can map a keyboard shortcut to hex codes or escape sequences. Most of the bash standard shortcuts map directly to one of those.
 
 For example, I added a shortcut for [command]-[←] to send hex code 0X15, which maps to [ctrl]-[a]. In turn, bash interprets this and moves your cursor to the beginning of the line. So far, here are the mappings I have added:
 
@@ -73,7 +73,15 @@ For example, I added a shortcut for [command]-[←] to send hex code 0X15, which
 | [command]-[→]      | 0X05                 |  
 | [command]-[←]      | 0X01                 |  
 | [command]-[delete] | 0X15                 |  
-| [option]-[delete]  | 0X17                 |  
+| [option]-[delete]  | 0X17 [^1]            |  
+
+And:
+
+| Shortcut           | Escape Sequence      |
+| -------------------| -------------------- |  
+| [option]-[→]       | A  
+| [option]-[←]       | B
+
 ---
 
 You can augment by checking the [ASCII Reference][1]
@@ -82,4 +90,5 @@ You can augment by checking the [ASCII Reference][1]
 
 Software Engineers spend a great deal of their time writing and editing text, but a non-trivial amount is done outside your main editor or IDE. We write many emails, type on chat windows, use our browser for issue tracking. Your OS already provides a lot of keyboard shortcuts for dealing with text that is common to all these activities. By leveraging those were possible, as opposed to the application specific ones, you boost your productivity across the board and reduce contexts shifting.
 
+[^1]: This was already working in my last installation on iTerm2, but I have needed it in the past
 [1]: http://www.csee.umbc.edu/portal/help/theory/ascii.txt
