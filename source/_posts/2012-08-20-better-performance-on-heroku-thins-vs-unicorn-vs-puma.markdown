@@ -8,7 +8,7 @@ categories:
 - performance
 ---
 
-**UPDATE**: I recently took unicorn and puma for [another spin][6]
+**UPDATE**: These benchmarks where updated in [2013][6] and [2014][7].
 
 ---
 
@@ -52,3 +52,4 @@ As the graph above shows, there doesn't seem to be a significant difference in p
 [4]: http://www.joedog.org/siege-home/
 [5]: http://code.macournoyer.com/thin/
 [6]: /blog/2013/05/20/unicorn-vs-puma-redux/
+[7]: /blog/2014/05/13/unicorn-vs-puma-round-3/
