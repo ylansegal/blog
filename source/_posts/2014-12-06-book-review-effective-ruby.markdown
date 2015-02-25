@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Book Review: Effective Ruby"
+title: "Book Review: Effective Ruby - Peter J. Jones"
 date: 2014-12-06 13:37
 comments: true
 categories:
