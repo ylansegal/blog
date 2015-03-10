@@ -71,6 +71,12 @@ bindkey "^S" "insert-fuzzy-path-in-command-line"
 
 It is worth noting that most of this ideas where obtained directly from the [Selecta README][2]. Thanks Gary Bernhardt!
 
+---
+
+*UPDATE (03/10/2015)*: A new project was [just announced][4] that has another interchangeable fuzzy picker utility, [pick][4]. This one is written in C, so it promises to be faster. More importantly, the project shows some more [fantastic ideas][5] on where to leverage fuzzy matching.
+
 [1]: http://www.joelonsoftware.com/articles/fog0000000022.html
 [2]: https://github.com/garybernhardt/selecta
 [3]: https://github.com/mooz/percol
+[4]: https://robots.thoughtbot.com/announcing-pick
+[5]: https://github.com/thoughtbot/pick
