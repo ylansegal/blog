@@ -17,7 +17,7 @@ Most developers appreciate the benefits of plain text files since they play so w
 
 ### [The Quality Wheel][3]
 
-A big part of effective communication is sharing the same terminology. It helps with context and allows us to be more specific. Jessitron propses expanding our vocabulary around what "Quality Software" means. Instead of saying a piece of code is "good" or "clean", how about it's "configurable" and "readable".
+A big part of effective communication is sharing the same terminology. It helps with context and allows us to be more specific. Jessitron proposes expanding our vocabulary around what "Quality Software" means. Instead of saying a piece of code is "good" or "clean", how about it's "configurable" and "readable".
 
 
 [1]: http://blog.cleancoder.com/uncle-bob/2015/04/15/DoesOrganizationMatter.html
