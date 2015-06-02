@@ -7,6 +7,7 @@ categories:
 - jruby
 - spork
 - rspec
+- most_popular
 ---
 
 **UPDATE**: You can use bundler binstubs to squeeze a [bit more performance][6]

@@ -3,10 +3,11 @@ layout: post
 title: "Ruby Block Precedence: An Rspec Gotcha"
 date: 2013-11-01 09:01
 comments: true
-categories: 
+categories:
 - rspec
 - ruby
 - tdd
+- most_popular
 ---
 
 Recently I came across a spec that didn't seem to be executing the assertion block passed in to the raise_error expectation. Leaving the bare essentials for the example:
@@ -35,7 +36,7 @@ Finished in 0.001 secon
 
 It would seem that the block is never being executed.
 
-<!-- more --> 
+<!-- more -->
 
 ## Curly Blocks To The Rescue
 
@@ -110,14 +111,14 @@ describe 'Block Precedence' do
 end
 ```
 
-Both this examples will fail, as expected. I personally do not like the parenthesis after the end keyword, so I am going to prefer curly block in the future. 
+Both this examples will fail, as expected. I personally do not like the parenthesis after the end keyword, so I am going to prefer curly block in the future.
 
 ## Conclusion: Word About TDD
 
-The danger exposed in the examples above is that we are getting false-green specs: They pass the specs, but they should be breaking. It seems completely unrelated to TDD, but it is not. 
+The danger exposed in the examples above is that we are getting false-green specs: They pass the specs, but they should be breaking. It seems completely unrelated to TDD, but it is not.
 
-I only came to learn about the block precedence because in the code I was working on, I wrote my specs first. I ran the spec, expecting to see a a failure because the code had not been implemented and got a green instead. This is the standard Agile red-green-refactor cycle. 
+I only came to learn about the block precedence because in the code I was working on, I wrote my specs first. I ran the spec, expecting to see a a failure because the code had not been implemented and got a green instead. This is the standard Agile red-green-refactor cycle.
 
-Had I written my code first and then the test, it would have been entirely possible that I would have gotten green and continued on, without realizing it was a false green. 
+Had I written my code first and then the test, it would have been entirely possible that I would have gotten green and continued on, without realizing it was a false green.
 
 [1]: http://stackoverflow.com/questions/5587264/do-end-vs-curly-braces-for-blocks-in-ruby

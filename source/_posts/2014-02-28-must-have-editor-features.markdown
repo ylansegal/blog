@@ -7,6 +7,7 @@ categories:
 - productivity
 - sublime_text_2
 - atom
+- most_popular
 ---
 
 I got an invite for [Atom][1] yesterday. I spent a few hours using it, as opposed to [Sublime Text 2][2], my current editor of choice. Here are the features that I consider that my editor must-have and how Atom handles them.

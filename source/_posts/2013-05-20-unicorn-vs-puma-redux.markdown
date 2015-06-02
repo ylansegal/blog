@@ -8,6 +8,7 @@ categories:
 - unicorn
 - puma
 - jruby
+- most_popular
 ---
 
 **UPDATE**: The benchmarks [have been updated](/blog/2014/05/13/unicorn-vs-puma-round-3/) for new versions of ruby, jruby, puma and unicorn

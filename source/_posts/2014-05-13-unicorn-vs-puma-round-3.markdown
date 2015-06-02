@@ -8,6 +8,7 @@ categories:
 - unicorn
 - puma
 - jruby
+- most_popular
 ---
 
 MRI Ruby has gotten a lot faster since I ran my [last benchmark][1], so it's time for an update.

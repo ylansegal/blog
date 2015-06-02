@@ -3,14 +3,15 @@ layout: post
 title: "Deploy To Heroku With (Near) Zero Downtime"
 date: 2012-08-27 08:56
 comments: true
-categories: 
+categories:
 - heroku
 - deployment
+- most_popular
 ---
 
 Heroku offers a great hosting platform that abstracts away most of the system administration tasks inherent in
-running an app. I have generally been very happy hosting productions apps in Heroku and have managed to do very well 
-with it's platform and it's available add-ons to increase functionality. I really like the way the handle Postgres databases, which makes things like followers, clones and backups a simple 1-off command. 
+running an app. I have generally been very happy hosting productions apps in Heroku and have managed to do very well
+with it's platform and it's available add-ons to increase functionality. I really like the way the handle Postgres databases, which makes things like followers, clones and backups a simple 1-off command.
 
 For a long time, though my main gripe has been deployment. Initiating a deployment could not be easier: Just push to your app's git repository in Heroku. My problem is what happens on restart.
 
@@ -28,7 +29,7 @@ $ siege -c1 $URL
 Longest transaction:            28.99
 ...
 ```
-28.99 seconds. That is a lot of wait time for users. 
+28.99 seconds. That is a lot of wait time for users.
 
 ## Light At The End Of The Tunnel
 
@@ -51,7 +52,7 @@ Longest transaction:             3.13
 ...
 ```
 
-Now, that is much better. 
+Now, that is much better.
 
 I did have a moment of confusion when testing this: The _heroku ps_ command doesn't show output any differently. I am fully aware this might be because of the unreleased nature of the feature, but I would like to see the new dynos booting up alongside the old dynos, with a marker of which ones are actually receiving traffic.
 
