@@ -7,7 +7,7 @@ sharing: true
 footer: false
 ---
 
-I am Ylan Segal, a software engineer based in beautiful San Diego, California.
+I am Ylan Segal, a Software Engineer based in beautiful San Diego, California.
 
 I write occasionally in this blog about things that interest me as a developer: Technologies I am using,
 the tools of the trade, problem solving, testing, books. See the sidebar for a list of categories.
