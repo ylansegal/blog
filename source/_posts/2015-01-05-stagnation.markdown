@@ -15,7 +15,7 @@ That code that you write depends on a stack of other software to operate correct
 
 <!-- more -->
 
-Bundler solves this problem for Ruby libraries (and their native extensions) very well. Your software, however, depends on other components: Some of them under your control, like the operating system it runs on or the data stores you choose to use. Some of them are not under your control at all, like external services or event the client / browser that consumes your application[^1].
+Bundler solves this problem for Ruby libraries (and their native extensions) very well. Your software, however, depends on other components: Some of them under your control, like the operating system it runs on or the data stores you choose to use. Some of them are not under your control at all, like external services or even the client / browser that consumes your application[^1].
 
 There are a number of mechanisms that you can use to manage the change in the components you do have control over. Tools like Chef and Puppet provide a way to provision servers repeatedly to a known version and this is taken to the next level by newcomers like Docker.
 
@@ -32,7 +32,7 @@ verb [ no obj. ]
 cease developing; become inactive or dull
 {% endblockquote %}
 
-The stagnation comes slowly but surely, until your hand is forced. One of the libraries, or the language itself has a security vulnerability that needs to be addressed but your app cannot be upgraded easily. Its dependency tree is locked in the past and you are left with a mad scramble to upgrade individual libraries that conflict with each other. You end up forking libraries to apply patches and your maintenance burden is even greater than before. This is the danger of stagnation: Not being able to change when you really need to .
+The stagnation comes slowly but surely, until your hand is forced. One of the libraries, or the language itself has a security vulnerability that needs to be addressed but your app cannot be upgraded easily. Its dependency tree is locked in the past and you are left with a mad scramble to upgrade individual libraries that conflict with each other. You end up forking libraries to apply patches and your maintenance burden is even greater than before. This is the danger of stagnation: Not being able to change when you really need to.
 
 The solution then, is to manage change effectively, making it part of your process. Constantly making incremental changes to your stack is a far easier proposition and in the end keeps your app's most-needed ability to constantly change.
 
