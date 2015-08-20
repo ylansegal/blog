@@ -16,4 +16,10 @@ The explanations throughout the book are thorough and the code samples numerous.
 
 I recommend the book to those Rubyists lacking a background in Computer Science or those that have one, but want to gain a perspective of computation without the formalism.
 
+Links:
+------
+
+- [Book Website](http://computationbook.com/)
+- [Amazon.com](http://www.amazon.com/dp/1449329276)
+
 [^1]: I actually do like mathematics, but mostly as a tool to explore physics. My familiarity with the math underpinnings of computation is lacking.
