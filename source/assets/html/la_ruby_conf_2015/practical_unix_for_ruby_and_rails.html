@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/fonts.css">
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+count: false
+
+# Practical Unix For Ruby & Rails
+
+## LA RubyConf - October, 2015
+
+### Ylan Segal
+
+---
+
+class: center, middle
+
+# Practical Unix For Ruby & Rails
+
+## LA RubyConf - October, 2015
+
+### Ylan Segal
+
+???
+
+Hello everyone, thank you for being here. My name is Ylan Segal, I'm from San Diego, formely from Mexico City. I have been writting ruby since 2009 and mostly Java before that.
+
+In this talk, I'm going to go over a few examples of how use my Unix environment to accomplish day-to-day things. Along the way, I'll talk a little bit about the underpinnings of the OS, but it will not be comprehensive. My goal is to whet you appetite, show what kind of things are possible and hopefully help you be more efficient.
+
+---
+
+
+# UNIX =~ Unix
+
+UNIX: Original OS developed in the 70s at Bell Labs
+
+Unix: OS implementing the POSIX standards
+  - BSD (Mac) is fully compliant
+  - Linux is *mostly* compliant
+  - Windows is *not* compliant
+    - Cygwin makes Windows is *significantly* compliant
+
+???
+
+- POSIX: Set of IEEE standards for operating system interface
+  - Portable Operating System Interface
+  - Developed originally in the 80s
+
+---
+
+# The Unix Philosophy
+
+- Use small, sharp tools
+- Do one thing, do it well
+- Expect the output of one program to be the input of another, yet unknown, program
+
+#### Many UNIX programs do quite trivial things in isolation, but, combined with other programs, become general and useful tools.
+
+The UNIX Programming Environment, 1984, Brian Kernighan and Rob Pike
+
+???
+
+The Unix philosophy, is a set of cultural norms and philosophical approaches to developing small yet capable software
+
+The Unix philosophy emphasizes building short, simple, clear, modular, and extensible code that can be easily maintained and repurposed by developers other than its creators.
+
+The Unix philosophy favors composability as opposed to monolithic design.
+
+---
+
+# Bash
+
+- A Unix shell is both a command interpreter and a programming language.
+- You already have it on Mac and Linux.
+- On Windows: Use Cygwin or VM
+
+???
+
+- How do we interact with the Unix environment: Through a shell
+- Bourne-Again shell (GNU) -> Command interpreter and a programming language
+- Universal: Bash is in every unix system you are likely to find
+- It's very powerful
+- It's also very quirky, especially scripting
+
+---
+
+# Tail The Log
+
+`tail` display the last lines of a file
+
+```
+$ tail -f log/development.log
+Started GET "/tokens/new" for 127.0.0.1 at 2014-08-27 20:03:43 -0700
+Processing by TokensController#new as HTML
+  User Load (0.3ms)  SELECT  "users".* FROM "users"  WHERE "users"."id" = 3  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered tokens/_form.html.haml (78.0ms)
+  Rendered tokens/new.html.haml within layouts/application (86.9ms)
+  Rendered layouts/_navigation.html.haml (0.3ms)
+  Rendered layouts/_messages.html.haml (0.1ms)
+Completed 200 OK in 119ms (Views: 115.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/tokens" for 127.0.0.1 at 2014-08-27 20:03:46 -0700
+Processing by TokensController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+/a7r/ubDAn1vSf5CjhrgxPzSHfemFhUxJhrapbR2BA=", "token"=>{"name"=>"ad", "secret"=>"[FILTERED]"}, "commit"=>"Create Token"}
+  User Load (0.2ms)  SELECT  "users".* FROM "users"  WHERE "users"."id" = 3  ORDER BY "users"."id" ASC LIMIT 1
+   (0.1ms)  begin transaction
+  SQL (32.5ms)  INSERT INTO "tokens" ("created_at", "name", "secret", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2014-08-28 03:03:46.418899"], ["name", "ad"], ["secret", "asdasdasd"], ["updated_at", "2014-08-28 03:03:46.418899"], ["user_id", 3]]
+   (1.8ms)  commit transaction
+Redirected to http://localhost:3000/tokens
+Completed 302 Found in 41ms (ActiveRecord: 34.6ms)
+...
+```
+
+???
+
+- tail: display the last lines of a file
+- tail -f: Wait for additional information
+- tail does not need to read the complete file in memory, makes it efficient
+
+---
+
+# Read The Manual
+
+``` bash
+$ man tail
+```
+
+``` bash
+TAIL(1)                   BSD General Commands Manual                  TAIL(1)
+
+NAME
+     tail -- display the last part of a file
+
+SYNOPSIS
+     tail [-F | -f | -r] [-q] [-b number | -c number | -n number] [file ...]
+
+DESCRIPTION
+     The tail utility displays the contents of file or, by default, its standard input, to the standard output.
+
+     The display begins at a byte, line or 512-byte block location in the input.  Numbers having a leading plus (`+')
+     sign are relative to the beginning of the input, for example, ``-c +2'' starts the display at the second byte of
+     the input.  Numbers having a leading minus (`-') sign or no explicit sign are relative to the end of the input,
+     for example, ``-n 2'' displays the last two lines of the input.  The default starting location is ``-n 10'', or
+     the last 10 lines of the input.
+
+     The options are as follows:
+...
+```
+
+???
+
+- man: manual pages
+---
+
+# Turn Down The Noise
+
+`grep` - file pattern searcher
+
+``` bash
+$ tail -f log/development.log | grep '^Started'
+Started GET "/" for 127.0.0.1 at 2013-09-06 13:57:46 -0700
+Started GET "/" for 127.0.0.1 at 2013-09-06 13:59:02 -0700
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2013-09-06 14:54:53 -0700
+Started GET "/" for 127.0.0.1 at 2013-09-06 14:54:53 -0700
+Started GET "/" for 127.0.0.1 at 2013-09-06 14:55:04 -0700
+Started GET "/" for 127.0.0.1 at 2013-09-06 14:55:08 -0700
+Started GET "/" for 127.0.0.1 at 2013-09-06 14:55:40 -0700
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-09-06 14:55:40 -0700
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-09-06 14:55:53 -0700
+Started GET "/" for 127.0.0.1 at 2013-09-06 14:55:53 -0700
+Started GET "/users/edit" for 127.0.0.1 at 2013-09-06 15:10:13 -0700
+Started GET "/" for 127.0.0.1 at 2013-09-06 15:10:28 -0700
+Started GET "/users/edit" for 127.0.0.1 at 2013-09-06 15:10:56 -0700
+Started GET "/users/edit" for 127.0.0.1 at 2013-09-06 15:11:08 -0700
+Started GET "/users" for 127.0.0.1 at 2013-09-06 15:11:11 -0700
+Started GET "/" for 127.0.0.1 at 2013-09-06 15:11:15 -0700
+Started GET "/users/edit" for 127.0.0.1 at 2013-09-06 15:11:16 -0
+...
+```
+
+???
+
+- Output redirection with pipes.
+- Out of one command becomes input of next command
+- grep: pattern searcher
+- grep: uses regular expressions
+- grep -E: uses extended-regular expressions
+
+---
+
+# Standard Streams
+
+.center.middle[![Process](images/basic_process.png)]
+
+???
+
+- A unix process, in simplest terms in an instance of a running program
+- Each process has 3 standard streams:
+- *stdin*
+  - data going into a program.
+  - default is the keyboard that started the program
+- *stdout*
+  - where the program writes it's output data.
+  - Defaults to text terminal that initiated program
+- *stderr*
+  - another output, typically for error messages or diagnostics
+  - independant of stdout
+  - defaults to the text terminal also
+- Each of the streams can be directed somewhere else:
+  - A file
+  - Another process
+  - etc
+
+---
+
+# Pipes Connect Streams
+
+.center.middle[![Process](images/piped_processes.png)]
+
+???
+
+- A pipe connects stdout of one process to the stdin of another process
+- *stderr* is not piped by default, but it can be
+- | is an anonymous pipe, more advanced stuff can be done with named pipes
+
+---
+
+class: center, middle
+# How many times has each endpoint been hit?
+
+---
+
+# Extract Information
+
+``` bash
+$ grep '^Started' log/development.log
+Started GET "/" for 127.0.0.1 at 2013-09-06 13:29:47 -0700
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-09-06 13:29:55 -0700
+Started GET "/users/sign_up" for 127.0.0.1 at 2013-09-06 13:29:56 -0700
+Started POST "/users" for 127.0.0.1 at 2013-09-06 13:30:21 -0700
+Started GET "/" for 127.0.0.1 at 2013-09-06 13:30:21 -0700
+Started GET "/users/1" for 127.0.0.1 at 2013-09-06 13:30:30 -0700
+Started GET "/" for 127.0.0.1 at 2013-09-06 13:30:35 -0700
+Started GET "/" for 127.0.0.1 at 2013-09-06 13:45:04 -0700
+Started GET "/users/1" for 127.0.0.1 at 2013-09-06 13:45:23 -0700
+Started GET "/" for 127.0.0.1 at 2013-09-06 13:45:29 -0700
+Started GET "/users/1" for 127.0.0.1 at 2013-09-06 13:45:51 -0700
+...
+```
+
+???
+
+- Using grep with a file
+- Filtering lines
+- Use redirection to form a pipeline, sort of map/reduce
+- Could also use a pattern more than one file
+---
+
+# Extract Information
+
+``` bash
+$ grep '^Started' log/development.log | grep --only-matching '".*"'
+"/"
+"/users/sign_in"
+"/users/sign_up"
+"/users"
+"/"
+"/users/1"
+"/"
+"/"
+"/users/1"
+"/"
+"/users/1"
+...
+```
+
+???
+
+- grep regular expression matches anything between quotes
+- --only-matching: Print only the match, further reducing our noise
+
+---
+
+# Extract Information
+
+``` bash
+$ grep '^Started' log/development.log | grep -o '".*"' | sort
+"/"
+"/"
+"/"
+"/"
+"/"
+"/"
+"/"
+"/"
+"/"
+"/"
+"/"
+...
+```
+
+???
+
+- grep -o is the same as --only-matching
+- sort -> lexical sorting by default.
+- sort -> Options for numeric sorting
+- Really needed for uniq
+- Can also use sort -u, but in the spirit of small things...
+
+---
+
+# Extract Informa
+
+`uniq` - report or filter out repeated lines
+
+``` bash
+$  grep '^Started' log/development.log | grep -o '".*"' | sort | uniq
+"/"
+"//users/sign_in"
+"/session/sign_out"
+"/token"
+"/tokens"
+"/tokens/"
+"/tokens/1"
+"/tokens/1/edit"
+"/tokens/10"
+"/tokens/10/edit"
+"/tokens/11"
+"/tokens/11/edit"
+"/tokens/14/edit"
+"/tokens/2"
+"/tokens/2/edit"
+"/tokens/3"
+"/tokens/3/edit"
+"/tokens/4"
+"/tokens/5"
+"/tokens/5/edit"
+"/tokens/6"
+"/tokens/6/edit"
+...
+```
+
+???
+
+- uniq: report or filter out repeated lines
+- Works on adjacent lines, so you probably want to sort
+- Many unix commands can read from a file, but default to reading from stdin
+- Notice that the ids are making noise
+---
+
+# Extract Information
+
+`sed` - stream editor. Reads input, modifies it and writes it to stdout
+
+``` bash
+$ grep '^Started' log/development.log | grep -o '".*"' \
+| sed --regexp-extended 's/[0-9]+/:id/'
+"/"
+"/users/sign_in"
+"/users/sign_up"
+"/users"
+"/"
+"/users/:id"
+"/"
+"/"
+"/users/:id"
+"/"
+"/users/:id"
+...
+```
+
+???
+
+- sed: Stream editor. Edit lines
+- --regexp-extended: use extended regular expression
+- 's/match/replace'
+- s is the command
+- match is what we are matching
+- replace is what we are substituting the match for
+- sed is very extensive. Just scratched the surface
+---
+
+# Extract Information
+
+``` bash
+$ grep '^Started' log/development.log | grep -o '".*"' \
+| sed -r 's/[[:digit:]]+/:id/' | sort | uniq -c
+ 113 "/"
+   1 "//users/sign_in"
+   1 "/session/sign_out"
+   2 "/token"
+ 267 "/tokens"
+   1 "/tokens/"
+  85 "/tokens/:id"
+  57 "/tokens/:id/edit"
+  30 "/tokens/new"
+   6 "/users"
+   3 "/users/:id"
+  13 "/users/edit"
+  35 "/users/sign_in"
+   8 "/users/sign_out"
+   3 "/users/sign_up"
+```
+
+???
+
+- sed -r == --regexp-extended
+- uniq -c: Print count also
+
+---
+
+# Extract Information
+
+``` bash
+$ grep '^Started' log/development.log | grep -o '".*"' \
+| sed -r 's/[[:digit:]]+/:id/' | sort | uniq -c | sort --reverse
+ 267 "/tokens"
+ 113 "/"
+  85 "/tokens/:id"
+  57 "/tokens/:id/edit"
+  35 "/users/sign_in"
+  30 "/tokens/new"
+  13 "/users/edit"
+   8 "/users/sign_out"
+   6 "/users"
+   3 "/users/sign_up"
+   3 "/users/:id"
+   2 "/token"
+   1 "/tokens/"
+   1 "/session/sign_out"
+   1 "//users/sign_in"
+```
+
+Extra Credit: Normalize routes ending in '/' and starting in '//'
+
+???
+
+- sort -r: Reverse sorting... highest first
+- Extra credit: Replace ending '/' for nothing, with regex anchored to end
+- Substitute a // for a single /, also with sed
+
+---
+
+# Processes: Unidirectional and Buffered
+
+.center.middle[![Process](images/buffered_processes.png)]
+
+???
+
+- Processes are unidirectional: Data flows one way
+- All processeses are started at once and data is passed in as soon as it's avaiable
+- The program can act on incoming data as it becomes available
+- The OS will buffer data for the process
+---
+
+# Find Inside Files
+
+`grep` has a few competitors: `ack` and `ag`
+
+``` bash
+$ ag 'FactoryGirl'
+spec/controllers/home_controller_spec.rb
+7:    let(:user) { FactoryGirl.create(:user) }
+
+spec/controllers/tokens_controller_spec.rb
+6:  let(:user) { FactoryGirl.create(:user) }
+7:  let(:token) { FactoryGirl.create(:token, :user => user) }
+29:      post :create, :token => FactoryGirl.attributes_for(:token)
+
+spec/factories/tokens.rb
+1:FactoryGirl.define do
+
+spec/factories/users.rb
+3:FactoryGirl.define do
+
+spec/models/token_spec.rb
+4:  subject(:token) { FactoryGirl.build(:token) }
+
+spec/views/tokens/index.html.haml_spec.rb
+5:    token = FactoryGirl.create(:token)
+```
+
+???
+
+- grep is universal - For large data sets it's slow
+- ack is like grep but optimized for programmers (written in Perl)
+- ag is like ack, but written in c.
+- It ignores from your .gitignore
+- Can be customized with a .agignore files
+- Depending on your editor, you can use it from inside
+- In Mac it can be installed with brew
+- In Linux with the standard package manager
+
+---
+
+# Lets Run Some Specs
+
+Filter specs only:
+
+``` bash
+$ ag 'FactoryGirl' | grep '^spec/.*_spec.rb'
+spec/controllers/home_controller_spec.rb:7:    let(:user) { FactoryGirl.create(:user) }
+spec/controllers/tokens_controller_spec.rb:6:  let(:user) { FactoryGirl.create(:user) }
+spec/controllers/tokens_controller_spec.rb:7:  let(:token) { FactoryGirl.create(:token, :user => user) }
+spec/controllers/tokens_controller_spec.rb:29:      post :create, :token => FactoryGirl.attributes_for(:token)
+spec/models/token_spec.rb:4:  subject(:token) { FactoryGirl.build(:token) }
+spec/views/tokens/index.html.haml_spec.rb:5:    token = FactoryGirl.create(:token)
+```
+
+`ag` formats output differently when piped
+
+???
+
+- When output is STDOUT it is formatted for humans
+- When output is another process, it assumes you want something easier to use by macines
+- For a small dataset, grep is fast enough
+
+---
+
+# Lets Run Some Specs
+
+Trim the fat:
+
+``` bash
+$ ag 'FactoryGirl' | grep -o '^spec/.*_spec.rb' | sort | uniq
+spec/controllers/home_controller_spec.rb
+spec/controllers/tokens_controller_spec.rb
+spec/models/token_spec.rb
+spec/views/tokens/index.html.haml_spec.rb
+```
+
+???
+
+- grep -o: Only output match
+- sort, so that identical lines are together
+- uniq to get rid of duplicates
+- What we want is to pass that list to rspec...
+
+---
+
+# Lets Run Some Specs
+
+`xargs` - construct argument list and execute utility
+
+Convert lines into arguments:
+
+``` bash
+$ ag 'FactoryGirl' | grep -o '^spec/.*_spec.rb' | sort | uniq | xargs rspec
+rspec spec/controllers/home_controller_spec.rb spec/controllers/tokens_controller_spec.rb spec/models/token_spec.rb spec/views/tokens/index.html.haml_spec.rb
+..............
+
+Finished in 0.41011 seconds (files took 1.53 seconds to load)
+14 examples, 0 failures
+```
+
+???
+
+- xargs: Construct argument list and execute utility
+- passes list of lines to rspec as arguments
+- xargs is very convenient. It can be used to work with files (copy, move)
+
+---
+
+# Different Flavors of RSpec
+
+``` bash
+$ rspec
+$ bundle exec rspec
+$ bin/rspec
+$ rspec --drb
+$ jruby --ng -S rspec
+$ zeus rspec
+```
+
+???
+
+- Pain point: Multiple projects, rspec is executed differently
+- Binstubs for speed
+- jruby projects, startup is costly, spork is a process always running that keeps rails warm
+- Nailgun keeps the JVM warm
+- Zeus keeps rails warm, non-intrusive setup, does not work with JVM
+- The choice is easy: Use what is running for this project and get out of my hair.
+- Create executable script, in bash, that does what I want
+
+---
+
+# Different Flavors of RSpec
+
+Run binstub if we have them:
+
+``` bash
+$ chmod +x smart_rspec
+```
+
+``` bash
+$ cat smart_rspec
+#!/bin/bash
+
+# Looking for binstubs
+if [ -f ./bin/rspec ]; then
+  RSPEC="bin/rspec"
+else
+  RSPEC="bundle exec rspec"
+fi
+
+CMD="$RSPEC $@" # Passing all arguments on to rspec
+echo $CMD
+$CMD
+```
+
+???
+
+- Scripts are just text files with a shebang line
+- They need permission to execute
+- if -[ -f ] tests for existance of a file
+- $@ magic variable that holds all arguments
+- echo our command
+- execute out command
+---
+
+# Different Flavors of RSpec
+
+`lsof` - list open files
+
+``` bash
+$ lsof -i :3000
+COMMAND   PID      USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+ruby    58963 ylansegal   10u  IPv4 0x7f4d291ee5382f61      0t0  TCP *:hbci (LISTEN)
+$ echo $?
+0
+```
+
+``` bash
+$ lsof -i :3001
+$ echo $?
+1
+```
+
+???
+
+- lsof: List open files.
+- Can be used to list processes that have a port or file open
+- Can list which files/ports a process has open.
+- $? Is the last exit status. In unix each program has an exit status
+- 0 means it's ok, anything else means error
+
+---
+
+# Different Flavors of RSpec
+
+Looking for spork server:
+
+```bash
+$ cat smart_rspec
+#!/bin/bash
+
+SPORK_PORT=8989
+
+# Looking for binstubs
+if [ -f ./bin/rspec ]; then
+  RSPEC="bin/rspec"
+else
+  RSPEC="bundle exec rspec"
+fi
+
+# Looking for spork
+lsof -i :$SPORK_PORT > /dev/null
+if [ $? == 0 ]; then
+ RSPEC="$RSPEC --drb"
+fi
+
+CMD="$RSPEC $@" # Passing all arguments on to rspec
+echo $CMD
+$CMD
+```
+
+???
+
+- Spork talks between processes with a DRB port.
+- /dev/null is a device file that discards all data
+- We are testing for a process with an open port
+- If found, we pass the --drb argument to rspec
+
+---
+
+# Different Flavors of RSpec
+
+Looking for nailgun server:
+
+``` bash
+$ cat smart_rspec
+#!/bin/bash
+
+NAILGUN_PORT=2113
+SPORK_PORT=8989
+
+# Looking for binstubs
+# ...
+
+# Looking for nailgun
+lsof -i :$NAILGUN_PORT > /dev/null
+if [ $? == 0 ]; then
+  RSPEC="jruby --ng -S $RSPEC"
+fi
+
+# Looking for spork
+lsof -i :$SPORK_PORT > /dev/null
+if [ $? == 0 ]; then
+  RSPEC="$RSPEC --drb"
+fi
+
+#...
+```
+
+???
+
+- We do the same trick for nailgun, but this time it connects on a different port
+
+---
+
+# Different Flavors of RSpec
+
+``` bash
+$ cat smart_rspec
+#...
+# Looking for zeus socket
+if [ -S ./.zeus.sock ]; then
+  RSPEC="zeus rspec"
+else
+  # Looking for binstubs
+  if [ -f ./bin/rspec ]; then
+    RSPEC="bin/rspec"
+  else
+    RSPEC="bundle exec rspec"
+  fi
+  # Looking for nailgun
+  lsof -i :$NAILGUN_PORT > /dev/null
+  if [ $? == 0 ]; then
+    RSPEC="jruby --ng -S $RSPEC"
+  fi
+  # Looking for spork
+  lsof -i :$SPORK_PORT > /dev/null
+  if [ $? == 0 ]; then
+    RSPEC="$RSPEC --drb"
+  fi
+fi
+
+```
+
+???
+
+- Zeus connects via a socket file
+- A socket file is a special kind of unix file used for inter-process communication
+- Data and file descriptors can be sent.
+- For this purpose we care about the existence only
+- Socket is a better solution, since we can have various zeus servers running in different
+projects. With spork, it gets confusing
+
+---
+
+# Different Flavors of RSpec
+
+``` bash
+$ smart_rspec spec/controllers/index_controller_spec.rb
+jruby --ng -S bundle exec rspec --drb spec/controllers/index_controller_spec.rb
+...
+```
+
+``` bash
+$ smart_rspec spec/controllers/index_controller_spec.rb
+zeus rspec spec/controllers/index_controller_spec.rb
+....
+```
+
+???
+
+- smart_rspec runs the appropriate command for me
+- It saves me from having to switch context and figure out what command I need to run
+- It saves me from running the wrong command
+- It is my most often used command, after `git`
+
+---
+
+# Conclusions
+
+- #### The whole is greater than the sum of its parts
+
+- #### A little Unix goes a long way
+
+???
+
+The examples we went through probably don't apply directly to any of you. That is the point, though. Each of us use our operating system in a different way. To do it efficiently, we need to understand what our system is capable of.
+
+The interface that Unix presents to us a users is a collection of small programs, mostly operating on plain text, that can be composed together to great effect.
+
+The notion of composability, should resonate to us rubyists. The software we write is made of smaller components, like those in the Ruby Standard Library, the thousands of gems that are available to us and, of course, our own classes.
+
+In her book and talks, Sandi Metz advises to build small things. Her advice is specifically for Ruby and generally applicable to Object-Oriented programming. The Unix folks have been building small things for a long time. I think there is something to it.
+
+I hope you enjoyed the talk, and I have inspired you to write your own scripts to make life a little bit easier easier.
+
+---
+
+# Further Inspiration
+
+- www.destroyallsoftware.com (Gary Bernhardt)
+- linuxcommand.org
+- cli.learncodethehardway.org
+
+# Reference Material
+
+- https://en.wikipedia.org/wiki/Unix
+- https://en.wikipedia.org/wiki/Shell_(computing)
+- https://en.wikipedia.org/wiki/Standard_streams
+
+---
+
+class: center, middle
+
+# Thank You!
+
+Ylan Segal
+
+@ylansegal
+
+ylan@segal-family.com
+
+http://ylan.segal-family.com
+
+???
+
+- dotfiles in github
+
+
+    </textarea>
+    <script src="js/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
