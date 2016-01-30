@@ -6,6 +6,7 @@ comments: true
 categories:
 - talks
 - unix
+- most_popular
 ---
 
 Yesterday, I had the pleasure and privilege of presenting at [LA RubyConf][1] 2015. The conference was great. The [presentation slides][2] for my talk, *Practical Unix for Ruby and Rails* is now available.
