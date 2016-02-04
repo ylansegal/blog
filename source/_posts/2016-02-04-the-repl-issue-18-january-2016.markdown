@@ -13,7 +13,7 @@ The folks at Yeller, propose a simple but powerful idea: Don't tolerate any exce
 
 ### [When to choose Elixir over Ruby for 2016 projects?][2]
 
-Elixir seems to be picking up speed and in this post Hubert Łępicki @ AmbertBit explains when he thinks Elixir is a better option than Rails. And no, the answer is not always.
+Elixir seems to be picking up speed and in this post Hubert Łępicki @ AmbertBit explains when he thinks Elixir is a better option than Rails. And no, the answer is not "always".
 
 ### [The Rails Doctrine][3]
 
