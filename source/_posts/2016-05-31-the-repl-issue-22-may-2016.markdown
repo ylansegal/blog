@@ -7,15 +7,15 @@ categories:
 - the_repl
 ---
 
-[On Shells and Static Paths][1]
+### [On Shells and Static Paths][1]
 
 It turns out that at the top our bash scripts we should be using `#!/usr/bin/env bash` instead of `#!/bin/bash`. Jump the link for a good explanation on the UNIX specifications involved.
 
-[Elixir — Supervisors: A Conceptual Understanding][2]
+### [Elixir — Supervisors: A Conceptual Understanding][2]
 
 Steven Leiva writes a supervisor from scratch. I find these king of pieces very useful. They de-mystify some of the technologies, explore what is under the hood and end up enhancing my understanding, making future use much easier.
 
-[The Straight Dope on Deprecations][3]
+### [The Straight Dope on Deprecations][3]
 
 Last month, I [mentioned another article][5] by Richard Schneeman. Now, he is back with another in-depth, nuanced post about how to handle deprecations in libraries. Especially useful for library authors and mantainers, but good knowledge in general. The whole community gains when there are clear conventions around versioning, deprecation, support, etc. [@schneems][4] is doing a great service with his recent articles.
 
