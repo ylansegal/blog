@@ -224,6 +224,7 @@ task :deploy do
   end
 
   Rake::Task[:copydot].invoke(source_dir, public_dir)
+  Rake::Task[:copy_wellknown].invoke(source_dir, public_dir)
   Rake::Task["#{deploy_default}"].execute
 end
 
@@ -236,6 +237,12 @@ task :copydot, :source, :dest do |t, args|
   FileList["#{args.source}/**/.*"].exclude("**/.", "**/..", "**/.DS_Store", "**/._*").each do |file|
     cp_r file, file.gsub(/#{args.source}/, "#{args.dest}") unless File.directory?(file)
   end
+end
+
+desc "copy .well-known folder (let's encrypt support)"
+task :copy_wellknown, :source, :dest do |t, args|
+  file = "#{args.source}/.well-known"
+  cp_r(file, args.dest) if File.exists?(file)
 end
 
 desc "Deploy website via rsync"
