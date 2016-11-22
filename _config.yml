@@ -67,10 +67,10 @@ gems:
 # ----------------------- #
 
 # Github repositories
-github_user:
-github_repo_count: 0
-github_show_profile_link: true
-github_skip_forks: true
+# github_user:
+# github_repo_count: 0
+# github_show_profile_link: true
+# github_skip_forks: true
 
 # Twitter
 # twitter_user: ylansegal
@@ -90,12 +90,12 @@ googleplus_user: 111583636623330925635
 googleplus_hidden: true
 
 # Pinboard
-pinboard_user:
-pinboard_count: 3
+# pinboard_user:
+# pinboard_count: 3
 
 # Delicious
-delicious_user:
-delicious_count: 3
+# delicious_user:
+# delicious_count: 3
 
 # Disqus Comments
 # disqus_short_name: ylansegalsblog
