@@ -73,12 +73,12 @@ github_show_profile_link: true
 github_skip_forks: true
 
 # Twitter
-twitter_user: ylansegal
-twitter_tweet_count: 4
-twitter_show_replies: false
-twitter_follow_button: false
-twitter_show_follower_count: false
-twitter_tweet_button: false
+# twitter_user: ylansegal
+# twitter_tweet_count: 4
+# twitter_show_replies: false
+# twitter_follow_button: false
+# twitter_show_follower_count: false
+# twitter_tweet_button: false
 
 # Google +1
 google_plus_one: false
@@ -98,8 +98,8 @@ delicious_user:
 delicious_count: 3
 
 # Disqus Comments
-disqus_short_name: ylansegalsblog
-disqus_show_comment_count: true
+# disqus_short_name: ylansegalsblog
+# disqus_show_comment_count: true
 
 # Google Analytics
 google_analytics_tracking_id: UA-34233907-1
