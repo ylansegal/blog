@@ -1,15 +1,9 @@
-
-@font-face {
-  font-family: "League";
-  src: url('/font/LeagueGothic.otf');
-}
-
 $blockquote: $type-border !default;
-$sans: "Lato", sans-serif;
-$serif: "Lato", sans-serif;
+$sans: Arial, Helvetica, sans-serif;
+$serif: Georgia, "Times New Roman", Times, sans-serif;
 $mono: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace !default;
-$heading-font-family: 'Lato', sans-serif;
-$header-title-font-family: "League", Helvetica, Arial, sans-serif;
+$heading-font-family: $sans;
+$header-title-font-family: $sans;
 $header-subtitle-font-family: $heading-font-family !default;
 
 
@@ -37,7 +31,7 @@ body {
   line-height: 1.5em;
   color: $text-color;
   font-size: 1em;
-  @extend .serif;
+  @extend .sans;
 }
 
 h1 {
