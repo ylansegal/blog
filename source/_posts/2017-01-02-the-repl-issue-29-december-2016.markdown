@@ -4,7 +4,7 @@ title: "The REPL: Issue 29 - December 2016"
 date: 2017-01-02 11:36:49 -0800
 comments: true
 categories:
-  - the_repl
+  - the repl
 ---
 
 ### [Learn Graphviz and Up Your Diagramming Game][graphviz]

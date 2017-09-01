@@ -4,7 +4,7 @@ title: "The REPL: Issue 23 - June 2016"
 date: 2016-07-04 13:33:44 -0700
 comments: true
 categories:
-- the_repl
+- the repl
 ---
 
 ### [Flirting with Crystal, a Rubyist Perspective][1]

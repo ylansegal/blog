@@ -4,7 +4,7 @@ title: "The REPL: Issue 34 - May 2017"
 date: 2017-06-02 15:52:42 -0700
 comments: true
 categories:
-- the_repl
+- the repl
 ---
 
 ### [Base CS: Exploring the basics of computer science, every Monday, for a year.][basecs]

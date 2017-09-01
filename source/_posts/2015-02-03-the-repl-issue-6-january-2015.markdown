@@ -4,7 +4,7 @@ title: "The REPL: Issue 6 - January 2015"
 date: 2015-02-03 08:53:47 -0800
 comments: true
 categories:
-- the_repl
+- the repl
 ---
 
 The REPL is a monthly feature in which I pick my favorite content from around the web, read, but not necessarily published, in the last month. Most of it is technology related.

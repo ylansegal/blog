@@ -4,7 +4,7 @@ title: "The REPL: Issue 11 - June 2015"
 date: 2015-07-08 09:46:34 -0700
 comments: true
 categories:
-- the_repl
+- the repl
 ---
 
 ### [Phoenix and Rails performance comparison][1]

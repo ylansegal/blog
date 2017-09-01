@@ -4,7 +4,7 @@ title: "The REPL: Issue 27 - October 2016"
 date: 2016-11-01 16:28:32 -0700
 comments: true
 categories:
-- the_repl
+- the repl
 ---
 
 ### [Karafka][karakfa]

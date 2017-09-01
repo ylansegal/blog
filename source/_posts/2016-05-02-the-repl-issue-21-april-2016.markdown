@@ -4,7 +4,7 @@ title: "The REPL: Issue 21 - April 2016"
 date: 2016-05-02 09:15:48 -0700
 comments: true
 categories:
-- the_repl
+- the repl
 ---
 
 ### [The Optimist’s Guide to Pessimistic Library Versioning][1]

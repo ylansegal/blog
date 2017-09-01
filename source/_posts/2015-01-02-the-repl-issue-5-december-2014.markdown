@@ -4,7 +4,7 @@ title: "The REPL: Issue 5 - December 2014"
 date: 2015-01-02 11:26
 comments: true
 categories:
-- the_repl
+- the repl
 ---
 
 ### [Seven Reasons I Love Minitest][1]

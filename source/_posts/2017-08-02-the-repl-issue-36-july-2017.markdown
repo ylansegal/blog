@@ -4,7 +4,7 @@ title: "The REPL: Issue 36 - July 2017"
 date: 2017-08-02 18:14:17 -0700
 comments: true
 categories:
-- the_repl
+- the repl
 ---
 
 ### [Is Ruby Too Slow For Web-Scale?][scale]

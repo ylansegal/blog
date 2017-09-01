@@ -4,7 +4,7 @@ title: "The REPL: Issue 1"
 date: 2014-03-07 20:03
 comments: true
 categories:
-- the_repl
+- the repl
 ---
 
 Today, I am starting a new feature for this blog. I am calling it The REPL. It's pretty much a link page of interesting reading I have done around the web in the last week (or, more than likely, since the last issue). Of course, this is not a new idea, but I still think there might be some value to it. I will try to avoid this becoming an [echo chamber][1] and instead I will try to focus on material that has got me thinking about software engineering.

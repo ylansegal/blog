@@ -4,7 +4,7 @@ title: "The REPL: Issue 13 - August 2015"
 date: 2015-09-01 08:41:10 -0700
 comments: true
 categories:
-- the_repl
+- the repl
 ---
 
 ### [Making Architecture Matter][1]
