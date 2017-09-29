@@ -144,8 +144,9 @@ I shouldn't have assumed that the person that coded the filtering in Ruby was do
 ## Design Implications
 
 The bug is now fixed, yet I am not quite comfortable with the code. Two things bother me:
-- The specs needs a relatively complicated setup to expose the bug
-- The production code is loading *more* objects from the database, only to discard them in Ruby. This somehow is *faster*.
+
+1. The specs needs a relatively complicated setup to expose the bug
+2. The production code is loading *more* objects from the database, only to discard them in Ruby. This somehow is *faster*.
 
 Why is a our test complicated? A decorator is supposed to be a simple class. It really is about serializing an object into JSON. The class is called a `UserDecorator`. It's instantiated with `User`, which makes total sense. However, we have two collaborators that snuck-up on the serialization. An instance of `Account`, being passed in and a `UserAccount` that we find based on the other two. Where does the account come from? Originally, I glossed over how the users are loaded. The code is a bit complicated because it searches the database based on the parameters passed in. However, in it's simplest form and removing a few layers of abstraction, it's functionally equivalent to:
 
