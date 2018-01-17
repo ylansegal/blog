@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Bug-Driven Design"
+title: "Bug-Driven Development"
 date: 2017-09-21 08:52:21 -0700
 comments: true
 categories:
