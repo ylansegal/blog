@@ -4,6 +4,7 @@ title: "The REPL: Issue 48 - July 2018"
 date: 2018-08-06 16:31:16 -0700
 comments: true
 categories:
+- the repl
 ---
 
 ### [Web Architecture 101][1]
