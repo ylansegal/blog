@@ -49,7 +49,7 @@ ruby_version()
 
 Most of our projects have been around for a while, so they are setup to use gemsets, because that was what `rvm` encouraged (and maybe still does, I don't know). `rbenv`'s philosophy, on the other hand, is that they are unnecessary when using bundler. So far, not using gemsets has not had negative effects for me. I also have noted that my shell feels snappier when navigating directories: I attribute that to `rvm` hooking into `cd`, which is not done by `rbenv`.
 
-So far, I gave been happy with `rbenv` and believe that it is a simpler tool that does enough for the job at hand, but no more. And remember that X509 issue? It turns out it was not really related to `rvm` at all: It was caused by duplicate certificates derived from the OSX keychain that where being picked up by JRuby and the underlying Java classes objected to. That issue got solved by getting certs from the `curl` website and pointing JRuby to use those.
+So far, I have been happy with `rbenv` and believe that it is a simpler tool that does enough for the job at hand, but no more. And remember that X509 issue? It turns out it was not really related to `rvm` at all: It was caused by duplicate certificates derived from the OSX keychain that where being picked up by JRuby and the underlying Java classes objected to. That issue got solved by getting certs from the `curl` website and pointing JRuby to use those.
 
 [1]: https://rvm.io/support/fixing-broken-ssl-certificates
 [2]: https://github.com/brentertz
