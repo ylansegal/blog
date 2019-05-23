@@ -5,6 +5,7 @@ date: 2019-05-15 15:08:11 -0700
 comments: true
 categories:
 - talks
+- conferences
 ---
 
 Last week I had the pleasure of attending [RailsConf 2019][rails_conf_session] for the first time, and the honor to be a speaker. My talk was titled "Bug-Driven Development". On the surface it’s ostensibly a war story about fixing a particularly nasty bug. At a deeper level, it is about software design evolution. Software is an iterative endeavor, perpetually in a state of flux. Requirements change, new features are added, external APIs are deprecated, scaling demands adjustments. In the talk, I try to thread the needle between a specific bug fix and the broader applicability of design patterns, proper abstractions, and the role of testing. My goal was for audience members to be able to see both the proverbial forest and the trees: to connect the ivory-tower, abstract design concepts with the day-to-day practice of writing code, test-driven development, and fixing bugs.
