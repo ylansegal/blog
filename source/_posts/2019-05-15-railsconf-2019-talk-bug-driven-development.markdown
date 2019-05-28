@@ -18,10 +18,10 @@ Last — but not least, I am grateful of all the support received from [Procore]
 
 - [Procore's Post][procore_post]
 - [Presentation slides][slides]
-- Recorded Talk (coming soon!)
+- [Recorded Talk][talk]
 
 [rails_conf_session]: https://railsconf.com/program/sessions#session-844
 [procore]:
 [procore_post]: https://engineering.procore.com/procore-railsconf-2019-speakers-and-their-key-takeaways/
 [slides]: https://ylan.segal-family.com/assets/html/rails_conf_2019/
-[talk]:
+[talk]: https://www.youtube.com/watch?v=vplY1cUCZ3w
