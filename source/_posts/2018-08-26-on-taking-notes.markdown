@@ -25,7 +25,7 @@ When learning new tools, writing down specific instructions, CLI commands, etc h
 
 - *Markdown*: I prefer a plan text format. I favor markdown because of it's simplicity and support for code blocks with syntax highlighting and checklists. It's also becoming ubiquitous in many tools I use.
 - *Atom*: My current editor of choice. A few plugins make it particularly useful: [pipe][pipe] for executing against external commands, [wikilink][wikilink] for lightweight linking between notes.
-- *Synching*: My notes are regular files, so they can be synched with any service (eg. Dropbox, iCloud, etc). I usually don't need my notes on my phone, but those services makes them available when I do.
+- *Syncing*: My notes are regular files, so they can be synced with any service (eg. Dropbox, iCloud, etc). I usually don't need my notes on my phone, but those services makes them available when I do.
 - *Daily Note*: I usually start a fresh notes each day. It's like a dashboard of all the things I have going on. It's pre-populated with the items from the previous workday that were not completed (in Franklin Covey style). It serves as a scratchpad too. I link to notes that are more in depth for specific projects or tickets.
 - *Weekly Note*: At the end of each work week I conduct a personal retrospective and write down my thoughts. It helps with keeping a big picture of what I am working on and my effectiveness at work.
 
