@@ -49,16 +49,16 @@ $ ab -c $USER_COUNT -t 30 $URL
 Results
 =======
 
-{% img /assets/images/unicorn_puma_round_3/transaction_rate.png %}
+![Transaction Rate: Unicorn, Puma](/assets/images/unicorn_puma_round_3/transaction_rate.png)
 
 Both servers perform similarly in the number of request they can handle per second. Unicorn seems to ramp up on par with it's number of workers and then plateau. Even though more users are hitting the endpoint concurrently, unicorn just handles 4 at a time. Puma seems to increase in capacity with more users, although there is a sharp drop-off [^1] at the end when reaching 64 concurrent users.
 
-{% img /assets/images/unicorn_puma_round_3/response_time_50_percentile.png %}
+![Response Time 50th percentile](/assets/images/unicorn_puma_round_3/response_time_50_percentile.png)
 
 With regards of average (or 50th percentile) response time, it looks like both servers, surprisingly, perform exactly the same!. The response times are significantly slower when the server is under heavier load, but still perform acceptably.
 
-{% img /assets/images/unicorn_puma_round_3/response_time_95_percentile.png %}
-{% img /assets/images/unicorn_puma_round_3/response_time_99_percentile.png %}
+![Response Time 95th percentile](/assets/images/unicorn_puma_round_3/response_time_95_percentile.png)
+![Response Time 99th percentile](/assets/images/unicorn_puma_round_3/response_time_99_percentile.png)
 
 The 95th percentile and 99th percentile graphs paint a different story though: Unicorn's response time start to get more pronounced as concurrency increases, wich means that for some of the users, it might easily fall into unacceptable levels.
 

@@ -41,9 +41,9 @@ siege -b -c$USER_COUNT -t30s $URL
 
 To compare the peformance, I focused on to metrics: *Transaction Rate or Throughput* (number of transactions per second) and *Average Response Time* graphed as follows:
 
-{% img /assets/images/transaction-rate-unicorn-puma.png %}
+![Transaction Rate: Unicorn, Puma](/assets/images/transaction-rate-unicorn-puma.png)
 
-{% img /assets/images/average-response-time-unicorn-puma.png %}
+![Average Response Time: Unicorn, Puma]
 
 ## Conclusions
 
