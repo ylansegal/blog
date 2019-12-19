@@ -45,7 +45,7 @@ As the graph above shows, there doesn't seem to be a significant difference in p
 
 ---
 
-**UPDATE**: I recetly took unicorn and puma for [another spin][6]
+**UPDATE**: I recently took unicorn and puma for [another spin][6]
 
 [1]: http://michaelvanrooijen.com/articles/2011/06/01-more-concurrency-on-a-single-heroku-dyno-with-the-new-celadon-cedar-stack/
 [2]: http://puma.io/
