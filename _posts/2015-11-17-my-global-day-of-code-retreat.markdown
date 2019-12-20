@@ -10,9 +10,7 @@ categories:
 
 Last Saturday (11/14/2015) I attended my first code retreat, hosted by the kind folks at [Pluralsight][1]. The event was part of the [Global Day of Code Retreat][2]. 144 cities participated in the event, and for the first time San Diego was one of them.
 
-{% blockquote %}
-Global Day of Code Retreat: A day to celebrate passion and software craftsmanship
-{% endblockquote %}
+> Global Day of Code Retreat: A day to celebrate passion and software craftsmanship
 
 The retreat is a one-day exercise in honing the craft of programming. It started with a short introduction and then we were asked to pair with someone for the first exercise: [Conway's Game Of Life][3]. The exercise is specifically chosen because the domain is simple enough to understand within a couple of minutes, by implementing it is usually not trivial. We were not given any rules, except to use Test-Drive Development (TDD) throughout the day. Language choice and design was left up to each pair. After 45 minutes, we switched pairs and *deleted* our code. That is right: We deleted our code.
 

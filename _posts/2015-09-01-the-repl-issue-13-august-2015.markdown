@@ -11,9 +11,7 @@ categories:
 
 In this keynote at OSCON 2015, Martin Fowler gives a great overview about how to think about software architecture to get the most benefit. As quoted in the comments:
 
-{% blockquote %}
-It’s particularly relevant now as we push more and more toward continuous delivery, continuous deployment, features updated over the Internet all the time. That degree of being able to respond to change becomes important. That’s the economic reason why software architecture is important, because if we don’t keep good architecture, we are, in the end, deceiving our customers — in fact, stealing from our customers — because we’re slowing down their ability to compete.
-{% endblockquote %}
+> It’s particularly relevant now as we push more and more toward continuous delivery, continuous deployment, features updated over the Internet all the time. That degree of being able to respond to change becomes important. That’s the economic reason why software architecture is important, because if we don’t keep good architecture, we are, in the end, deceiving our customers — in fact, stealing from our customers — because we’re slowing down their ability to compete.
 
 ### [Binary pattern matching in Elixir][2]
 

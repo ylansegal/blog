@@ -16,7 +16,7 @@ Recently, I have been working on moving some processes from the request-response
 
 First, I wrote a very basic benchmark to see if indeed queuing was slow:
 
-``` ruby benchmark.rb
+```ruby
 require 'benchmark'
 
 class EasyJob
@@ -41,7 +41,7 @@ Pushing the simplest job to the queue takes an average of 0.1832 seconds per pus
 
 To get to the actual source of slowness, I read up on [jRuby Profiling][3]. Note that it is imperative to use set ```JRUBY_OPTS='--profile' for the following to work:
 
-``` ruby profile.rb
+```ruby
 require 'jruby/profiler'
 
 class EasyJob
@@ -113,9 +113,7 @@ With the following output:
 
 From the above it's cleat that were we are spending the bulk of the time is in ```ConditionVariable#wait```. From the [documentation][4]:
 
-{% blockquote %}
-ConditionVariable objects augment class Mutex. Using condition variables, it is possible to suspend while in the middle of a critical section until a resource becomes available.
-{% endblockquote %}
+> ConditionVariable objects augment class Mutex. Using condition variables, it is possible to suspend while in the middle of a critical section until a resource becomes available.
 
 Focusing on the immediate previous calls, we can see that it looks like the ```Mongo::Pool``` is having a hard time with the checkout. Hmm... how many connections are there by default? It turns out, that it's [just 1][5].
 

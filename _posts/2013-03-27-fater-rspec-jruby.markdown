@@ -20,18 +20,18 @@ $ bundle binstubs rspec-core
 
 Here are my findings:
 
-| Description                |   | Command                                     | Avg. Time (3 runs)
-| -----------                | - | ------------------------------------------- | -----------------:
-| Bundled Rspec              |   | <code>bundle exec rspec</code>              | 61.76 s
-| Binstubs                   |   | <code>bin/rspec</code>                      | 50.24 s
-| Binstubs + Spork           |   | <code>bin/rspec --drb</code>                | 17.43 s
-| Binstubs + Spork + Nailgun |   | <code>jruby --ng -S bin/rspec --drb</code>  | 6.65 s
+| Description                |  | Command                                    | Avg. Time (3 runs) |
+|:---------------------------|:-|:-------------------------------------------|-------------------:|
+| Bundled Rspec              |  | <code>bundle exec rspec</code>             |            61.76 s |
+| Binstubs                   |  | <code>bin/rspec</code>                     |            50.24 s |
+| Binstubs + Spork           |  | <code>bin/rspec --drb</code>               |            17.43 s |
+| Binstubs + Spork + Nailgun |  | <code>jruby --ng -S bin/rspec --drb</code> |             6.65 s |
 
 ---
 
 It is still slower than I would like, but well worth the effort. Since I didn't want to remember the specific invocation depending on what I have running, I have a script that will use binstubs, nailgun and/or spork if available:
 
-{% codeblock lang:bash smart_rspec %}
+```shell
 #! /bin/bash
 
 # Looking for binstubs
@@ -59,7 +59,7 @@ fi
 CMD="$RSPEC $@"
 echo $CMD
 $CMD
-{% endcodeblock %}
+```
 
 [1]: http://gembundler.com/
 [2]: /blog/2012/10/02/faster-rspec-jruby/

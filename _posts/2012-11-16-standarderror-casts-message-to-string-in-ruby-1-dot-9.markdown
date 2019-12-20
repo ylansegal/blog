@@ -12,22 +12,22 @@ Spent more time than I wanted to chasing this down.
 
 In ruby 1.8.7:
 
-{% codeblock lang:ruby %}
+```ruby
 >> RUBY_VERSION
 => "1.8.7"
 >> err = StandardError.new(Object.new)
 => #<StandardError: #<StandardError:0x78952527>>
 >> err.message.class
 => Object
-{% endcodeblock %}
+```
 
 In ruby 1.9.3:
 
-{% codeblock lang:ruby %}
+```ruby
 >> RUBY_VERSION
 => "1.9.3"
 >> err = StandardError.new(Object.new)
 => #<StandardError: #<Object:0x456c5f50>>
 >> err.message.class
 => String
-{% endcodeblock %}
+```

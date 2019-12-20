@@ -17,9 +17,10 @@ Joshua Ogle writes a good introduction of what the different disciplines of web 
 
 ### [Instrumentation: The First Four Things You Measure][measure]
 
-{% blockquote Wikipedia https://en.wikipedia.org/wiki/Instrumentation_(computer_programming) Instrumentation %}
-In the context of computer programming, instrumentation refers to an ability to monitor or measure the level of a product's performance
-{% endblockquote %}
+
+> In the context of computer programming, instrumentation refers to an ability to monitor or measure the level of a product's performance
+
+[Wikipedia](https://en.wikipedia.org/wiki/Instrumentation_(computer_programming))
 
 Instrumentation provides insight into what exactly is happening to your running code. Antoine Grondin lays out what are the basics of what to measure, to be able to quickly understand the situation in times of trouble. From experience, I can say that just modest investments in instrumentation provide great value.
 

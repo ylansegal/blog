@@ -25,12 +25,11 @@ Positive change can come from simple big fixes and performance improvements or, 
 
 Those same mechanism that allow you to manage change to reduce risk, also make it easy to forget about change altogether . I have observed this phenomenon more commonly in mature apps that have reached a point in their development where new features are not added or needed regularly, but are still live and continuously providing value to its users. With no active development, inertia will let those apps stagnate in time: The libraries stay locked at old versions; with time become unsupported because the maintainers are now focused on the latest and greatest.
 
-{% blockquote %}
-stagnate |ˈstagˌnāt|
+
+> stagnate |ˈstagˌnāt|
 verb [ no obj. ]
 (of water or air) cease to flow or move; become stagnant.
 cease developing; become inactive or dull
-{% endblockquote %}
 
 The stagnation comes slowly but surely, until your hand is forced. One of the libraries, or the language itself has a security vulnerability that needs to be addressed but your app cannot be upgraded easily. Its dependency tree is locked in the past and you are left with a mad scramble to upgrade individual libraries that conflict with each other. You end up forking libraries to apply patches and your maintenance burden is even greater than before. This is the danger of stagnation: Not being able to change when you really need to.
 

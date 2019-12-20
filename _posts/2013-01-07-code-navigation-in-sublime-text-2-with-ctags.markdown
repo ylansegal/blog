@@ -16,9 +16,7 @@ How about another shortcut to jump back to your previous position. Here is how t
 
 This magic is made possible by [CTags][2] and the awesome [Sublime Text 2 Plug-In][3].
 
-{% blockquote Ctags, http://ctags.sourceforge.net/whatis.html 'What is ctags' %}
-Ctags generates an index (or tag) file of language objects found in source files that allows these items to be quickly and easily located by a text editor or other utility. A tag signifies a language object for which an index entry is available (or, alternatively, the index entry created for that object).
-{% endblockquote %}
+> Ctags generates an index (or tag) file of language objects found in source files that allows these items to be quickly and easily located by a text editor or other utility. A tag signifies a language object for which an index entry is available (or, alternatively, the index entry created for that object).
 
 ## Installation
 
@@ -33,7 +31,7 @@ way the tags are generated to only include ruby files and to include the gems in
 
 First, I created a shell script in my path called ```ctags_for_ruby```
 
-``` ruby ctags_for_ruby
+```ruby
 #!/usr/bin/env ruby
 
 # Generate project ctags
@@ -54,7 +52,7 @@ Now, we configure the plugin to use this script to create the tags:
 }
 ```
 
-By default, the plug-in will look for ```tags```, ```.tags``` and ```.gemtags``` in the project directoy.
+By default, the plug-in will look for ```tags```, ```.tags``` and ```.gemtags``` in the project directory.
 
 ## Enjoy
 

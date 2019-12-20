@@ -3,11 +3,11 @@ layout: post
 title: Sandi Metz' Revised Rules
 date: 2013-12-11 14:44
 comments: true
-categories: 
+categories:
 - design
 ---
 
-I [previously wrote][1] about [Sandi Metz][2]' proposed rules. I had the pleasure of hearing her talk about them last week at the monthly [SDRuby][3] meeting. 
+I [previously wrote][1] about [Sandi Metz][2]' proposed rules. I had the pleasure of hearing her talk about them last week at the monthly [SDRuby][3] meeting.
 
 It turns out that she misspoke in the original [Ruby Rogues Podcast Episode][4] and has since revised them to be:
 
@@ -22,15 +22,12 @@ The main difference from the previous rules, as mentioned on the [podcast][4] is
 
 This reminds me of the dispensation: **You can break any of the rules, as long as someone else on the team agrees**.
 
-{% blockquote Sandi Metz %}
-Code draws code like it
-{% endblockquote %}
+> Code draws code like it
 
-I really enjoyed hearing Sandi talk. The SDRuby taping is not yet available, but it looks like Sandi gave the [same talk][5] elsewhere. 
+I really enjoyed hearing Sandi talk. The SDRuby taping is not yet available, but it looks like Sandi gave the [same talk][5] elsewhere.
 
 [1]: /blog/2013/01/17/sandi-metz-rules/
 [2]: http://www.sandimetz.com/
 [3]: http://www.sdruby.org/
 [4]: http://rubyrogues.com/087-rr-book-clubpractical-object-oriented-design-in-ruby-with-sandi-metz/
 [5]: https://www.youtube.com/watch?v=npOGOmkxuio
-

@@ -37,9 +37,7 @@ Using Spork, a single test in my project went to running in 30 seconds, to runni
 
 jruby ships with [Nailgun][5]:
 
-{% blockquote  %}
-Nailgun allows you to start up a single JVM as a background server process and toss it commands from a fast native client almost eliminating JRuby's annoyingly slow start up time.
-{% endblockquote %}
+> Nailgun allows you to start up a single JVM as a background server process and toss it commands from a fast native client almost eliminating JRuby's annoyingly slow start up time.
 
 That sound good to me. So, to run a single spec with both nailgun and Spork, I run something like this:
 
@@ -52,7 +50,7 @@ That shaves my test time to 5 seconds. Not bad at all.
 I don't want to type all that each time I run rspec, plus if either Spork or nailgun is not running, it will bomb. So here is a script
 that will **Do The Right Thing &trade;**. I named it smart_rspec and put it in my path:
 
-{% codeblock lang:bash smart_rspec %}
+```shell
 #! /bin/bash
 
 RSPEC="rspec"
@@ -72,7 +70,7 @@ fi
 CMD="$RSPEC $@"
 echo $CMD
 $CMD
-{% endcodeblock %}
+```
 
 It leverages the ```lsof``` to search for open ports, and changes the command appropriately. Enjoy.
 

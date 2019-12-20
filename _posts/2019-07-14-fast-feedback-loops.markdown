@@ -13,7 +13,7 @@ One of the reasons that I love TDD, is that it promotes fast feedback. You write
 
 For example, lately I've found myself writing a fair amount of raw SQL queries (without an ORM). SQL is finicky, and produced notoriously hard-to-decipher errors. As a consequence, I like to build up SQL in small increments, and execute the work-in-progress statement often, to see it and its output alongside each other. My workflow looks something like this:
 
-{% video /assets/videos/io_demo.mp4 %}
+![IO Demo](/assets/videos/io_demo.mp4)
 
 What is going on? I selected some SQL, executed in `psql`, and appended the commented-out output into the same selection. After inspection, I can change the statement and repeat.
 

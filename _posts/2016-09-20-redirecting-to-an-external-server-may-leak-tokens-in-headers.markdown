@@ -61,9 +61,7 @@ $ curl --verbose --location --header "Authorization: Bearer SECRET_TOKEN" http:/
 
 `curl`, as requested, followed the redirect response, but in doing so, it included the original `Authorization` header in the request to another domain[^1]. We have just leaked our secret and gave a valid token to access our system to a third party. To be fair, after some thought, I think it's reasonable for `curl` to interpret that the header is to be sent in *all* requests, since we are also telling it to follow redirects. From the manual:
 
-{% blockquote %}
-WARNING: headers set with this option will be set in all requests - even after redirects are  followed, like  when  told  with  -L,  --location. This can lead to the header being sent to other hosts than the original host, so sensitive headers should be used with caution combined with following redirects.
-{% endblockquote %}
+> WARNING: headers set with this option will be set in all requests - even after redirects are  followed, like  when  told  with  -L,  --location. This can lead to the header being sent to other hosts than the original host, so sensitive headers should be used with caution combined with following redirects.
 
 ## Who does that?
 
