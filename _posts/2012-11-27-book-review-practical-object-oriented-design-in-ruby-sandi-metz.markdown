@@ -8,9 +8,7 @@ categories:
 - ruby
 ---
 
-{% blockquote %}
-If you call yourself a ruby programmer, you should read this book.
-{% endblockquote %}
+> If you call yourself a ruby programmer, you should read this book.
 
 Sandi Metz has done a great job explaining how to write maintainable applications, in a way that is accessible to programmers
 at any skill level. Her book is concise (less than 250 pages, including the index), but jam-packed with great nuggets

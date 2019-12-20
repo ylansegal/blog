@@ -9,9 +9,9 @@ categories:
 
 Recently, I chased down a segmentation fault occurring in one of our production servers. A segmentation fault cannot be triggered by code is that written completely in Ruby, barring a bug in Ruby itself. The VM manages the memory, making it impossible to access memory in violation of the OS rules.
 
-{% blockquote Wikipedia https://en.wikipedia.org/wiki/Segmentation_fault %}
-In computing, a segmentation fault or access violation is a fault, or failure condition, raised by hardware with memory protection, notifying an operating system the software has attempted to access a restricted area of memory.
-{% endblockquote %}
+From [Wikipedia](https://en.wikipedia.org/wiki/Segmentation_fault)
+
+> In computing, a segmentation fault or access violation is a fault, or failure condition, raised by hardware with memory protection, notifying an operating system the software has attempted to access a restricted area of memory.
 
 Not surprisingly, I tracked it down to a [gem with a C extension](https://github.com/rails-sqlserver/tiny_tds): A database driver for MS SQL. The issue can be reproduced by attempting to read results from a connection after it has been closed. I don't expect to be able to read the results, but I expected an exception to be raised, not for the whole process to crash. I [reported the bug](https://github.com/procore/erp-spectrum/pull/627).
 

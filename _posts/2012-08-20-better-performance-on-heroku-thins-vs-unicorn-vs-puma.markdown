@@ -39,7 +39,7 @@ I used different levels of concurrency (i: 1, 5, 10, 20, 40, 80), testing each f
 
 ## Results & Interpretation
 
-![Response Time - Thinm, Puma & Unicorn](/assets/images/response-time-thin-puma-unicorn.png)
+![Response Time - Thin, Puma & Unicorn](/assets/images/response-time-thin-puma-unicorn.png)
 
 
 As the graph above shows, there doesn't seem to be a significant difference in performance using the 3 different servers up to 10 concurrent requests. After that, thin starts performing much worse than puma or unicorn. Overall, it looks like unicorn is a better bet. Of course, YMMV depending on your system's particulars.

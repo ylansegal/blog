@@ -10,9 +10,7 @@ categories:
 
 Probably one of the most well-known books among rubyists, "The Ruby Way" by Hal Fulton with André Arko, has now been updated and released in its third edition. The first part of the book is dedicated to the language itself and covers syntax, semantics, some comparison to other languages and specific issues, like garbage collection, that developers are well served to know when writing ruby.
 
-{% blockquote The Ruby Way %}
-We do find OOP to be a useful tool and a meaningful way of thinking about problems; we do not claim that it cures cancer
-{% endblockquote %}
+> We do find OOP to be a useful tool and a meaningful way of thinking about problems; we do not claim that it cures cancer
 
 The majority of the book is divided into sections that deal with specific task that a developer may encounter. From basics like working with String, numerical calculations and Enumerable collections to more advanced techniques like Threads and Concurrency, Metaprogramming, Network Programming and Distributed Ruby. Each chapter has plenty of code examples and thorough explanations.
 

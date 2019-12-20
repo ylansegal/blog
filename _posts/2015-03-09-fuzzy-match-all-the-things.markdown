@@ -9,9 +9,7 @@ categories:
 
 I started using fuzzy matching when I switched to Sublime Text 2 a few years ago (I currently use Atom, which also has the same feature built-in). The seemingly little improvement increased my productively greatly. It saves a few moments while opening files, but more importantly it prevents [context switching][1]. It lets me start working with a file (usually prompted by knowing or wanting to know the contents of it) without needing to think about the location of that file.
 
-{% blockquote Wikipedia %}
-In computer science, approximate string matching (often colloquially referred to as fuzzy string searching) is the technique of finding strings that match a pattern approximately
-{% endblockquote %}
+> In computer science, approximate string matching (often colloquially referred to as fuzzy string searching) is the technique of finding strings that match a pattern approximately
 
 Such functionality is useful outside of code editors. Thanks to Unix's modularity, general purpose fuzzy matches can accomplish a lot.
 
@@ -44,7 +42,7 @@ fuzz () {
 
 The culmination of all this, comes by binding `^S` on my `zsh` shell to run `fuzz`. This allows me to run `fuzz` while writing arguments to a command already started on the command line and once the fuzzy match is done, returning control to the shell with the argument in place. This allows me to use fuzzy matching on-demand, for any command, across my shell. It has quickly become a tool I reach for throughout the day.
 
-``` bash
+```bash
 # Only for zsh
 # ^S for fuzzy matching
 # By default, ^S freezes terminal output and ^Q resumes it. Disable that so

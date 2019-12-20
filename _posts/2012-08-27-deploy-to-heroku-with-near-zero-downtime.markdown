@@ -35,9 +35,7 @@ Longest transaction:            28.99
 
 After seeing a hint of new functionality to come in a [video of a RailsConf 2012 session][1], I found an article on heroku's devcenter about a [preboot experimental feature][2]:
 
-{% blockquote Heroku Devcenter https://devcenter.heroku.com/articles/labs-preboot/ %}
-This Heroku Labs feature provides seamless deploys by booting web dynos with new code before killing existing web dynos.
-{% endblockquote%}
+> This Heroku Labs feature provides seamless deploys by booting web dynos with new code before killing existing web dynos.
 
 In a nutshell, with this feature enabled, Heroku will boot up the new processes without killing the old ones and allow them some time to boot, switch to the new dynos and then kill the old ones.
 

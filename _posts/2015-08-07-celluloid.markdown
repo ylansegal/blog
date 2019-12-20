@@ -35,13 +35,9 @@ end
 
 Rescuing from any exception and `retry`ing indefinitely. It's effective, but not very elegant. Earlier this week, I researched for a better pattern and found the [Celluloid][1] gem. In their words:
 
-{% blockquote https://github.com/celluloid/celluloid %}
-  [Celluloid is an] Actor-based concurrent object framework for Ruby
-{% endblockquote %}
+> [Celluloid is an] Actor-based concurrent object framework for Ruby
 
-{% blockquote https://celluloid.io/ %}
-  Painless multithreaded programming for Ruby
-{% endblockquote %}
+> Painless multithreaded programming for Ruby
 
 Actors? You mean, like in Erlang? It turns out, I have been reading a lot about [Elixir][2] lately, so I was eager to try it.
 
