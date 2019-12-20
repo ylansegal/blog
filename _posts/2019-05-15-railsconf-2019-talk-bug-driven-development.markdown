@@ -21,7 +21,7 @@ Last — but not least, I am grateful of all the support received from [Procore]
 - [Recorded Talk][talk]
 
 [rails_conf_session]: https://railsconf.com/program/sessions#session-844
-[procore]:
+[procore]: https://www.procore.com/
 [procore_post]: https://engineering.procore.com/procore-railsconf-2019-speakers-and-their-key-takeaways/
 [slides]: https://ylan.segal-family.com/assets/html/rails_conf_2019/
 [talk]: https://www.youtube.com/watch?v=vplY1cUCZ3w
