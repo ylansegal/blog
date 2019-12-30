@@ -14,7 +14,7 @@ the tools of the trade, problem solving, testing, books. See the sidebar for a l
 
 If you found something interesting, you can reach me on twitter [@ylansegal][5] or by email at ylan@{this domain}. I'd be happy to have a conversation.
 
-I'm currently employed as a Development Expert at SAP. All thoughts, content and opinions are my own.
+I'm currently employed as a Staff Software Engineer at Procore. All thoughts, content and opinions are my own.
 
 ## About This Blog
 
