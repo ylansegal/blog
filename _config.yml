@@ -27,9 +27,11 @@ twitter_username: ylansegal
 github_username:  ylansegal
 
 # Build settings
-theme: minima
+theme: jekyll-whiteglass
 plugins:
-  - jekyll-feed
+  - jekyll-archives
+  - jekyll-paginate
+  - jekyll-sitemap
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -52,3 +54,16 @@ plugins:
 #   - vendor/ruby/
 
 permalink: "blog/:year/:month/:day/:title/"
+paginate_path: /posts/:num/
+paginate: 5
+
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layout: category_archives
+  permalinks:
+    category: /categories/:name/
+    tag: /tags/:name/
+
+lang: en-US
