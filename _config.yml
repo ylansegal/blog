@@ -68,3 +68,5 @@ jekyll-archives:
     tag: /tags/:name/
 
 lang: en-US
+
+google_analytics: UA-34233907-1
