@@ -21,8 +21,8 @@
 title: on.code && such
 email: ylan@segal-family.com
 description: >- # this means to ignore newlines until "baseurl:"
-  My name is Ylan Segal and I code. Take a look around, here is where I post about bits that interest me.
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+  Thoughts on Software Engineering
+url: "https://ylan.segal-family.com"
 twitter_username: ylansegal
 github_username:  ylansegal
 
