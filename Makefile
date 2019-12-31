@@ -6,5 +6,5 @@ Gemfile.lock: Gemfile
 build: Gemfile.lock
 	bundle exec jekyll build
 
-deploy: Gemfile.lock
-	rsync -a --delete _site/ ylansegal_ylansblog@ssh.phx.nearlyfreespeech.net:/home/public
+deploy: build
+	rsync -av --delete _site/ ylansegal_ylansblog@ssh.phx.nearlyfreespeech.net:/home/public
