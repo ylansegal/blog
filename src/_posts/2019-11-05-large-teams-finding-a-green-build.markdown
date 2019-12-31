@@ -95,7 +95,7 @@ else
 end
 ```
 
-I named it `git-last-green-commit` and put it in my path, which makes it available for invoking on any project that has a GitHub remote:
+I named it `git-last-green-build` and put it in my path, which makes it available for invoking on any project that has a GitHub remote:
 
 ```
 $ git last-green-build
