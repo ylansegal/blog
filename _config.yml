@@ -27,7 +27,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 url: "https://ylan.segal-family.com"
 twitter_username: ylansegal
 github_username:  ylansegal
-author: Ylan Segal
+author: &author Ylan Segal
 
 # Build settings
 theme: jekyll-whiteglass
@@ -72,3 +72,12 @@ jekyll-archives:
 lang: en-US
 
 google_analytics: UA-34233907-1
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+      author: *author
