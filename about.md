@@ -1,328 +1,85 @@
 ---
 layout: page
 title: "About"
-permalink: /about/
+<!-- date: 2013-04-16 15:19 -->
+comments: false
+sharing: true
+footer: false
 ---
 
-whiteglass is a minimal, responsive Jekyll theme for hackers.
+I am Ylan Segal, a Software Engineer based in beautiful San Diego, California.
 
-## Installation
+I write occasionally in this blog about things that interest me as a developer: Technologies I am using,
+the tools of the trade, problem solving, testing, books.
 
-Add this line to your Jekyll site's Gemfile:
+You can reach me on twitter [@ylansegal][5] or by email at ylan@{this domain}. I'd be happy to have a conversation.
 
-``` ruby
-gem "jekyll-whiteglass"
+I'm currently employed as a Staff Software Engineer at [Procore](https://www.procore.com/). All thoughts, content and opinions are my own.
+
+## About This Blog
+
+This blog is built using [Jekyll][jekyll], themed with [Whiteglass][whiteglass]. Most content is written in [Markdown][3]. Hosted on [Nearly Free Speech][4]
+
+ [jekyll]: https://jekyllrb.com/
+ [whiteglass]: https://github.com/yous/whiteglass
+ [3]: http://daringfireball.net/projects/markdown/
+ [4]: https://www.nearlyfreespeech.net/
+ [5]: https://twitter.com/ylansegal
+
+## PGP
+
 ```
-
-And add this line to your Jekyll site's `_config.yml`:
-
-``` yaml
-theme: jekyll-whiteglass
-```
-
-And then execute:
-
-``` sh
-bundle
-```
-
-Or install it yourself as:
-
-``` sh
-gem install jekyll-whiteglass
-```
-
-## Quick Start
-
-1. Generate a new Jekyll blog:
-
-   ``` sh
-   jekyll new blog --skip-bundle
-   cd blog
-   ```
-
-2. Edit `Gemfile` to use whiteglass theme:
-
-   ``` ruby
-   gem "jekyll-whiteglass"
-   ```
-
-3. Edit `_config.yml` to use whiteglass theme and its plugins:
-
-   ``` yaml
-   theme: jekyll-whiteglass
-   plugins:
-     - jekyll-archives
-     - jekyll-paginate
-     - jekyll-sitemap
-
-   permalink: /:year/:month/:day/:title/
-   paginate_path: /posts/:num/
-   paginate: 5
-
-   jekyll-archives:
-     enabled:
-       - categories
-       - tags
-     layout: category_archives
-     permalinks:
-       category: /categories/:name/
-       tag: /tags/:name/
-   ```
-
-4. Copy
-   [`index.html`](https://github.com/yous/whiteglass/blob/master/index.html),
-   [`about.md`](https://github.com/yous/whiteglass/blob/master/about.md),
-   [`archives.md`](https://github.com/yous/whiteglass/blob/master/archives.md),
-   [`feed.xml`](https://github.com/yous/whiteglass/blob/master/feed.xml), and
-   [`_data/navigation.yml`](https://github.com/yous/whiteglass/blob/master/_data/navigation.yml)
-   from the theme:
-
-   ``` sh
-   rm index.md
-   curl -L -O "https://github.com/yous/whiteglass/raw/master/{index.html,about.md,archives.md,feed.xml}"
-   curl -L --create-dirs -o _data/navigation.yml https://github.com/yous/whiteglass/raw/master/_data/navigation.yml
-   ```
-
-5. Install gems and you're good to go! The blog will be available on
-   `http://127.0.0.1:4000`.
-
-   ``` sh
-   bundle install
-   bundle exec jekyll serve
-   ```
-
-## Deployment to GitHub Pages using Travis CI
-
-This theme uses [jekyll-archives](https://github.com/jekyll/jekyll-archives) gem
-which is [not supported by GitHub Pages](https://help.github.com/articles/configuring-jekyll-plugins/).
-If you want to use full features like categories and tags, I recommend you to
-use Travis CI or other CI services.
-
-To deploy using Travis CI, first copy the [`.travis.yml`](https://github.com/yous/whiteglass/blob/master/.travis.yml)
-of this repository. You can change `target-branch` (`gh-pages` by default) and
-`on.branch` (`master` by default) as you want. If you want further
-customization, see [Travis CI's documentation page](https://docs.travis-ci.com/user/deployment/pages/).
-
-You'll see there's `github-token: $GITHUB_TOKEN`, and this is what you should
-configure. Go to your [personal access tokens](https://github.com/settings/tokens)
-page, and generate new token with `public_repo` or `repo` permission as you
-need. Then go to Travis CI's settings page of your repository, and add a new
-environment variable `GITHUB_TOKEN` with the value of the token you generated.
-
-## Usage
-
-### Customization
-
-To override the default structure and style of whiteglass, simply create the
-concerned directory at the root of your site, copy the file you wish to
-customize to that directory, and then edit the file. e.g., to override the
-[`_includes/footer_content.html`](_includes/footer_content.html) file to add
-contents to footer, create an `_includes` directory, copy
-`_includes/footer_content.html` from jekyll-whiteglass gem folder to
-`<your-site>/_includes` and start editing that file.
-
-For example, you can add favicons to `_includes/head_custom.html`:
-
-``` html
-<link rel="icon" type="image/x-icon" href="{{ "/favicon.ico" | relative_url }}">
-<link rel="apple-touch-icon" href="{{ "/apple-touch-icon.png" | relative_url }}">
-<link rel="apple-touch-icon" sizes="76x76" href="{{ "/apple-touch-icon-76x76.png" | relative_url }}">
-<link rel="apple-touch-icon" sizes="120x120" href="{{ "/apple-touch-icon-120x120.png" | relative_url }}">
-<link rel="apple-touch-icon" sizes="152x152" href="{{ "/apple-touch-icon-152x152.png" | relative_url }}">
-<link rel="apple-touch-icon" sizes="180x180" href="{{ "/apple-touch-icon-180x180.png" | relative_url }}">
-```
-
-The site's default CSS is in the gem itself,
-[`assets/main.scss`](assets/main.scss). To override the default CSS, the file
-has to exist at your site source. Do either of the following:
-
-- Create a new instance of `main.scss` at site source
-  - Create a new file `main.scss` at `<your-site>/assets/`
-  - Add the frontmatter dashes, and
-  - Add `@import "whiteglass";`, to `<your-site>/assets/main.scss`
-  - Add your custom CSS
-- Download the file from this repo
-  - Create a new file `main.scss` at `<your-site>/assets/`
-  - Copy the contents at [`assets/main.scss`](assets/main.scss) onto the `main.scss` you just created, and edit away
-- Copy directly from jekyll-whiteglass gem
-  - Go to your local jekyll-whiteglass gem installation directory (run `bundle show jekyll-whiteglass` to get the path to it)
-  - Copy the `assets/` folder from there into the root of `<your-site>`
-  - Change whatever values you want, inside `<your-site>/assets/main.scss`
-
-### Locale
-
-`site.lang` is used to declare the primary language for each web page within the
-site.
-
-`lang: en-US` sets the `lang` attribute for the site to the United States flavor
-of English, while `en-GB` would be for the United Kingdom style of English.
-Country codes are optional and the shorter variation `lang: en` is also
-acceptable. You may want to write a post in different language, then add `lang`
-attribute to the frontmatter of that post:
-
-``` yaml
-layout: post
-title: "안녕하세요"
-lang: ko
-```
-
-### Description
-
-`site.description` describes the site. This is mainly used in meta descriptions
-for improving SEO. Also, you can set `description` attribute for each post:
-
-``` yaml
-layout: post
-title: Awesome Post
-description: This is an awesome post.
-```
-
-If you don't specify `post.description`, then `post.excerpt` will be used if it
-exist.
-
-### External URL
-
-`external-url` turns the title of your post to a link. Specify a URL which you
-want to link to.
-
-``` yaml
-layout: post
-title: Jekyll whiteglass theme
-external-url: https://github.com/yous/whiteglass
-```
-
-Then the title of your post would look like a link with text
-`Jekyll whiteglass theme →`. This also applies to your blog feed.
-
-### Category
-
-Each post can have `categories` attribute. It can be a string or an array. This
-will be displayed on index, archive and each post, and provide a link to the
-archive of category.
-
-``` yaml
-layout: post
-title: Awesome Post
-categories: Misc
-```
-
-``` yaml
-layout: post
-title: Another Awesome Post
-categories:
-  - Misc
-  - Idea
-```
-
-### Tag
-
-Each post can have `tags` attribute. It can be a string or an array. This will
-be displayed on index, archive and each post, and provide a link to the archive
-of tag.
-
-``` yaml
-layout: post
-title: Awesome Post
-tags: food
-```
-
-``` yaml
-layout: post
-title: Another Awesome Post
-tags:
-  - food
-  - trip
-```
-
-### Feed
-
-Create `<your-site>/feed.xml` with:
-
-``` yaml
----
-layout: feed
----
-```
-
-If you want to use another path for feed, you can specify a non-default path via
-your site's config.
-
-``` yaml
-feed:
-  path: atom.xml
-```
-
-Then create `<your-site>/atom.xml` with the same content of `feed.xml` above.
-
-### Comments
-
-whiteglass provides the ability to include your favourite commenting service, like [Disqus](https://disqus.com) or [Isso](https://posativ.org/isso).
-
-To enable comments on pages and posts:
-1. Overwrite the `_includes/custom_comments_provider.html` with your custom provider of comments.
-2. Add `comments: true` to your `_config.yml`.
-
-To disable comments on certain pages or posts specify `comments: false` in the front matter of the page or post.
-
-### Metadata for SEO
-
-#### Keywords
-
-Each post can have `keywords` attribute. This is a comma-separated list which is
-used in meta descriptions for improving SEO.
-
-``` yaml
-layout: post
-title: How to configure jekyll-whiteglass
-keywords: jekyll, whiteglass, github pages
-```
-
-YAML list is also available:
-
-``` yaml
-keywords:
-  - jekyll
-  - whiteglass
-  - github pages
-```
-
-#### Twitter
-
-- `site.twitter_username` sets `twitter:site` and `twitter:creator` meta tag
-- `site.twitter_image` sets `twitter:image:src` meta tag
-- `page.twitter_card.type` sets `twitter:card` meta tag (default: `summary`)
-  - If `page.twitter_card.type` is `gallery`, it sets `twitter:image0`, `twitter:image1`, `twitter:image2` and `twitter:image3` meta tags with `page.twitter_card.image`, `page.twitter_card.image1`, `page.twitter_card.image2` and `page.twitter_card.image3`, respectively
-  - If `page.twitter_card.type` is `photo`, `page.twitter_card.width` sets `twitter:image:width` meta tag and `page.twitter_card.height` sets `twitter:image:height` meta tag
-- `page.twitter_card.creator` sets `twitter:creator` meta tag. It overrides `site.twitter_username`
-- `page.twitter_card.image` sets `twitter:image:src` meta tag if `page.twitter_card.type` is not `gallery`. It overrides `site.twitter_image`
-
-#### Facebook
-
-- `site.facebook_app_id` sets `fb:admins` meta tag
-- `site.facebook_page` sets `article:author` meta tag
-- `site.facebook_image` sets `og:image` meta tag
-- `page.facebook.image` sets `og:image` meta tag. It overrides `site.facebook_image`
-
-### Navigation
-
-To define header links, add titles and URLs under the `main` key in
-`_data/navigation.yml`:
-
-``` yaml
-main:
-  - title: "About"
-    url: /about/
-  - title: "Archives"
-    url: /archives/
-  - title: "GitHub"
-    url: https://github.com/yous/whiteglass
-```
-
-### Enabling Google Analytics
-
-To enable Google Analytics, add the following lines to your Jekyll site:
-
-``` yaml
-google_analytics: UA-NNNNNNNN-N
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+Comment: GPGTools - https://gpgtools.org
+
+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
+8UMhFuWW6fl2jdKdI+vSqLcuoarmaB/I
+=crbf
+-----END PGP PUBLIC KEY BLOCK-----
 ```
