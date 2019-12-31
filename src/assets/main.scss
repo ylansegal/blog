@@ -1,0 +1,15 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+
+// Theme Overrides
+
+// Use system font when possible
+// https://nathanfriend.io/2018/04/27/fantastic-fast-fonts-with-system-ui.html
+$base-font-family: -apple-system, system-ui, BlinkMacSystemFont,
+  'Segoe UI', Roboto, 'Helvetica Neue',
+  Ubuntu, Arial, sans-serif;
+ $base-font-size:   18px;
+
+@import "whiteglass";
