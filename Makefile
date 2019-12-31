@@ -7,4 +7,4 @@ build: Gemfile.lock
 	bundle exec jekyll build
 
 deploy: Gemfile.lock
-	echo "This is where I deploy"
+	rsync -a --delete _site/ ylansegal_ylansblog@ssh.phx.nearlyfreespeech.net:/home/public
