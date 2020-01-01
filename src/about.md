@@ -1,30 +1,36 @@
 ---
 layout: page
 title: "About"
-<!-- date: 2013-04-16 15:19 -->
 comments: false
-sharing: true
-footer: false
+sharing: false
+footer: true
 ---
 
-I am Ylan Segal, a Software Engineer based in beautiful San Diego, California.
+![Ylan Segal, Profile Picture](/assets/images/YlanSegal_profile.jpg)
 
-I write occasionally in this blog about things that interest me as a developer: Technologies I am using,
-the tools of the trade, problem solving, testing, books.
+My name is Ylan Segal. I am a Software Engineer based in beautiful San Diego, California, where I lived most of my adult life. I grew up in Mexico City. You can reach me on twitter [@ylansegal][twitter] or by email at `ylan@{this domain}`.
 
-You can reach me on twitter [@ylansegal][5] or by email at ylan@{this domain}. I'd be happy to have a conversation.
+I have a Bachelors degree in Civil Engineering from the [Univerisdad Iberoamericana][uia] in Mexico City, and a Master of Science in Aeronautics and Astronautics degree from [Stanford University][stanford]. I've been writing software for over 20 years.
 
-I'm currently employed as a Staff Software Engineer at [Procore](https://www.procore.com/). All thoughts, content and opinions are my own.
+I am currently a Staff Engineer at Procore. Prior to that, I came to be a Development Expert at [SAP][sap] through it's acquisition of Mellmo, makers of [Roambi][roambi]. Prior to that I was partner in an e-commerce endeavor. See my complete work history in [LinkedIn][linkedin].
+
+I write in this blog about things that interest me as a Software Engineer. All content and opinions are my own.
 
 ## About This Blog
 
-This blog is built using [Jekyll][jekyll], themed with [Whiteglass][whiteglass]. Most content is written in [Markdown][3]. Hosted on [Nearly Free Speech][4]
+This blog is built using [Jekyll][jekyll], themed with [Whiteglass][whiteglass]. Most content is written in [Markdown][markdown]. Hosted on [Nearly Free Speech][nfs].
 
- [jekyll]: https://jekyllrb.com/
- [whiteglass]: https://github.com/yous/whiteglass
- [3]: http://daringfireball.net/projects/markdown/
- [4]: https://www.nearlyfreespeech.net/
- [5]: https://twitter.com/ylansegal
+[uia]: https://ibero.mx/licenciaturas/licenciatura-en-ingenier-civil
+[stanford]: https://aa.stanford.edu/
+[procore]: https://www.procore.com/
+[linkedin]: https://www.linkedin.com/in/ylansegal/
+[sap]: https://www.sap.com/
+[roambi]: https://www.sap.com/products/roambi.html
+[jekyll]: https://jekyllrb.com/
+[whiteglass]: https://github.com/yous/whiteglass
+[markdown]: http://daringfireball.net/projects/markdown/
+[nfs]: https://www.nearlyfreespeech.net/
+[twitter]: https://twitter.com/ylansegal
 
 ## PGP
 
