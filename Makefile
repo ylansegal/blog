@@ -16,4 +16,5 @@ build: Gemfile.lock
 	bundle exec jekyll build
 
 deploy: build
+	git push origin master
 	rsync -av _site/ ylansegal_ylansblog@ssh.phx.nearlyfreespeech.net:/home/public
