@@ -4,3 +4,4 @@ _site
 .jekyll-metadata
 vendor
 .*.sentinel
+src/assets/images/diagrams
