@@ -1,0 +1,18 @@
+@startuml
+Title Instantaneous Deployment - Timing Diagram
+
+concise "Code Version" as code
+concise "Database Schema State" as state
+scale 10 as 200 pixels
+
+code is "V0"
+state is "S0"
+
+@code
+20 is "V1"
+
+@state
+15 is "S0 -> S1"
+20 is "S1"
+
+@enduml

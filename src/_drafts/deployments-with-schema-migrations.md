@@ -96,7 +96,7 @@ Conceptually, the simplest deployment is one were our web app incurs some downti
 5. Boot `V1` processes
 6. Restore traffic to the web application.
 
-<img src="/assets/images/diagrams/downtime_migration.png" alt="Downtime Deployment" class="center">
+<img src="/assets/images/diagrams/downtime_deployment.png" alt="Downtime Deployment" class="center">
 
 As the diagram illustrates, `V0` always runs with schema `S0`, and `V1` always runs with `S1`. This state of affairs stable, but not always desirables. Business usually aim to minimize downtime. The current trend in continuous deployments is to deploy small increments of code multiple times a day. Taking downtime on each deployment is unacceptable.
 
@@ -130,8 +130,14 @@ We can tabulate the above in a compatibility matrix:
 
 Given the above, we can deduce that during our deployment, the migrations need to run *before* the code-swap phase.
 
-![Instantaneous deployment, with migration](TBD)
+<img src="/assets/images/diagrams/instant_deployment.png" alt="Instantaneous Deployment" class="center">
 
 In case that a rollback is needed we would be in a position in which `V1` is running on an `S1` schema. It continues to be true that `V1` is only compatible with `S1`. The implication is that the migration rollback needs to occur *after* the code-swap. If at all. Depending on what went wrong, sometimes a code swap without the database migration is enough to address issues.
+
+So far, we've determine on which side of the code swap our migration needs to run. In the diagram the migration is labeled as `S0 -> S1`, and is show as taking a certain amount of time. During this period, we can't be sure in which state (`S0` or `S1`) our database is in, but we know that `V0` is compatible either way. Do we have to worry about an in-between state? It depends. The [Rails documentation](https://guides.rubyonrails.org/active_record_migrations.html#migration-overview) states:
+
+> On databases that support transactions with statements that change the schema, migrations are wrapped in a transaction. If the database does not support this then when a migration fails the parts of it that succeeded will not be rolled back. You will have to rollback the changes that were made by hand.
+
+If you are using Postgres, transaction support ensures that you are in either `S0` or `S1`. For other databases, like MySQL, this might not be true for all migrations. In our example, the migration produces one -- and only one -- data definition statement. It will either succeed or fail. For the purpose of the rest of the post, I will assume then that we can be sure that our database is either in `S0` or `S1`, and that `SO -> S1` implies that we could be in either state.
 
 # A More Accurate Model of Deployment
