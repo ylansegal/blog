@@ -2,7 +2,6 @@
 layout: post
 title: "The REPL: Issue 64 - November 2019"
 date: 2019-12-04 10:48:13 -0800
-comments: true
 excerpt: Git from the inside out. Code less, engineer more, Your Makefiles are wrong
 categories:
 - the repl
