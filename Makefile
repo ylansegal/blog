@@ -8,7 +8,7 @@ MAKEFLAGS += --warn-undefined-variables
 MAKEFLAGS += --no-builtin-rules
 
 # Variables
-DIAGRAM_SOURCES = $(shell find src/_diagrams/*.plantuml | sed 's,src/_diagrams,_site/assets/images,')
+DIAGRAM_SOURCES = $(shell find src/_diagrams/*.plantuml | sed 's,src/_diagrams,src/assets/images/diagrams,')
 DIAGRAM_FILES= $(DIAGRAM_SOURCES:.plantuml=.png)
 
 .PHONY: build deploy diagrams
@@ -25,6 +25,6 @@ deploy: build
 
 diagrams: $(DIAGRAM_FILES)
 
-_site/assets/images/%.png: src/_diagrams/%.plantuml
+src/assets/images/diagrams/%.png: src/_diagrams/%.plantuml
 	plantuml $<
 	mv $(<:.plantuml=.png) $@
