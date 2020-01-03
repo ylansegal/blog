@@ -1,7 +1,7 @@
-_site
-.sass-cache
+.*.sentinel
 .jekyll-cache
 .jekyll-metadata
-vendor
-.*.sentinel
+.sass-cache
+_site
 src/assets/images/diagrams
+vendor
