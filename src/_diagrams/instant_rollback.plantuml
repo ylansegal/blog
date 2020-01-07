@@ -1,18 +1,18 @@
 @startuml
-Title Instantaneous Deployment - Timing Diagram
+Title Instantaneous Rollback - Timing Diagram
 
 concise "Code Version" as code
 concise "Database Schema State" as db_state
 scale 10 as 200 pixels
 
-code is "V0"
-db_state is "S0"
+code is "V1"
+db_state is "S1"
 
 @code
-20 is "V1"
+15 is "V0"
 
 @db_state
-15 is "S0 -> S1"
-20 is "S1"
+15 is "S1 -> S0"
+20 is "S0"
 
 @enduml
