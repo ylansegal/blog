@@ -14,7 +14,7 @@ $base-font-family: -apple-system, system-ui, BlinkMacSystemFont,
 
 @import "whiteglass";
 
-header .wrapper {
+.site-header, .site-footer {
   background-color: $grey-color-light;
 }
 
