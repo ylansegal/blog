@@ -24,19 +24,10 @@ img.center {
   margin-right: auto;
 }
 
-* + table {
-  border-style:solid;
-  border-width:1px;
-  border-color:#e7e3e7;
+thead tr {
+  background: $grey-color-light;
 }
 
-* + table th, * + table td {
-  border-style:dashed;
-  border-width:1px;
-  border-color:#e7e3e7;
-}
-//
-* + table th {
-  border-style:solid;
-  font-weight:bold;
+tr:nth-child(even) {
+	background: $grey-color-light;
 }
