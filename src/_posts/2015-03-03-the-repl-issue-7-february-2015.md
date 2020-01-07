@@ -4,7 +4,8 @@ title: "The REPL: Issue 7 - February 2015"
 date: 2015-03-02 19:54:14 -0800
 comments: true
 categories:
-- the repl
+- the rep
+excerpt_separator: <!-- more -->
 ---
 
 ### [Introducing Discrete Integration][1]

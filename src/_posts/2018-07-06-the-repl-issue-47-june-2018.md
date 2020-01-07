@@ -4,7 +4,8 @@ title: "The REPL: Issue 47 - June 2018"
 date: 2018-07-06 12:56:16 -0700
 comments: true
 categories:
-- the repl
+- the rep
+excerpt_separator: <!-- more -->
 ---
 
 ## [How to GraphQL][1]

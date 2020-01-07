@@ -4,7 +4,8 @@ title: "The REPL: Issue 58 - June 2019"
 date: 2019-07-08 11:25:08 -0700
 comments: true
 categories:
-- the repl
+- the rep
+excerpt_separator: <!-- more -->
 ---
 
 ### [Per-project Postgres][1]

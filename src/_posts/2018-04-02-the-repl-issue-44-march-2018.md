@@ -4,7 +4,8 @@ title: "The REPL: Issue 44 - March 2018"
 date: 2018-04-02 18:38:00 -0700
 comments: true
 categories:
-- the repl
+- the rep
+excerpt_separator: <!-- more -->
 ---
 
 ## [Mistakes Rails Developers Make in Elixir Part 1: Background Jobs][mistakes]

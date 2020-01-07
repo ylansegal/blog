@@ -4,7 +4,8 @@ title: "The REPL: Issue 54 - February 2019"
 date: 2019-03-01 11:41:19 -0800
 comments: true
 categories:
-- the repl
+- the rep
+excerpt_separator: <!-- more -->
 ---
 
 ### [Move fast and migrate things: how we automated migrations in Postgres][1]

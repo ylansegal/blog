@@ -4,7 +4,8 @@ title: "The REPL: Issue 31 - Februrary 2017"
 date: 2017-03-01 08:52:27 -0800
 comments: true
 categories:
-  - the repl
+  - the rep
+excerpt_separator: <!-- more -->
 ---
 
 ### [Online migrations at scale][migrations]

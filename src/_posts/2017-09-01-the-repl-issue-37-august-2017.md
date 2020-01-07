@@ -4,7 +4,8 @@ title: "The REPL: Issue 37 - August 2017"
 date: 2017-09-01 08:33:21 -0700
 comments: true
 categories:
-- the repl
+- the rep
+excerpt_separator: <!-- more -->
 ---
 
 ### [The fallacies of web application performance][performance]

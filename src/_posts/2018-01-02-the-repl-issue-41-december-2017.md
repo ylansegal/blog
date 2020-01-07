@@ -4,7 +4,8 @@ title: "The REPL: Issue 41 - December 2017"
 date: 2018-01-02 15:46:08 -0800
 comments: true
 categories:
-- the repl
+- the rep
+excerpt_separator: <!-- more -->
 ---
 
 ### [Trying to Represent a Tree Structure Using Postgres][trees]

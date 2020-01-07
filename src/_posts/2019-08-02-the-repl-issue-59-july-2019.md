@@ -4,7 +4,8 @@ title: "The REPL: Issue 59 - July 2019"
 date: 2019-08-02 14:10:44 -0700
 comments: true
 categories:
-- the repl
+- the rep
+excerpt_separator: <!-- more -->
 ---
 
 ### [View-centric performance optimization for database-backed web applications][1]

@@ -4,7 +4,8 @@ title: "The REPL: Issue 14 - September 2015"
 date: 2015-10-02 08:45:20 -0700
 comments: true
 categories:
-- the repl
+- the rep
+excerpt_separator: <!-- more -->
 ---
 
 ### [How We Ended Up With Microservices][1]

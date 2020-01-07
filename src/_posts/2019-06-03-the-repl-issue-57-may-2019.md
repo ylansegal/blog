@@ -4,7 +4,8 @@ title: "The REPL: Issue 57 - May 2019"
 date: 2019-06-03 18:12:17 -0700
 comments: true
 categories:
-- the repl
+- the rep
+excerpt_separator: <!-- more -->
 ---
 
 ### [We Can Do Better Than SQL][sql]

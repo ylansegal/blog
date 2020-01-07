@@ -4,7 +4,8 @@ title: "The REPL: Issue 45 - April 2018"
 date: 2018-05-02 18:28:16 -0700
 comments: true
 categories:
-- the repl
+- the rep
+excerpt_separator: <!-- more -->
 ---
 
 ## [the Origins of Opera and the Future of Programming][opera]

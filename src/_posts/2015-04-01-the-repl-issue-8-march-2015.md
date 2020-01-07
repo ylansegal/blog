@@ -4,7 +4,8 @@ title: "The REPL: Issue 8 - March 2015"
 date: 2015-04-01 08:41:40 -0700
 comments: true
 categories:
-- the repl
+- the rep
+excerpt_separator: <!-- more -->
 ---
 
 ### [Turning The Database Inside Out With Apache Samza][1]

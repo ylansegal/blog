@@ -4,7 +4,8 @@ title: "The REPL: Issue 28 - November 2016"
 date: 2016-12-02 08:56:07 -0800
 comments: true
 categories:
-  - the repl
+  - the rep
+excerpt_separator: <!-- more -->
 ---
 
 ### [Open-Sourcing Yelp's Data Pipeline][yelp]

@@ -4,7 +4,8 @@ title: "The REPL: Issue 33 - April 2017"
 date: 2017-05-02 16:48:25 -0700
 comments: true
 categories:
-- the repl
+- the rep
+excerpt_separator: <!-- more -->
 ---
 
 ### [A Visual Introduction to Machine Learning][ml]

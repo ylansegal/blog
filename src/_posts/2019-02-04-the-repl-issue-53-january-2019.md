@@ -4,7 +4,8 @@ title: "The REPL: Issue 53 - January 2019"
 date: 2019-02-04 13:47:05 -0800
 comments: true
 categories:
-- the repl
+- the rep
+excerpt_separator: <!-- more -->
 ---
 
 ### [Detecting Agile BS][1]

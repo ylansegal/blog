@@ -4,7 +4,8 @@ title: "The REPL: Issue 26 - September 2016"
 date: 2016-10-03 08:55:59 -0700
 comments: true
 categories:
-- the repl
+- the rep
+excerpt_separator: <!-- more -->
 ---
 ### [Microservices – Please, don’t][please_dont]
 

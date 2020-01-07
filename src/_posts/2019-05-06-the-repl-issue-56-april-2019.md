@@ -4,7 +4,8 @@ title: "The REPL: Issue 56 - April 2019"
 date: 2019-05-06 18:00:59 -0700
 comments: true
 categories:
-- the repl
+- the rep
+excerpt_separator: <!-- more -->
 ---
 
 ### [Technical Debt Is Like Tetris][1]

@@ -4,7 +4,8 @@ title: "The REPL: Issue 10 - May 2015"
 date: 2015-06-02 14:41:48 -0700
 comments: true
 categories:
-- the repl
+- the rep
+excerpt_separator: <!-- more -->
 ---
 
 ### [Lessons Learned In Software Development][1]

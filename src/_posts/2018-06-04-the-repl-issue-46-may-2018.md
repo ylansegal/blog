@@ -4,7 +4,8 @@ title: "The REPL: Issue 46 - May 2018"
 date: 2018-06-04 15:49:29 -0700
 comments: true
 categories:
-- the repl
+- the rep
+excerpt_separator: <!-- more -->
 ---
 
 ## [The Economics of Writing a Technical Book][tech_book]

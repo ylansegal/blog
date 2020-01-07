@@ -4,7 +4,8 @@ title: "The REPL: Issue 19 - February 2016"
 date: 2016-03-02 09:10:31 -0800
 comments: true
 categories:
-- the repl
+- the rep
+excerpt_separator: <!-- more -->
 ---
 
 ### [Is Your Postgres Query Starved for Memory?][1]

@@ -4,7 +4,8 @@ title: "The REPL: Issue 50 - September 2018"
 date: 2018-10-01 16:38:25 -0700
 comments: true
 categories:
-- the repl
+- the rep
+excerpt_separator: <!-- more -->
 ---
 
 ### [How to teach yourself hard things][1]

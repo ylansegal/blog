@@ -4,7 +4,8 @@ title: "The REPL: Issue 22 - May 2016"
 date: 2016-05-31 09:15:29 -0700
 comments: true
 categories:
-- the repl
+- the rep
+excerpt_separator: <!-- more -->
 ---
 
 ### [On Shells and Static Paths][1]

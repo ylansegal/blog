@@ -4,7 +4,8 @@ title: "The REPL: Issue 15 - October 2015"
 date: 2015-11-03 08:43:49 -0800
 comments: true
 categories:
-- the repl
+- the rep
+excerpt_separator: <!-- more -->
 ---
 
 ### [Speed up with Materialized Views on PostgreSQL and Rails][1]

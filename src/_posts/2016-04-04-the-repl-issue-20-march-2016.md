@@ -4,7 +4,8 @@ title: "The REPL: Issue 20 - March 2016"
 date: 2016-04-04 09:35:00 -0700
 comments: true
 categories:
-- the repl
+- the rep
+excerpt_separator: <!-- more -->
 ---
 
 ### [How To Deploy Software][1]

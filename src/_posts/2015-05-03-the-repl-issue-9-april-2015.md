@@ -4,7 +4,8 @@ title: "The REPL: Issue 9 - April 2015"
 date: 2015-05-03 11:45:17 -0700
 comments: true
 categories:
-- the repl
+- the rep
+excerpt_separator: <!-- more -->
 ---
 
 ### [Does Organization Matter?][1]

@@ -4,7 +4,8 @@ title: "The REPL: Issue 42 - January 2018"
 date: 2018-02-07 08:24:20 -0800
 comments: true
 categories:
-- the repl
+- the rep
+excerpt_separator: <!-- more -->
 ---
 
 ### [SPAs Are Just Harder, And Always Will Be][spa]

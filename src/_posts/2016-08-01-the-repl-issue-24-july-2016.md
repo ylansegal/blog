@@ -4,7 +4,8 @@ title: "The REPL: Issue 24 - July 2016"
 date: 2016-08-01 19:02:26 -0700
 comments: true
 categories:
-- the repl
+- the rep
+excerpt_separator: <!-- more -->
 ---
 
 ### [A Critique of the CAP Theorem][cap]

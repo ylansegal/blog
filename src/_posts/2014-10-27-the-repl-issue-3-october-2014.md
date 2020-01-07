@@ -4,7 +4,8 @@ title: "The REPL: Issue 3 - October 2014"
 date: 2014-10-27 09:18
 comments: true
 categories:
-- the repl
+- the rep
+excerpt_separator: <!-- more -->
 ---
 
 ### [The definitive guide to Arel, the SQL manager for Ruby][1]

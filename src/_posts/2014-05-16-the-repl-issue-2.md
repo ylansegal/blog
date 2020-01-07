@@ -4,7 +4,8 @@ title: "The REPL: Issue 2"
 date: 2014-05-16 16:06
 comments: true
 categories:
-- the repl
+- the rep
+excerpt_separator: <!-- more -->
 ---
 
 ### [The Little Mocker][1]

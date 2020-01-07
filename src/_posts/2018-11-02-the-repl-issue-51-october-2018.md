@@ -4,7 +4,8 @@ title: "The REPL: Issue 51 - October 2018"
 date: 2018-11-02 11:31:27 -0700
 comments: true
 categories:
-- the repl
+- the rep
+excerpt_separator: <!-- more -->
 ---
 
 ### [The Architecture No One Needs][1]

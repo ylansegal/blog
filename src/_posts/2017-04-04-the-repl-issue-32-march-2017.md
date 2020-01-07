@@ -4,7 +4,8 @@ title: "The REPL: Issue 32 - March 2017"
 date: 2017-04-04 20:12:45 -0700
 comments: true
 categories:
-- the repl
+- the rep
+excerpt_separator: <!-- more -->
 ---
 
 ### [Use the Unofficial Bash Strict Mode (Unless You Looove Debugging)][bash]

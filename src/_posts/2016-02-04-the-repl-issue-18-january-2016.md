@@ -4,7 +4,8 @@ title: "The REPL: Issue 18 - January 2016"
 date: 2016-02-04 08:34:05 -0800
 comments: true
 categories:
-- the repl
+- the rep
+excerpt_separator: <!-- more -->
 ---
 
 ### [Getting to Zero Exceptions][1]
