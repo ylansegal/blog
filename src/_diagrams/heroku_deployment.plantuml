@@ -1,0 +1,22 @@
+@startuml
+Title Heroku Deployment - Timing Diagram
+
+concise "Code Version" as code
+concise "Database Schema State" as db_state
+scale 10 as 200 pixels
+
+code is "V0"
+db_state is "S0"
+
+@code
+19 is {hidden}
+20 is "V1"
+code@19 <-> @20 : restart
+
+@db_state
+15 is "S0 -> S1"
+19 is "S1"
+db_state@15 <-> @19 : release
+
+
+@enduml

@@ -4,6 +4,7 @@ title: "Deployments With Schema Migrations"
 categories:
 - deployment
 - rails
+- heroku
 ---
 
 The typical web application runs application processes separately from its database process. More often than not, in different servers altogether. As applications evolve, it is common for new features to require changes in the database schema that the code relies on. In Ruby on Rails, these schema changes are handled through _migrations_: Ruby classes that implement a DSL for specifying how to change the database from an initial state, to its target state. They also contain information on how to roll-back the migration, in case a deployment needs to be undone.
@@ -147,30 +148,47 @@ So far, we've determine on which side of the code swap our migration needs to ru
 
 If you are using Postgres, transaction support ensures that you are in either `S0` or `S1`. For other databases, like MySQL, this might not be true for all migrations. In our example, the migration produces one -- and only one -- data definition statement. It will either succeed or fail. Even if transactions are not supported, we probably don't need to worry. For the purpose of the rest of the post, I will assume then that we can be sure that our database is either in `S0` or `S1`, and that `SO -> S1` implies that we could be in either state.
 
-# A More Accurate Model of Deployment
+# Short-Downtime Deployment
 
+[Heroku][heroku] is a managed hosting service popular with Rubyists for good reason. It abstracts away a lot of the complexity of setting up an opinionated deployment pipeline. In a typical Rails app deployed to Heroku, a `Procfile` is checked in to the project, specifying the applications processes:
+
+```
+web: bundle exec puma -p $PORT -e $RAILS_ENV
+sidekiq: bundle exec sidekiq
+```
+
+Every time git's `master` branch is pushed to Heroku's remote server, the code will be packaged, existing processes (in this case `web` and `sidekiq`) will be gracefully terminated and restarted using the new code package. Without any other configuration, no migrations will be run. The developer is left to run them manually either before or after the deployment.
+
+A more robust and automated deployment would take advantage of [Heroku's Release Phase][release_phase]. This is a special type of process that runs on each deployment and can be specified in the `Procfile`:
+
+```
+release: bundle exec rake db:migrate
+web: bundle exec puma -p $PORT -e $RAILS_ENV
+sidekiq: bundle exec sidekiq
+```
+
+With a `release` command in place, Heroku will executing *after* packaging `V1`, but *before* stopping the existing processes (`V0`) and restarting with the new code (`V1`).
+
+<img src="/assets/images/diagrams/heroku_deployment.png" alt="Heroku Deployment" class="center">
+
+In our code example, we identified that the migration needs to run on the `V0` side of the deployment, wich matches the "Heroku way". The diagram shows a brief interval in which neither `V0` or `V1` is running. This is the pause between the shutdown of old processes and starting of new ones. A partial log (edited for clarity) shows this pause:
 
 
 Heroku deployment log:
 ```
 2020-01-06T23:48:28.253359+00:00 app[api]: Deploy 6909d7c6 by user ylan@...
-2020-01-06T23:48:28.660547+00:00 app[api]: Starting process with command `/bin/sh -c 'if curl $HEROKU_RELEASE_LOG_STREAM --silent --connect-timeout 10 --retry 3 --retry-delay 1 >/tmp/log-stream; then
-2020-01-06T23:48:28.660547+00:00 app[api]: chmod u+x /tmp/log-stream
-2020-01-06T23:48:28.660547+00:00 app[api]: /tmp/log-stream /bin/sh -c '"'"'bundle exec rake db:migrate'"'"'
-2020-01-06T23:48:28.660547+00:00 app[api]: else
 2020-01-06T23:48:28.660547+00:00 app[api]: bundle exec rake db:migrate
-2020-01-06T23:48:28.660547+00:00 app[api]: fi'` by user ylan@segal-family.com
-2020-01-06T23:48:28.253359+00:00 app[api]: Running release v99 commands by user ylan@segal-family.com
+2020-01-06T23:48:28.253359+00:00 app[api]: Running release v99 commands by user ylan@
 2020-01-06T23:48:33.579124+00:00 heroku[release.9811]: Starting process with command `/bin/sh -c ... '"'"'bundle exec rake db:migrate'"'"' else   bundle exec rake db:migrate fi'`
 2020-01-06T23:48:34.225131+00:00 heroku[release.9811]: State changed from starting to up
 2020-01-06T23:48:36.000000+00:00 app[api]: Build succeeded
-2020-01-06T23:48:40.262074+00:00 app[release.9811]: [1m[35m (1.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5844823552245979560)[0m
-2020-01-06T23:48:40.280848+00:00 app[release.9811]: [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-2020-01-06T23:48:40.298219+00:00 app[release.9811]: [1m[36mActiveRecord::InternalMetadata Load (1.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-2020-01-06T23:48:40.314867+00:00 app[release.9811]: [1m[35m (1.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(5844823552245979560)[0m
+2020-01-06T23:48:40.262074+00:00 app[release.9811]:  (1.5ms)  SELECT pg_try_advisory_lock(5844823552245979560)
+2020-01-06T23:48:40.280848+00:00 app[release.9811]:  (2.3ms)  SELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC
+2020-01-06T23:48:40.298219+00:00 app[release.9811]: ActiveRecord::InternalMetadata Load (1.7ms)  SELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2  [["key", "environment"], ["LIMIT", 1]]
+2020-01-06T23:48:40.314867+00:00 app[release.9811]:  (1.6ms)  SELECT pg_advisory_unlock(5844823552245979560)
 2020-01-06T23:48:40.419733+00:00 heroku[release.9811]: State changed from up to complete
 2020-01-06T23:48:40.410205+00:00 heroku[release.9811]: Process exited with status 0
-2020-01-06T23:48:41.931703+00:00 app[api]: Release v99 created by user ylan@segal-family.com
+2020-01-06T23:48:41.931703+00:00 app[api]: Release v99 created by user ylan@
 2020-01-06T23:48:42.257846+00:00 heroku[web.1]: Restarting
 2020-01-06T23:48:42.274533+00:00 heroku[web.1]: State changed from up to starting
 2020-01-06T23:48:43.021851+00:00 heroku[web.1]: Stopping all processes with SIGTERM
@@ -189,6 +207,27 @@ Heroku deployment log:
 2020-01-06T23:48:51.941703+00:00 app[web.1]: [4] - Worker 1 (pid: 9) booted, phase: 0
 2020-01-06T23:48:52.360202+00:00 heroku[web.1]: State changed from starting to up
 ```
+
+Once the migrations are done, the `web` workers are sent a shut down signal. They will finish processing request already in-flight (provided it they don't take too long). New requests will be held by the Heroku router until the new process is ready to accept connections. The relevant lines show an interval of ~10 seconds:
+
+```
+2020-01-06T23:48:42.274533+00:00 heroku[web.1]: State changed from up to starting
+2020-01-06T23:48:52.360202+00:00 heroku[web.1]: State changed from starting to up
+```
+
+Is that acceptable? It depends on your application. For this particular deployment, the Rails application is as small as they come. It has but a handful of models and gems, and can boot in development mode in under 2 seconds. Typical Rails apps take significantly longer to boot, because they have larger code bases and include many more gems. It's not uncommon for applications to take close to one minute to boot in production.
+
+Another consideration is the amount of traffic to the app. If we field a couple of request per second and have a pause of 10 seconds, we won't see more than a few dozens requests queued up. Our application would probably catch up in a few seconds and no request would be dropped.On the other hand, higher traffic apps with longer boot times might not be so lucky.
+
+Effectively, we can think of Heroku deployments with release phase, as a short-downtime deployment. It provides an automated way to run migrations (on one side of the code-swap), it ensures that only one version of the code is running at any one time, it is relatively simple to reason about, and more importantly, it's accessible to any developer with one line of configuration.
+
+# No Downtime Deployments
+
+If your app needs are not yet satisfied, there are ways that we can improve on the previous method. As we saw, the app's boot time is main driver in the delay of request handling. We can improve Rails' boot time only so much. What if we boot the new processes before stopping the old ones? This is exactly what [Heroku's Preboot](preboot) does.
+
+[heroku]: https://www.heroku.com/
+[release_phase]: https://devcenter.heroku.com/articles/release-phase
+[preboot]: https://devcenter.heroku.com/articles/preboot
 
 # TODO:
 - [ ] add date
