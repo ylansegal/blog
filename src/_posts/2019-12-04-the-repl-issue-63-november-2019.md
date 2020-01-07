@@ -4,9 +4,9 @@ title: "The REPL: Issue 63 - November 2019"
 date: 2019-12-04 10:48:13 -0800
 comments: true
 description: Using make, how containers work
-excerpt: Using make, how containers work
 categories:
 - the repl
+excerpt_separator: <!-- more -->
 ---
 
 ### [The Language Agnostic, All-Purpose, Incredible, Makefile][make]

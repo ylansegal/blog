@@ -5,6 +5,7 @@ date: 2019-11-01 14:51:27 -0700
 comments: true
 categories:
 - the repl
+excerpt_separator: <!-- more -->
 ---
 
 ### [The Night Watch][night]

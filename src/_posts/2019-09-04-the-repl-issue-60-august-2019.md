@@ -5,6 +5,7 @@ date: 2019-09-04 13:22:02 -0700
 comments: true
 categories:
 - the repl
+excerpt_separator: <!-- more -->
 ---
 
 Issue 60! I've been posting my favorite links to tech articles every month for the last 5 years! I've linked to 163 articles in that time (not including the links in this post). And, now that I am looking back... I realize that I've made a mistake and I re-used #53 for the [2018-12](/blog/2019/01/08/the-repl-issue-53-december-2018/) and [2019-12](/blog/2019/02/04/the-repl-issue-53-january-2019/) issues. `¯\_(ツ)_/¯`

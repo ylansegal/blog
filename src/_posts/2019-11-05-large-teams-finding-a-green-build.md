@@ -6,11 +6,14 @@ comments: true
 categories:
 - teams
 - unix
+excerpt_separator: <!-- more -->
 ---
 
 I work on a large engineering team. The main Slack channel for our engineering department has 425 people in it. The code base is split into many repositories, dominated by a big Ruby on Rails application with many contributors. At the time of writing, the last 1,000 commits in `master` on that repository where made by 169 contributors.
 
 The continuous integration for said mono-repo is heavily parallelized but still takes ~30 minutes to complete. Occasionally, a branch is merged that causes the build to fail. Usually, the case is that the specs worked correctly for that branch (otherwise we can't merge), but new changes in `master` are not compatible. As hard as the team tries to maintain a green build (i.e. a build that passes and is deployable), a red build is somewhat frequent.
+
+<!-- more -->
 
 Branching-off for new work from a commit that is not green guarantees that, later down the line, _your_ branches build will fail, even if your code is nowhere near the failures. The solution is to merge master (hopefully green this by now!), and wait for new builds.
 

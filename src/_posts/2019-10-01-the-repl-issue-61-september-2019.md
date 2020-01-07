@@ -5,6 +5,7 @@ date: 2019-10-01 13:04:50 -0700
 comments: true
 categories:
 - the repl
+excerpt_separator: <!-- more -->
 ---
 ### [Building A Relational Database Using Kafka][1]
 
