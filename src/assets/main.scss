@@ -14,6 +14,10 @@ $base-font-family: -apple-system, system-ui, BlinkMacSystemFont,
 
 @import "whiteglass";
 
+header .wrapper {
+  background-color: $grey-color-light;
+}
+
 img.center {
   display: block;
   margin-left: auto;
