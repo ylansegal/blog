@@ -225,6 +225,12 @@ Effectively, we can think of Heroku deployments with release phase, as a short-d
 
 If your app needs are not yet satisfied, there are ways that we can improve on the previous method. As we saw, the app's boot time is main driver in the delay of request handling. We can improve Rails' boot time only so much. What if we boot the new processes before stopping the old ones? This is exactly what [Heroku's Preboot](preboot) does.
 
+Heroku Preboot -- and many other deployment pipelines -- work by booting the processes with `V1` without stopping the `V0` processes. Once all the new processes are healthy and receiving traffic, old processes are stopped. Effectively, ensuring that request are served continuously. Similar techniques can be used using container orchestration frameworkd (e.g. Docker Compose, Kubernetes) or vendor-specific technologies (e.g. AWS Elastic Load Balancers, Auto-Scaling Groups, etc).
+
+<img src="/assets/images/diagrams/preboot_deployment.png" alt="Preboot Deployment" class="center">
+
+In this timing diagram, we continue to enforce the constraints we identified with regards to code version and schema state: `V0` runs with either schema `S0` or `S1`, and `V1` runs only with schema `S1`. Critically, this type of deployment introduces something new: Both `V0` and `V1` are going to be running -- and receiving -- traffic at the same type. This `V0/V1` - `S1` configuration will introduce several complications. Let's see a few examples.
+
 [heroku]: https://www.heroku.com/
 [release_phase]: https://devcenter.heroku.com/articles/release-phase
 [preboot]: https://devcenter.heroku.com/articles/preboot
