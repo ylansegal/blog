@@ -1,0 +1,23 @@
+@startuml
+Title Feature Flag Deployment - Timing Diagram
+
+concise "Code Version" as code_v0
+concise "Code Version" as code_v1
+concise "Database Schema State" as db_state
+scale 10 as 200 pixels
+
+code_v0 is "V0"
+db_state is "S0"
+
+@code_v0
+23 is {hidden}
+
+@code_v1
+20 is "'Soft' V0"
+25 is "V1"
+
+@db_state
+15 is "S0 -> S1"
+20 is "S1"
+
+@enduml

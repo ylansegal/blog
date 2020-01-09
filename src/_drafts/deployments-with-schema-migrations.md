@@ -225,27 +225,44 @@ Effectively, we can think of Heroku deployments with release phase, as a short-d
 
 If your app needs are not yet satisfied, there are ways that we can improve on the previous method. As we saw, the app's boot time is main driver in the delay of request handling. We can improve Rails' boot time only so much. What if we boot the new processes before stopping the old ones? This is exactly what [Heroku's Preboot](preboot) does.
 
-Heroku Preboot -- and many other deployment pipelines -- work by booting the processes with `V1` without stopping the `V0` processes. Once all the new processes are healthy and receiving traffic, old processes are stopped. Effectively, ensuring that request are served continuously. Similar techniques can be used using container orchestration frameworkd (e.g. Docker Compose, Kubernetes) or vendor-specific technologies (e.g. AWS Elastic Load Balancers, Auto-Scaling Groups, etc).
+Heroku Preboot -- and many other deployment pipelines -- work by booting the processes with `V1` without stopping the `V0` processes. Once all the new processes are healthy and receiving traffic, old processes are stopped. Effectively, ensuring that request are served continuously. Similar techniques can be used using container orchestration frameworks (e.g. Docker Compose, Kubernetes) or vendor-specific technologies (e.g. AWS Elastic Load Balancers, Auto-Scaling Groups, etc).
 
 <img src="/assets/images/diagrams/preboot_deployment.png" alt="Preboot Deployment" class="center">
 
 In this timing diagram, we continue to enforce the constraints we identified with regards to code version and schema state: `V0` runs with either schema `S0` or `S1`, and `V1` runs only with schema `S1`. Critically, this type of deployment introduces something new: Both `V0` and `V1` are going to be running -- and receiving -- traffic at the same type. This `V0/V1` - `S1` configuration will introduce several complications. Let's see a few examples.
 
+A user loads one of our blog post. The request gets routed to a server running `V0`, so he doesn't see any comments. Other requests may be routed to a `V1` server. Those request _will_ show comments. For the duration of the `V0/V1` interval this will be the case. Users might not even notice that sometimes comments are shown and sometimes they are not. In this case, this might not seem like a big deal, but consider other features introduced in a deployment, like a long awaited release of a new iPhone.
+
+Since `V1` is ready for comments, each of our blog pages now shows a form to submit a new comment. What happens if a user submits the form ("First!") and the `POST` request gets routed to the `/post/:id/comments` endpoint on a `V0` server? That endpoint doesn't even exist. This will likely result in a 500 error from the server, and reporting to our error tracker (e.g. Bugsnag, Airbrake, etc). If we are not thinking about this possibility the reports will look incoherent and we won't be able to reproduce in a development environment.
+
+A similar issue will happen with background workers. Let's say that `V1` introduces a new background worker `CommentNotifierWorker`. Its execution is scheduled on each comment creation. During deployment, a `V0` might pick up that job, only to fail immediately because it can't instantiate that class. The default [Sidekiq][sidekiq] configuration will retry jobs with an exponential back-off, which more than likely result in the job being retried later by a `V1` worker, providing some resiliency. However, it is not ideal to rely on that. For some workers, retrying is not an option either (e.g. processing a credit card transaction).
+
+The interaction between different versions of code running simultaneously can be complex and hard to reason about. Its non-deterministic nature also makes it difficult to simulate in a QA environment. Can we avoid it? A few strategies come to mind.
+
+Session affinity, also known as sticky sessions, can provide some relief. Systems that have session affinity route all requests from the same user (typically identified by a cookie) to the same server. Traditionally they are used for systems that keep state in memory, and would otherwise not have access to the user's data. For the purposes of this discussion, it would help us ensure that users only saw one of the two versions, but not both. While that approach could work for web requests, it does not help with background workers. Also, keep in mind that session affinity has fallen out of favor because of its scaling considerations. Heavy users can overload their servers, while the rest of the system is idle. In contrast, when any request can be fielded by any server, resources are typically better utilized.
+
+Another approach is the use of feature flags: New code paths are introduced with conditionals that depend on a run-time setting. For example, `V1` view code could show the comments (and the comment form) only when a runtime flag is enabled. The flag would stay disabled until after the deployment.
+
+<img src="/assets/images/diagrams/feature_flag_deployment.png" alt="Preboot Deployment" class="center">
+
+Our `V0/V1` interval now becomes a `V0/'Soft' V0` interval. `'Soft' V0` is the mode in which `V1` runs when the feature flag is disabled. We've made some strides in making it easier to reason about multiple versions of code running at once, at the expense of introducing more complexity in our code, and adding a whole new configuration -- `'Soft' V0` - `S1` -- for QA to test. We've also now have the burden to remove the feature flag conditionals in the code in a follow-up deployment, and the effort that goes along with that.
+
+# Closing Thoughts
+
+In this post I discussed some of the issues with deploying code with migrations. First we discussed how to reason about which "side" of the code swap we want to run our migrations. We limited our example to purely additive migrations. I did not discuss other types of migrations (e.g. removing a table, renaming a column) in this post. I intend to cover them in the future.
+
+Then we discussed how our deployment strategy matters in how we code our system. A down-time deployment is the easiest to reason about. A Heroku-style deployment improves on that, while still maintaining simple code semantics. True non-downtime deployments cause inescapable complexity. We saw a few ways to deal with it.
+
+I also left for a later post a discussion of the issues that result from changing the schema in large databases, while it continues to receive traffic. Those concerns will also impose further constraints. For a peek at some of those strategies see the [strong_mirations][strong_mirations] gem.
+
 [heroku]: https://www.heroku.com/
 [release_phase]: https://devcenter.heroku.com/articles/release-phase
 [preboot]: https://devcenter.heroku.com/articles/preboot
+[sidekiq]: https://sidekiq.org/
+[strong_mirations]: https://github.com/ankane/strong_migrations
 
 # TODO:
 - [ ] add date
 - [ ] Diagrams
 - [ ] Finish content
-  - [ ] Use heroku as an example of short-downtime deployment.
-    -> Describe sequence of events
-    https://devcenter.heroku.com/articles/release-phase
-    -> Diagram
-    -> How do rollbacks even work? How are migrations rolled back?
-  - [ ] Preboot: https://devcenter.heroku.com/articles/preboot
-    -> This is similar to Procore's deployment. Multiple versions of code are running at once.
-    -> In this area talk about issues with different code running at once: Posting to non-existent endpoints,
-      workers not having classes, etc.
 - [ ] excerpt
