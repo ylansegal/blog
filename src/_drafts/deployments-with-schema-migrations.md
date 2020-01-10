@@ -13,7 +13,7 @@ A lot of web frameworks provide similar features. In the rest of the post I will
 
 # A New Feature
 
-For the sake of an example, let us assume we are building a blog. Our database has a `posts` table that holds a single post on each row. Our blog as been so successful, that our product team wants us to implement a commenting system, in which each post has many comments.
+For the sake of example, let us assume we are building a blog. Our database has a `posts` table that holds a single post on each row. Our blog as been so successful, that our product team wants us to implement a commenting system, in which each post has many comments.
 
 We start with our initial code (`V0`), and an initial database state (`S0`):
 
@@ -79,22 +79,22 @@ end
 add_foreign_key "comments", "posts"
 ```
 
-The `db/schema.rb` are provided for reference: They are typically not be used in production, as the database will be evolved by running `rails db:migrate` which will run any pending migrations in order.
+The `db/schema.rb` examples are provided for reference as a stand-in for the database structure. They are typically not be used in production, as the database will be evolved by running `rails db:migrate` which will run any pending migrations in order.
 
 # Downtime Deployment
 
-Conceptually, the simplest deployment is one were our web app incurs some downtime. In this scenario, the sequence of operations is as follows:
+Conceptually, the simplest deployment is one were our web app incurs some downtime. In thisth scenario, the sequence of operations is as follows:
 
 1. Redirect all traffic to a maintenance page.
 2. Stop our processes running `V0`
 3. Install the new version of the code `V1`
-4. Run database migrations, changing the database schema from `S0` to `S1`.
+4. Run database migrations
 5. Boot `V1` processes
 6. Restore traffic to the web application.
 
 <img src="/assets/images/diagrams/downtime_deployment.png" alt="Downtime Deployment" class="center">
 
-As the diagram illustrates, `V0` always runs with schema `S0`, and `V1` always runs with `S1`. The migration `S0 -> S1` runs during the dowtime.
+In the diagram `S0 -> S1` represents the migration that changes the state of the database from `S0` to `S1`. It runs during the downtime. Note that `V0` always runs with schema `S0`, and `V1` always runs with `S1`.
 
 ## Rollback
 
@@ -102,17 +102,17 @@ In case we need to rollback the deployment, we would do so by doing the inverse 
 
 <img src="/assets/images/diagrams/downtime_rollback.png" alt="Downtime Rollback" class="center">
 
-Note that since the code for the migration -- the instructions to convert `S0` to `S1` and viceversa -- exists only in the `S1` code. This needs to be taken into account when swapping code during the deployment process.
+Note that since the code for the migration -- the instructions to convert `S0` to `S1` and vice-versa -- exists only in the `S1` code. This needs to be taken into account when swapping code during the deployment process.
 
-Deploying and rolling back with downtime is stable, but not always desirable. Businesses usually aim to minimize downtime. The current trend in continuous deployments is to deploy small increments of code multiple times a day. Taking downtime on each deployment is unacceptable.
+Deploying and rolling back with downtime is straightforward, but not always desirable. Businesses usually aim to minimize downtime. The current trend in continuous deployments is to deploy small increments of code multiple times a day. Taking downtime on each deployment is unacceptable.
 
 # The Simplest Non-Downtime Deployment
 
-The simplest non-downtime deployment I can imagine is an instantaneous one. Our server is running `V0`. An instance later, the code swapped and the server is running `V1`. Cleary, this type of deployment does not exist, but please follow along for the thought exercise.
+As a though exercise, let's imagine an instantaneous deployment: At a given moment in time our server is running `V0`. An instance later, the code swapped and the server is running `V1`.
 
 In this scenario, when do we run our migration? Before or after the code is swapped?
 
-Since we have been writing tests all along to develop our features, we are confident that `V0` is compatible with `S0`, and `V1` is compatible with `S1`. The other possible configuration are `V1`-`S0` and `V0`-`S1`.
+Since we have been writing tests all along to develop our features, we are confident that `V0` is compatible with `S0`, and `V1` is compatible with `S1`. The other possible configuration are `V1`-`S0` and `V0`-`S1`. Are they viable?
 
 Our `S1` code clearly relies on the `comments` table existing in the database (`S1`). If the code boots and the table is missing, we will get exceptions similar to:
 
@@ -121,9 +121,9 @@ post.comments
 # => ActiveRecord::StatementInvalid (PG::UndefinedTable: ERROR:  relation "comments" does not exist)
 ```
 
-In development and test environments, Rails does it best to be helpful and will let you know that migrations are pending, so that you don't encounter this problem. In production mode, however this will not be the case. The rails tooling makes it hard to test this configuration.
+In development and test environments, Rails does it best to be helpful. It will let you know that migrations are pending, preventing you from encountering this problem. In production mode, this will not be the case. While the Rails tooling makes it hard to test this configuration, we can still observe that code that relies on a database structure that is not there is destined to fail, and conclude that `V1`-`S0` is not a viable configuration.
 
-As defined, `S1` is purely additive -- meaning new things are added, nothing removed, nothing changed. The implication is that `V0` code is compatible with `S0` *and* `S1`. We can test this combination by creating a branch that has the `V0` code, and the `S1` migrations, but does not include any of the `V1` changes. If all the tests pass against this configuration, it gives us confidence that this is a compatible state. This branch does not need to be deployed, it serves only as a canary.
+What about `V0`-`S1`? As defined, `S1` is purely additive -- meaning new things are added, nothing removed. The implication is that `V0` code is compatible with `S0` *and* `S1`. We can test this combination by creating a branch that has the `V0` code, and the `S1` migrations, but does not include any of the `V1` changes. If all the tests pass against this configuration, it gives us confidence that this is a compatible state. This branch does not need to be deployed, it serves only as a canary.
 
 We can tabulate the above in a compatibility matrix:
 
@@ -142,11 +142,11 @@ In case that a rollback is needed we would be in a position in which `V1` is run
 
 <img src="/assets/images/diagrams/instant_rollback.png" alt="Instantaneous Rollack" class="center">
 
-So far, we've determine on which side of the code swap our migration needs to run. In the diagram the migration is labeled as `S0 -> S1`, and is show as taking a certain amount of time. During this period, we can't be sure in which state (`S0` or `S1`) our database is in, but we know that `V0` is compatible either way. Do we have to worry about an state in-between `S0` and `S1`? It depends. The [Rails documentation](https://guides.rubyonrails.org/active_record_migrations.html#migration-overview) states:
+We've determine on which side of the code swap our migration needs to run. `S0 -> S1` is shown as taking a certain amount of time. During this period, we can't be sure in which state (`S0` or `S1`) our database is in, but we know that `V0` is compatible either way. Do we have to worry about what state in-between `S0` and `S1`? It depends. The [Rails documentation](https://guides.rubyonrails.org/active_record_migrations.html#migration-overview) states:
 
 > On databases that support transactions with statements that change the schema, migrations are wrapped in a transaction. If the database does not support this then when a migration fails the parts of it that succeeded will not be rolled back. You will have to rollback the changes that were made by hand.
 
-If you are using Postgres, transaction support ensures that you are in either `S0` or `S1`. For other databases, like MySQL, this might not be true for all migrations. In our example, the migration produces one -- and only one -- data definition statement. It will either succeed or fail. Even if transactions are not supported, we probably don't need to worry. For the purpose of the rest of the post, I will assume then that we can be sure that our database is either in `S0` or `S1`, and that `SO -> S1` implies that we could be in either state.
+If you are using Postgres, transaction support ensures that you are in either `S0` or `S1`, as long as you are making changes in a single migration. For other databases, like MySQL, this is not the case. In our example, the migration produces one -- and only one -- data definition statement (`CREATE TABLE...`). It will either succeed or fail. Even if transactions are not supported, we probably don't need to worry. For the purpose of the rest of the post, I will assume then that we can be sure that our database is either in `S0` or `S1`, and that `SO -> S1` implies that we could be in either state.
 
 # Short-Downtime Deployment
 
@@ -157,9 +157,9 @@ web: bundle exec puma -p $PORT -e $RAILS_ENV
 sidekiq: bundle exec sidekiq
 ```
 
-Every time git's `master` branch is pushed to Heroku's remote server, the code will be packaged, existing processes (in this case `web` and `sidekiq`) will be gracefully terminated and restarted using the new code package. Without any other configuration, no migrations will be run. The developer is left to run them manually either before or after the deployment.
+Every time git's `master` branch is pushed to Heroku's remote server, the code will be packaged, existing processes (in this case `web` and `sidekiq`) will be gracefully terminated, and subsecuently restarted using the new code package. Without any other configuration, no migrations will be run. The developer is left to run them manually either before or after the deployment.
 
-A more robust and automated deployment would take advantage of [Heroku's Release Phase][release_phase]. This is a special type of process that runs on each deployment and can be specified in the `Procfile`:
+A more robust and automated deployment would take advantage of [Heroku's Release Phase][release_phase]. This is a special type of process that runs on each deployment and can be specified in the `Procfile` as follows:
 
 ```
 release: bundle exec rake db:migrate
@@ -167,11 +167,11 @@ web: bundle exec puma -p $PORT -e $RAILS_ENV
 sidekiq: bundle exec sidekiq
 ```
 
-With a `release` command in place, Heroku will executing *after* packaging `V1`, but *before* stopping the existing processes (`V0`) and restarting with the new code (`V1`).
+With a `release` process definition in place, Heroku will execute it *after* packaging `V1`, but *before* stopping the existing processes (`V0`) and restarting with the new code (`V1`).
 
 <img src="/assets/images/diagrams/heroku_deployment.png" alt="Heroku Deployment" class="center">
 
-In our code example, we identified that the migration needs to run on the `V0` side of the deployment, wich matches the "Heroku way". The diagram shows a brief interval in which neither `V0` or `V1` is running. This is the pause between the shutdown of old processes and starting of new ones. A partial log (edited for clarity) shows this pause:
+In our code example, we identified that the migration needs to run on the `V0` side of the deployment, which matches the "Heroku way". The diagram shows a brief interval in which neither `V0` or `V1` is running. This is the pause between the shutdown of old processes and starting of new ones. A partial log (edited for clarity) shows this pause:
 
 
 Heroku deployment log:
@@ -217,9 +217,9 @@ Once the migrations are done, the `web` workers are sent a shut down signal. The
 
 Is that acceptable? It depends on your application. For this particular deployment, the Rails application is as small as they come. It has but a handful of models and gems, and can boot in development mode in under 2 seconds. Typical Rails apps take significantly longer to boot, because they have larger code bases and include many more gems. It's not uncommon for applications to take close to one minute to boot in production.
 
-Another consideration is the amount of traffic to the app. If we field a couple of request per second and have a pause of 10 seconds, we won't see more than a few dozens requests queued up. Our application would probably catch up in a few seconds and no request would be dropped.On the other hand, higher traffic apps with longer boot times might not be so lucky.
+Another consideration is the amount of traffic to the app. If we field a couple of request per second and have a pause of 10 seconds, we won't see more than a few dozens requests queued up. Our application would probably catch up in a few seconds and no request would be dropped. On the other hand, higher traffic apps with longer boot times might not be so lucky.
 
-Effectively, we can think of Heroku deployments with release phase, as a short-downtime deployment. It provides an automated way to run migrations (on one side of the code-swap), it ensures that only one version of the code is running at any one time, it is relatively simple to reason about, and more importantly, it's accessible to any developer with one line of configuration.
+Effectively, we can think of Heroku deployments with release phase, as a short-downtime deployment. It provides an automated way to run migrations (albeit by restricting them to running *before* the code swap), it ensures that only one version of the code is running at any one time, it is relatively simple to reason about, and more importantly, it's accessible to any developer with one line of configuration.
 
 # No Downtime Deployments
 
@@ -249,7 +249,7 @@ Our `V0/V1` interval now becomes a `V0/'Soft' V0` interval. `'Soft' V0` is the m
 
 # Closing Thoughts
 
-In this post I discussed some of the issues with deploying code with migrations. First we discussed how to reason about which "side" of the code swap we want to run our migrations. We limited our example to purely additive migrations. I did not discuss other types of migrations (e.g. removing a table, renaming a column) in this post. I intend to cover them in the future.
+In this post I discussed some of the issues with deploying code with migrations. First we discussed how to reason about which "side" of the code swap we want to run our migrations. We limited our example to purely additive migrations. I did not discuss other types of migrations (e.g. removing a table, renaming a column) in this post.
 
 Then we discussed how our deployment strategy matters in how we code our system. A down-time deployment is the easiest to reason about. A Heroku-style deployment improves on that, while still maintaining simple code semantics. True non-downtime deployments cause inescapable complexity. We saw a few ways to deal with it.
 
@@ -266,3 +266,4 @@ I also left for a later post a discussion of the issues that result from changin
 - [ ] Diagrams
 - [ ] Finish content
 - [ ] excerpt
+- [ ] Add caption to diagrams: https://stackoverflow.com/questions/19331362/using-an-image-caption-in-markdown-jekyll
