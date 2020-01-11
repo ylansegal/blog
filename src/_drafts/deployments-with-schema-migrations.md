@@ -92,7 +92,7 @@ Conceptually, the simplest deployment is one were our web app incurs some downti
 5. Boot `V1` processes
 6. Restore traffic to the web application.
 
-<img src="/assets/images/diagrams/downtime_deployment.png" alt="Downtime Deployment" class="center">
+{% include figure.html url="/assets/images/diagrams/downtime_deployment.png" description="Fig 1: Downtime Deployment" %}
 
 In the diagram `S0 -> S1` represents the migration that changes the state of the database from `S0` to `S1`. It runs during the downtime. Note that `V0` always runs with schema `S0`, and `V1` always runs with `S1`.
 
@@ -100,7 +100,7 @@ In the diagram `S0 -> S1` represents the migration that changes the state of the
 
 In case we need to rollback the deployment, we would do so by doing the inverse deployment. The migration would run in a "down" migration durning the downtime:
 
-<img src="/assets/images/diagrams/downtime_rollback.png" alt="Downtime Rollback" class="center">
+{% include figure.html url="/assets/images/diagrams/downtime_rollback.png" description="Fig 2: Downtime Rollback" %}
 
 Note that since the code for the migration -- the instructions to convert `S0` to `S1` and vice-versa -- exists only in the `S1` code. This needs to be taken into account when swapping code during the deployment process.
 
@@ -136,11 +136,11 @@ We can tabulate the above in a compatibility matrix:
 
 Given the above, we can deduce that during our deployment, the migrations need to run *before* the code-swap phase.
 
-<img src="/assets/images/diagrams/instant_deployment.png" alt="Instantaneous Deployment" class="center">
+{% include figure.html url="/assets/images/diagrams/instant_deployment.png" description="Fig 3: Instantaneous Deployment" %}
 
 In case that a rollback is needed we would be in a position in which `V1` is running on an `S1` schema. It continues to be true that `V1` is only compatible with `S1`. The implication is that the migration rollback needs to occur *after* the code-swap. If at all. Depending on what went wrong, sometimes a code swap without the database migration is enough to address issues.
 
-<img src="/assets/images/diagrams/instant_rollback.png" alt="Instantaneous Rollack" class="center">
+{% include figure.html url="/assets/images/diagrams/instant_rollback.png" description="Fig 4: Instantaneous Rollback" %}
 
 We've determine on which side of the code swap our migration needs to run. `S0 -> S1` is shown as taking a certain amount of time. During this period, we can't be sure in which state (`S0` or `S1`) our database is in, but we know that `V0` is compatible either way. Do we have to worry about what state in-between `S0` and `S1`? It depends. The [Rails documentation](https://guides.rubyonrails.org/active_record_migrations.html#migration-overview) states:
 
@@ -169,7 +169,7 @@ sidekiq: bundle exec sidekiq
 
 With a `release` process definition in place, Heroku will execute it *after* packaging `V1`, but *before* stopping the existing processes (`V0`) and restarting with the new code (`V1`).
 
-<img src="/assets/images/diagrams/heroku_deployment.png" alt="Heroku Deployment" class="center">
+{% include figure.html url="/assets/images/diagrams/heroku_deployment.png" description="Fig 5: Heroku Deployment" %}
 
 In our code example, we identified that the migration needs to run on the `V0` side of the deployment, which matches the "Heroku way". The diagram shows a brief interval in which neither `V0` or `V1` is running. This is the pause between the shutdown of old processes and starting of new ones. A partial log (edited for clarity) shows this pause:
 
@@ -227,7 +227,7 @@ If your app needs are not yet satisfied, there are ways that we can improve on t
 
 Heroku Preboot -- and many other deployment pipelines -- work by booting the processes with `V1` without stopping the `V0` processes. Once all the new processes are healthy and receiving traffic, old processes are stopped. Effectively, ensuring that request are served continuously. Similar techniques can be used using container orchestration frameworks (e.g. Docker Compose, Kubernetes) or vendor-specific technologies (e.g. AWS Elastic Load Balancers, Auto-Scaling Groups, etc).
 
-<img src="/assets/images/diagrams/preboot_deployment.png" alt="Preboot Deployment" class="center">
+{% include figure.html url="/assets/images/diagrams/preboot_deployment.png" description="Fig 6: Preboot Deployment" %}
 
 In this timing diagram, we continue to enforce the constraints we identified with regards to code version and schema state. `V0` runs with either schema `S0` or `S1`, and `V1` runs only with schema `S1`. Critically, this type of deployment introduces something new: Both `V0` and `V1` are going to be running -- and receiving -- traffic at the same type. This `V0/V1` - `S1` configuration will introduce several complications. Let's see a few examples.
 
@@ -260,10 +260,3 @@ Also left out of this post is a discussion about changing the schema in large da
 [preboot]: https://devcenter.heroku.com/articles/preboot
 [sidekiq]: https://sidekiq.org/
 [strong_mirations]: https://github.com/ankane/strong_migrations
-
-# TODO:
-- [ ] add date
-- [ ] Diagrams
-- [ ] Finish content
-- [ ] excerpt
-- [ ] Add caption to diagrams: https://stackoverflow.com/questions/19331362/using-an-image-caption-in-markdown-jekyll

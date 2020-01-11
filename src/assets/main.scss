@@ -24,6 +24,16 @@ img.center {
   margin-right: auto;
 }
 
+figure img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+figcaption {
+  text-align: center;
+}
+
 thead tr {
   background: $grey-color-light;
 }
