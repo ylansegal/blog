@@ -1,0 +1,2 @@
+ Sitemap: http://ylan.segal-family.com/sitemap.xml
+ Disallow: /drafts/*
