@@ -110,7 +110,7 @@ Deploying and rolling back with downtime is straightforward, but not always desi
 
 # The Simplest Non-Downtime Deployment
 
-As a though exercise, let's imagine an instantaneous deployment: At a given moment in time our server is running `V0`. An instance later, the code swapped and the server is running `V1`.
+As a thought exercise, let's imagine an instantaneous deployment: At a given moment in time our server is running `V0`. An instance later, the code swapped and the server is running `V1`.
 
 In this scenario, when do we run our migration? Before or after the code is swapped?
 
