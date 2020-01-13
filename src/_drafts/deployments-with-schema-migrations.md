@@ -143,7 +143,7 @@ In case that a rollback is needed we would be in a position in which `V1` is run
 
 {% include figure.html url="/assets/images/diagrams/instant_rollback.png" description="Fig 4: Instantaneous Rollback" %}
 
-We've determine on which side of the code swap our migration needs to run. `S0 -> S1` is shown as taking a certain amount of time. During this period, we can't be sure in which state (`S0` or `S1`) our database is in, but we know that `V0` is compatible either way. Do we have to worry about what state in-between `S0` and `S1`? It depends. The [Rails documentation](https://guides.rubyonrails.org/active_record_migrations.html#migration-overview) states:
+We've determined on which side of the code swap our migration needs to run. `S0 -> S1` is shown as taking a certain amount of time. During this period, we can't be sure in which state (`S0` or `S1`) our database is in, but we know that `V0` is compatible either way. Do we have to worry about what state in-between `S0` and `S1`? It depends. The [Rails documentation](https://guides.rubyonrails.org/active_record_migrations.html#migration-overview) states:
 
 > On databases that support transactions with statements that change the schema, migrations are wrapped in a transaction. If the database does not support this then when a migration fails the parts of it that succeeded will not be rolled back. You will have to rollback the changes that were made by hand.
 
@@ -222,7 +222,7 @@ Another consideration is the amount of traffic to the app. If we field a couple 
 
 Effectively, we can think of Heroku deployments with release phase, as a short-downtime deployment. It provides an automated way to run migrations (albeit by restricting them to running *before* the code swap), it ensures that only one version of the code is running at any one time, it is relatively simple to reason about, and more importantly, it's accessible to any developer with one line of configuration.
 
-# No Downtime Deployments
+# No Downtime Deployment
 
 If your app needs are not yet satisfied, there are ways that we can improve on the previous method. As we saw, the app's boot time is main driver in the delay of request handling. We can improve Rails' boot time only so much. What if we boot the new processes before stopping the old ones? This is exactly what [Heroku's Preboot][preboot] does.
 
