@@ -12,7 +12,7 @@ DIAGRAM_SOURCES = $(shell find src/_diagrams/*.plantuml | sed 's,src/_diagrams,s
 DIAGRAM_FILES= $(DIAGRAM_SOURCES:.plantuml=.png)
 DRAFT_FILES = $(shell find src/drafts/*.md | sed 's,src/_drafts,src/drafts,')
 
-.PHONY: build build_with_drafts deploy_with_drafts diagrams
+.PHONY: build build_with_drafts deploy_with_drafts diagrams clean
 
 Gemfile.lock: Gemfile
 	bundle install
@@ -36,3 +36,7 @@ src/assets/images/diagrams/%.png: src/_diagrams/%.plantuml
 
 src/drafts/%: src/_drafts/%
 	cp $< $@
+
+clean:
+	rm $(DIAGRAM_FILES)
+	rm $(DRAFT_FILES)
