@@ -4,4 +4,5 @@
 .sass-cache
 _site
 src/assets/images/diagrams
+src/drafts
 vendor
