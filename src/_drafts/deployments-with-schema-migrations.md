@@ -96,7 +96,7 @@ Conceptually, the simplest deployment is one were our web app incurs some downti
 
 {% include figure.html url="/assets/images/diagrams/downtime_deployment.png" description="Fig 1: Downtime Deployment" %}
 
-In the diagram `S0 -> S1` represents the migration that changes the state of the database from `S0` to `S1`. It runs during the downtime. Note that `V0` always runs with schema `S0`, and `V1` always runs with `S1`.
+In Figure 1,  `S0 -> S1` represents the migration that changes the state of the database from `S0` to `S1`. It runs during the downtime. Note that `V0` always runs with schema `S0`, and `V1` always runs with `S1`.
 
 ## Rollback
 
@@ -116,26 +116,26 @@ In this scenario, when do we run our migration? Before or after the code is swap
 
 Since we have been writing tests all along to develop our features, we are confident that `V0` is compatible with `S0`, and `V1` is compatible with `S1`. The other possible configuration are `V1`-`S0` and `V0`-`S1`. Are they viable?
 
-Our `S1` code clearly relies on the `comments` table existing in the database (`S1`). If the code boots and the table is missing, we will get exceptions similar to:
+Our `S1` code relies on the `comments` table existing in the database (`S1`). If the code boots and the table is missing, we will get exceptions similar to:
 
 ```ruby
 post.comments
 # => ActiveRecord::StatementInvalid (PG::UndefinedTable: ERROR:  relation "comments" does not exist)
 ```
 
-In development and test environments, Rails does it best to be helpful. It will let you know that migrations are pending, preventing you from encountering this problem. In production mode, this will not be the case. While the Rails tooling makes it hard to test this configuration, we can still observe that code that relies on a database structure that is not there is destined to fail, and conclude that `V1`-`S0` is not a viable configuration.
+The Rails tooling makes it hard to test this configuration. For example, in development requests will not execute if there pending migrations, with an error message being shown directing you to run them. The underlying assumption is that your code will *not* work without running the migrations. We can observe that is the case in our example and conclude that `V1`-`S0` is not a viable configuration.
 
 What about `V0`-`S1`? As defined, `S1` is purely additive -- meaning new things are added, nothing removed. The implication is that `V0` code is compatible with `S0` *and* `S1`. We can test this combination by creating a branch that has the `V0` code, and the `S1` migrations, but does not include any of the `V1` changes. If all the tests pass against this configuration, it gives us confidence that this is a compatible state. This branch does not need to be deployed, it serves only as a canary.
 
 We can tabulate the above in a compatibility matrix:
 
-|          | `V0` | `V1` |
+|          | `S0` | `S1` |
 |:--------:|:----:|:----:|
-| **`S0`** |  ✓   |  ✓   |
-| **`S1`** |  ✓   |  𐄂  |
+| **`V0`** |  ✓   |  ✓   |
+| **`V1`** |  𐄂  |  ✓   |
 
 
-Given the above, we can deduce that during our deployment, the migrations need to run *before* the code-swap phase.
+We can deduce that during our deployment, the migrations need to run *before* the code-swap phase, to prevent the only incompatible configuration (i.e. `V1`-`S0`).
 
 {% include figure.html url="/assets/images/diagrams/instant_deployment.png" description="Fig 3: Instantaneous Deployment" %}
 
@@ -158,7 +158,7 @@ web: bundle exec puma -p $PORT -e $RAILS_ENV
 sidekiq: bundle exec sidekiq
 ```
 
-Every time git's `master` branch is pushed to Heroku's remote server, the code will be packaged, existing processes (in this case `web` and `sidekiq`) will be gracefully terminated, and subsecuently restarted using the new code package. Without any other configuration, no migrations will be run. The developer is left to run them manually either before or after the deployment.
+Every time git's `master` branch is pushed to Heroku's remote server, the code will be packaged, existing processes (in this case `web` and `sidekiq`) will be gracefully terminated, and subsequently restarted using the new code package. Without any other configuration, no migrations will be run. The developer is left to run them manually either before or after the deployment.
 
 A more robust and automated deployment would take advantage of [Heroku's Release Phase][release_phase]. This is a special type of process that runs on each deployment and can be specified in the `Procfile` as follows:
 
@@ -230,7 +230,7 @@ Heroku Preboot -- and many other deployment pipelines -- work by booting the pro
 
 {% include figure.html url="/assets/images/diagrams/preboot_deployment.png" description="Fig 6: Preboot Deployment" %}
 
-In this timing diagram, we continue to enforce the constraints we identified with regards to code version and schema state. `V0` runs with either schema `S0` or `S1`, and `V1` runs only with schema `S1`. Critically, this type of deployment introduces something new: Both `V0` and `V1` are going to be running -- and receiving -- traffic at the same type. This `V0/V1` - `S1` configuration will introduce several complications. Let's see a few examples.
+Figure 6 illustrates that we continue to enforce the constraints we identified with regards to code version and schema state. `V0` runs with either schema `S0` or `S1`, and `V1` runs only with schema `S1`. Critically, this type of deployment introduces something new: Both `V0` and `V1` are going to be running -- and receiving -- traffic at the same type. This `V0/V1` - `S1` configuration will introduce several complications. Let's see a few examples.
 
 A user loads one of our blog post. The request gets routed to a server running `V0`, so they doesn't see any comments. Other requests may be routed to a `V1` server. Those request _will_ show comments. For the duration of the `V0/V1` interval this will be the case. Users might not even notice that sometimes comments are shown and sometimes they are not. In this case, this might not seem like a big deal, but consider other features introduced in a deployment, like a long awaited release of a new iPhone.
 
