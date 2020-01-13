@@ -224,13 +224,13 @@ Effectively, we can think of Heroku deployments with release phase, as a short-d
 
 # No Downtime Deployments
 
-If your app needs are not yet satisfied, there are ways that we can improve on the previous method. As we saw, the app's boot time is main driver in the delay of request handling. We can improve Rails' boot time only so much. What if we boot the new processes before stopping the old ones? This is exactly what [Heroku's Preboot](preboot) does.
+If your app needs are not yet satisfied, there are ways that we can improve on the previous method. As we saw, the app's boot time is main driver in the delay of request handling. We can improve Rails' boot time only so much. What if we boot the new processes before stopping the old ones? This is exactly what [Heroku's Preboot][preboot] does.
 
 Heroku Preboot -- and many other deployment pipelines -- work by booting the processes with `V1` without stopping the `V0` processes. Once all the new processes are healthy and receiving traffic, old processes are stopped. Effectively, ensuring that request are served continuously. Similar techniques can be used using container orchestration frameworks (e.g. Docker Compose, Kubernetes) or vendor-specific technologies (e.g. AWS Elastic Load Balancers, Auto-Scaling Groups, etc).
 
 {% include figure.html url="/assets/images/diagrams/preboot_deployment.png" description="Fig 6: Preboot Deployment" %}
 
-Figure 6 illustrates that we continue to enforce the constraints we identified with regards to code version and schema state. `V0` runs with either schema `S0` or `S1`, and `V1` runs only with schema `S1`. Critically, this type of deployment introduces something new: Both `V0` and `V1` are going to be running -- and receiving -- traffic at the same type. This `V0/V1` - `S1` configuration will introduce several complications. Let's see a few examples.
+Figure 6 illustrates that we continue to enforce the constraints we identified with regards to code version and schema state. `V0` runs with either schema `S0` or `S1`, and `V1` runs only with schema `S1`. Critically, this type of deployment introduces something new: Both `V0` and `V1` are going to be running -- and receiving -- traffic at the same time. This `V0/V1` - `S1` configuration will introduce several complications. Let's see a few examples.
 
 A user loads one of our blog post. The request gets routed to a server running `V0`, so they doesn't see any comments. Other requests may be routed to a `V1` server. Those request _will_ show comments. For the duration of the `V0/V1` interval this will be the case. Users might not even notice that sometimes comments are shown and sometimes they are not. In this case, this might not seem like a big deal, but consider other features introduced in a deployment, like a long awaited release of a new iPhone.
 
