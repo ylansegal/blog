@@ -5,9 +5,11 @@ categories:
 - deployment
 - rails
 - heroku
+sitemap: false
 ---
 
 The typical web application runs application processes separately from its database process. More often than not, in different servers altogether. As applications evolve, it is common for new features to require changes in the database schema that the code relies on. In Ruby on Rails, these schema changes are handled through _migrations_: Ruby classes that implement a DSL for specifying how to change the database from an initial state, to its target state. They also contain information on how to roll-back the migration, in case a deployment needs to be undone.
+
 
 A lot of web frameworks provide similar features. In the rest of the post I will talk specifically about Ruby on Rails, the one I am most familiar with. I expect that the lessons carry over beyond it.
 
@@ -127,12 +129,11 @@ What about `V0`-`S1`? As defined, `S1` is purely additive -- meaning new things 
 
 We can tabulate the above in a compatibility matrix:
 
-| Code Version | DB Schema | Compatible? |
-|:------------:|:---------:|:-----------:|
-|     `V0`     |   `S0`    |     Yes     |
-|     `V0`     |   `S1`    |     Yes     |
-|     `V1`     |   `S0`    |     No      |
-|     `V1`     |   `S1`    |     Yes     |
+|          | `V0` | `V1` |
+|:--------:|:----:|:----:|
+| **`S0`** |  ✓   |  ✓   |
+| **`S1`** |  ✓   |  𐄂  |
+
 
 Given the above, we can deduce that during our deployment, the migrations need to run *before* the code-swap phase.
 
