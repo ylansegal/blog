@@ -6,10 +6,11 @@ categories:
 - rails
 - heroku
 sitemap: false
+excerpt: >
+  Deploying code that depends on database schema migrations successfully requires putting some thought into when to run them during the deployment. This post develops a framework to reason about it, through analysis of a specific code example and multiple kinds of deployments. While the example is specific to Ruby on Rails, the lesson carries over to any similar web framework.
 ---
 
 The typical web application runs application processes separately from its database process. More often than not, in different servers altogether. As applications evolve, it is common for new features to require changes in the database schema that the code relies on. In Ruby on Rails, these schema changes are handled through _migrations_: Ruby classes that implement a DSL for specifying how to change the database from an initial state, to its target state. They also contain information on how to roll-back the migration, in case a deployment needs to be undone.
-
 
 A lot of web frameworks provide similar features. In the rest of the post I will talk specifically about Ruby on Rails, the one I am most familiar with. I expect that the lessons carry over beyond it.
 
