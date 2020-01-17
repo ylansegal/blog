@@ -86,7 +86,7 @@ The `db/schema.rb` examples are provided for reference as a stand-in for the dat
 
 # Downtime Deployment
 
-Conceptually, the simplest deployment is one were our web app incurs some downtime. In thisth scenario, the sequence of operations is as follows:
+Conceptually, the simplest deployment is one were our web app incurs some downtime. In this scenario, the sequence of operations is as follows:
 
 1. Redirect all traffic to a maintenance page.
 2. Stop our processes running `V0`
