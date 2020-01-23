@@ -6,6 +6,7 @@ comments: true
 categories:
 - books
 - design
+- databases
 ---
 
 [Designing Data-Intensive Applications][book] is one of the best technical books I've read in a long time. Data storage and retrieval is central to most software projects. There is ever-growing ecosystem of databases, stream processing, messaging queues, and other related systems. The book successfully explains how this technologies are different, how they are similar, and how they fit together.
