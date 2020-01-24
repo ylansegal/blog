@@ -1,8 +1,9 @@
-.*.sentinel
 .jekyll-cache
 .jekyll-metadata
+.make.*
 .sass-cache
 _site
+logs/
 src/assets/images/diagrams
 src/drafts
 vendor

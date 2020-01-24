@@ -12,7 +12,7 @@ DIAGRAM_SOURCES = $(shell find src/_diagrams/*.plantuml | sed 's,src/_diagrams,s
 DIAGRAM_FILES= $(DIAGRAM_SOURCES:.plantuml=.png)
 DRAFT_FILES = $(shell find src/drafts/*.md | sed 's,src/_drafts,src/drafts,')
 
-.PHONY: build build_with_drafts deploy_with_drafts diagrams clean
+.PHONY: build build_with_drafts deploy_with_drafts diagrams clean logs analyze-logs
 
 Gemfile.lock: Gemfile
 	bundle install
@@ -40,3 +40,19 @@ src/drafts/%: src/_drafts/%
 clean:
 	rm $(DIAGRAM_FILES)
 	rm $(DRAFT_FILES)
+
+## Log processing
+logs:
+	mkdir -p logs
+
+logs/access_log: logs
+	rsync -av ylansegal_ylansblog@ssh.phx.nearlyfreespeech.net:/home/logs/* logs/
+
+logs/report.html: logs/access_log
+	goaccess logs/access_log* -o logs/report.html --log-format=COMBINED
+
+.make.backup_logs: logs/report.html
+	rclone --verbose sync logs drive:/blog_logs/
+	touch .make.backup_logs
+
+analyze-logs: .make.backup_logs
