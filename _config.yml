@@ -81,3 +81,7 @@ defaults:
     values:
       layout: post
       author: *author
+
+# This is what octopress used
+feed:
+  path: atom.xml
