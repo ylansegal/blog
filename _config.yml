@@ -71,8 +71,6 @@ jekyll-archives:
 
 lang: en-US
 
-google_analytics: UA-34233907-1
-
 defaults:
   -
     scope:
