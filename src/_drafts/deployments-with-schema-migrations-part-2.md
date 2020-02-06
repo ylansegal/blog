@@ -195,3 +195,37 @@ ActiveRecord::Migration[5.2].drop_table :posts
 ```
 
 Looks like the issue may have been fixed at some point, since the other article was written (2011).
+
+
+Let's try to update a record read before the migration, and then updated
+```ruby
+# $ rails c --sandbox
+ActiveRecord::Migration[5.2].create_table :posts do |t|
+  t.text :title
+  t.text :body
+  t.timestamps
+  t.integer :rating
+end
+
+class Post < ActiveRecord::Base
+end
+
+Post.connection;
+Post
+# => Post(id: integer, title: text, body: text, created_at: datetime, updated_at: datetime, rating: integer)
+
+post = Post.create!(title: 'Hello', rating: 1)
+
+ActiveRecord::Migration[5.2].remove_column :posts, :rating, :integer
+
+post.touch
+post.update!(title: 'Hello, World!')
+# => true
+
+post.reload
+post.update!(title: 'Hola')
+# => true
+
+post.update!(title: 'Hola', rating: 2)
+# This fails, but we are not supposed to be using the column anymore.
+```
