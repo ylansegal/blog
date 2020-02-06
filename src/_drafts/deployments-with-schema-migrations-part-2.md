@@ -137,6 +137,17 @@ https://pedro.herokuapp.com/past/2011/7/13/rails_migrations_with_no_downtime/
 
 > Turns out that ActiveRecord caches table columns, and uses this cache to build INSERT statements. Even if the code is not touching that column, ActiveRecord will still attempt to set it to NULL when saving models.
 
+--> This was in the Rails 3 days. That statement seems to no longer be true for Rails 5 and 6. Maybe fixed in Rails 4?
+
+It was fixed in Rails 4:
+
+>Support for partial inserts.
+When inserting new records, only the fields which have been changed from the defaults will actually be included in the INSERT statement. The other fields will be populated by the database.
+This is more efficient, and also means that it will be safe to remove database columns without getting subsequent errors in running app processes (so long as the code in those processes doesn't contain any references to the removed column).
+The partial_updates configuration option is now renamed to partial_writes to reflect the fact that it now impacts both inserts and updates.
+
+https://github.com/rails/rails/blob/4-0-stable/activerecord/CHANGELOG.md
+
 
 Re-create:
 
