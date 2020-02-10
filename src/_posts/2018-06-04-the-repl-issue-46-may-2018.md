@@ -26,5 +26,5 @@ I am not bullish on crypto-currencies. Actually, if I trusted that there was a r
 
 [tech_book]: https://blog.usejournal.com/the-economics-of-writing-a-technical-book-689d0c12fe39
 [gdpr]: https://jacquesmattheij.com/gdpr-hysteria
-[gdpr_2]: [https://jacquesmattheij.com/gdpr-hysteria-part-ii-nuts-and-bolts]
+[gdpr_2]: https://jacquesmattheij.com/gdpr-hysteria-part-ii-nuts-and-bolts
 [blockchain]: https://what-problem-does-it-solve.com/blockchain/index.html

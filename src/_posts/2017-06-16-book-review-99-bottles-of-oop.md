@@ -31,7 +31,7 @@ Overall, I learned a lot from this book. The examples are written in Ruby, but t
 [2]: /blog/2013/01/17/sandi-metz-rules
 [3]: /blog/2013/12/11/sandi-metz-revised-rules
 [4]: /blog/2015/02/03/the-repl-issue-6-january-2015
-[5]: /blog/2015/03/03/the-repl-issue-7-february-2015
+[5]: /blog/2015/03/02/the-repl-issue-7-february-2015
 [6]: /blog/2013/08/16/exercism-practice-your-coding-technique
 [beck]: https://twitter.com/kentbeck/status/250733358307500032
 [naming]: https://twitter.com/secretGeek/status/7269997868

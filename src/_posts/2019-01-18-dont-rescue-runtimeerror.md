@@ -43,4 +43,4 @@ TypeError.is_a?(RuntimeError) # => false
 
 When possible, always rescue specific exceptions, to avoid supressing exception. Failing that, rescue `StandardError`, not `RuntimeError`. Oh, and [don't rescue `Exception`][thoughbot].
 
-[thoughbot]: [https://robots.thoughtbot.com/rescue-standarderror-not-exception]
+[thoughbot]: https://robots.thoughtbot.com/rescue-standarderror-not-exception

@@ -21,5 +21,5 @@ Olivier Lacan has a great explanation of Koichi Sasada recent proposal for bring
 
 [please_dont]: http://basho.com/posts/technical/microservices-please-dont/
 [encryption]: https://math.berkeley.edu/~kpmann/encryption.pdf
-[guild]: source/_posts/2016-10-03-the-repl-issue-26-september-2016.markdown
+[guild]: https://olivierlacan.com/posts/concurrency-in-ruby-3-with-guilds/
 [milagro]: http://docs.milagro.io/en/
