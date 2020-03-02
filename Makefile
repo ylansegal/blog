@@ -28,7 +28,10 @@ deploy: build
 
 deploy_with_drafts: build_with_drafts deploy
 
-diagrams: $(DIAGRAM_FILES)
+diagrams: src/assets/images/diagrams $(DIAGRAM_FILES)
+
+src/assets/images/diagrams:
+	mkdir -p src/assets/images/diagrams
 
 src/assets/images/diagrams/%.png: src/_diagrams/%.plantuml
 	plantuml $<
