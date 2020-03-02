@@ -4,6 +4,7 @@ RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI} [L,R=301]
 Redirect "/blog/archives/" "/archives"
 Redirect "/blog/archives" "/archives"
 Redirect /blog/2018/11/08/lets-ecnrypt-and-nearly-free-speech/ /blog/2018/11/08/lets-encrypt-and-nearly-free-speech/
+Redirect /blog/2015/03/03/the-repl-issue-7-february-2015/ /blog/2015/03/02/the-repl-issue-7-february-2015/
 RedirectMatch ^/blog/categories/(.*)$ /categories/$1
 
 ErrorDocument 404 /404.html
