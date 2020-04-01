@@ -4,7 +4,7 @@ title: "The REPL: Issue 25 - August 2016"
 date: 2016-09-01 09:06:36 -0700
 comments: true
 categories:
-- the rep
+- the repl
 excerpt_separator: <!-- more -->
 ---
 

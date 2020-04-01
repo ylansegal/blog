@@ -4,7 +4,7 @@ title: "The REPL: Issue 52 - November 2018"
 date: 2018-12-05 17:25:22 -0800
 comments: true
 categories:
-- the rep
+- the repl
 excerpt_separator: <!-- more -->
 ---
 

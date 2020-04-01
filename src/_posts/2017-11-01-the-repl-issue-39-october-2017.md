@@ -4,7 +4,7 @@ title: "The REPL: Issue 39 - October 2017"
 date: 2017-11-01 11:49:05 -0700
 comments: true
 categories:
-- the rep
+- the repl
 excerpt_separator: <!-- more -->
 ---
 

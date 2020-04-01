@@ -4,7 +4,7 @@ title: "The REPL: Issue 41 - December 2017"
 date: 2018-01-02 15:46:08 -0800
 comments: true
 categories:
-- the rep
+- the repl
 excerpt_separator: <!-- more -->
 ---
 

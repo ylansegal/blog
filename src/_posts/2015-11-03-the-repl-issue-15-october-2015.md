@@ -4,7 +4,7 @@ title: "The REPL: Issue 15 - October 2015"
 date: 2015-11-03 08:43:49 -0800
 comments: true
 categories:
-- the rep
+- the repl
 excerpt_separator: <!-- more -->
 ---
 

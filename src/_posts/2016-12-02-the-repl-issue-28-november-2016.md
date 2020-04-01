@@ -4,7 +4,7 @@ title: "The REPL: Issue 28 - November 2016"
 date: 2016-12-02 08:56:07 -0800
 comments: true
 categories:
-  - the rep
+  - the repl
 excerpt_separator: <!-- more -->
 ---
 

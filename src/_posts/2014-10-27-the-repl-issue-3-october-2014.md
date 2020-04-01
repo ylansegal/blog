@@ -4,7 +4,7 @@ title: "The REPL: Issue 3 - October 2014"
 date: 2014-10-27 09:18
 comments: true
 categories:
-- the rep
+- the repl
 excerpt_separator: <!-- more -->
 ---
 

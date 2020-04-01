@@ -4,7 +4,7 @@ title: "The REPL: Issue 30 - January 2017"
 date: 2017-02-03 08:45:36 -0800
 comments: true
 categories:
-- the rep
+- the repl
 excerpt_separator: <!-- more -->
 ---
 

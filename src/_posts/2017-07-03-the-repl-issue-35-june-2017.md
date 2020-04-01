@@ -4,7 +4,7 @@ title: "The REPL: Issue 35 - June 2017"
 date: 2017-07-03 09:48:16 -0700
 comments: true
 categories:
-- the rep
+- the repl
 excerpt_separator: <!-- more -->
 ---
 

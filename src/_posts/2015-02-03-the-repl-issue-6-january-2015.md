@@ -4,7 +4,7 @@ title: "The REPL: Issue 6 - January 2015"
 date: 2015-02-03 08:53:47 -0800
 comments: true
 categories:
-- the rep
+- the repl
 excerpt_separator: <!-- more -->
 ---
 

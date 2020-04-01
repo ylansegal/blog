@@ -4,7 +4,7 @@ title: "The REPL: Issue 38 - September 2017"
 date: 2017-10-02 08:41:01 -0700
 comments: true
 categories:
-- the rep
+- the repl
 excerpt_separator: <!-- more -->
 ---
 

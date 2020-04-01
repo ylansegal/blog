@@ -4,7 +4,7 @@ title: "The REPL: Issue 12 - July 2015"
 date: 2015-07-31 08:55:43 -0700
 comments: true
 categories:
-- the rep
+- the repl
 excerpt_separator: <!-- more -->
 ---
 

@@ -4,7 +4,7 @@ title: "The REPL: Issue 46 - May 2018"
 date: 2018-06-04 15:49:29 -0700
 comments: true
 categories:
-- the rep
+- the repl
 excerpt_separator: <!-- more -->
 ---
 

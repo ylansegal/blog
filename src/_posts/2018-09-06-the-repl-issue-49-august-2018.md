@@ -4,7 +4,7 @@ title: "The REPL: Issue 49 - August 2018"
 date: 2018-09-06 10:16:26 -0700
 comments: true
 categories:
-- the rep
+- the repl
 excerpt_separator: <!-- more -->
 ---
 

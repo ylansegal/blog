@@ -4,7 +4,7 @@ title: "The REPL: Issue 53 - December 2018"
 date: 2019-01-08 13:47:56 -0800
 comments: true
 categories:
-- the rep
+- the repl
 excerpt_separator: <!-- more -->
 ---
 

@@ -4,7 +4,7 @@ title: "The REPL: Issue 40 - November 2017"
 date: 2017-12-01 09:44:10 -0800
 comments: true
 categories:
-- the rep
+- the repl
 excerpt_separator: <!-- more -->
 ---
 

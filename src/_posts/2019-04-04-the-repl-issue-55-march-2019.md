@@ -4,7 +4,7 @@ title: "The REPL: Issue 55 - March 2019"
 date: 2019-04-04 14:46:50 -0700
 comments: true
 categories:
-- the rep
+- the repl
 excerpt_separator: <!-- more -->
 ---
 

@@ -4,7 +4,7 @@ title: "The REPL: Issue 44 - March 2018"
 date: 2018-04-02 18:38:00 -0700
 comments: true
 categories:
-- the rep
+- the repl
 excerpt_separator: <!-- more -->
 ---
 

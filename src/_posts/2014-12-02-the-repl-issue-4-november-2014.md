@@ -4,7 +4,7 @@ title: "The REPL: Issue 4 - November 2014"
 date: 2014-12-02 09:17
 comments: true
 categories:
-- the rep
+- the repl
 excerpt_separator: <!-- more -->
 ---
 

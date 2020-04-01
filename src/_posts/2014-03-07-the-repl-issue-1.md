@@ -4,7 +4,7 @@ title: "The REPL: Issue 1"
 date: 2014-03-07 20:03
 comments: true
 categories:
-- the rep
+- the repl
 excerpt_separator: <!-- more -->
 ---
 
