@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Benchamarking With abprof &amp; abcompare"
+title: "Benchamarking With abprof & abcompare"
 date: 2016-11-13 07:16:58 -0800
 comments: true
 categories:
