@@ -8,7 +8,7 @@ Redirect /blog/2012/08/27/deploy-the-heroku-with-near-zero-downtime /blog/2012/0
 Redirect /blog/2013/03/27/fater-rspec-jruby/CachedSimilarMar /blog/2013/03/27/fater-rspec-jruby/
 Redirect /blog/2015/03/03/the-repl-issue-7-february-2015/ /blog/2015/03/02/the-repl-issue-7-february-2015/
 Redirect /blog/2018/11/08/lets-ecnrypt-and-nearly-free-speech/ /blog/2018/11/08/lets-encrypt-and-nearly-free-speech/
-Redirect /blog/2019/01/18/[https:/robots.thoughtbot.com/rescue-standarderror-not-exception]
+Redirect "/blog/2019/01/18/[https:/robots.thoughtbot.com/rescue-standarderror-not-exception]" https:/robots.thoughtbot.com/rescue-standarderror-not-exception
 Redirect /categories/the-rep/ /categories/the-repl/
 
 RedirectMatch ^/blog/categories/(.*)$ /categories/$1
