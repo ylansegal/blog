@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Bi-temporal Data"
+title: "Bi-Temporal Data"
 date: 2020-04-18 13:20:18 -0700
 categories:
 - databases
-- bi temporal
+- bi temporal data
 excerpt_separator: <!-- more -->
 ---
 
