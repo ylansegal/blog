@@ -18,7 +18,7 @@ I write in this blog about things that interest me as a Software Engineer. All c
 
 ## About This Blog
 
-This blog is built using [Jekyll][jekyll], themed with [Whiteglass][whiteglass]. Most content is written in [Markdown][markdown]. Hosted on [Nearly Free Speech][nfs].
+This blog is built using [Jekyll][jekyll], themed with [Whiteglass][whiteglass], with some minor tweaks. Most content is written in [Markdown][markdown]. Hosted on [Nearly Free Speech][nfs].
 
 [uia]: https://ibero.mx/licenciaturas/licenciatura-en-ingenier-civil
 [stanford]: https://aa.stanford.edu/
