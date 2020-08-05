@@ -7,7 +7,7 @@ categories:
 excerpt_separator: <!-- more -->
 ---
 
-[Why Your Microservices Architecture Needs Aggregates][aggregates]
+### [Why Your Microservices Architecture Needs Aggregates][aggregates]
 
 Dave Taubler writes a comprehensive piece about the use of Domain-Driven Design concepts in micro-service architectures. The use of aggregates, entities and invariants can prevent unwanted dependencies between objects, leaky references and delineate a clear boundary around groups of data. Eventually, the use of aggregates simplifies things like sharding, message passing, idempotent retries, caching and tracking changes.
 
@@ -16,7 +16,7 @@ I've been thinking about event schema design a lot lately, and found interesting
 > So what should we pass as our messages?
 > As it turns out, if we’ve embraced Aggregates, then we have our clear answer. Anytime an Aggregate is changed, that Aggregate should be passed as the message.
 
-[Why Tacit Knowledge is More Important Than Deliberate Practice][tacit]
+### [Why Tacit Knowledge is More Important Than Deliberate Practice][tacit]
 
 The author talks about tacit knowledge:
 
