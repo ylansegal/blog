@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The REPL: Issue 70 - June 2020"
+title: "The REPL: Issue 71 - July 2020"
 date: 2020-08-04 17:09:13 -0700
 categories:
 - the repl
