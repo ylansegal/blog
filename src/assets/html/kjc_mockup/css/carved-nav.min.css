@@ -1,0 +1,957 @@
+*, ol, ul {
+	margin: 0
+}
+.Getfundnav ul li.megamenu-item > a:after, .icon-down-arrow:before {
+	content: "\e900"
+}
+* {
+	padding: 0
+}
+
+ol li, ul li {
+	list-style: none
+}
+img {
+	height: auto;
+	max-width: 100%
+}
+.bg-img {
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat
+}
+.bg-transparent {
+	background-color: transparent !important
+}
+.pr12 {
+	padding-right: 12px !important
+}
+.cGetfundnav-container {
+	position: relative;
+	z-index: 100;
+	background-color: #fff
+}
+.Getfund-nav-container * {
+	box-sizing: border-box
+}
+.Getfund-nav-container a {
+	-webkit-transition-duration: .5s;
+	transition-duration: .5s;
+	text-decoration: none;
+	outline: 0;
+	font-size: 14px;
+	font-weight: 400;
+	color: #232323;
+	display: inline-block
+}
+.Getfund-nav-container a:focus, .Getfund-nav-container a:hover {
+	-webkit-transition-duration: .5s;
+	transition-duration: .5s;
+	text-decoration: none;
+	outline: 0;
+	font-size: 14px;
+	font-weight: 400;
+	color: #1abc9c
+}
+.Getfund-navbar .nav-brand, .Getfund-navbar .nav-brand:focus, .Getfund-navbar .nav-brand:hover {
+	font-size: 26px;
+	font-weight: 500
+}
+.Getfund-nav-container.Getfund-sticky {
+	position: fixed;
+	z-index: 1010;
+	width: 100%;
+	top: 0;
+	right: 0;
+	left: 0
+}
+.Getfund-nav-container.box-skins .Getfundnav > ul > li {
+	background-color: #1abc9c
+}
+.Getfund-nav-container.box-skins .Getfundnav > ul > li > a {
+	color: #fff
+}
+.justify-content-between {
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between
+}
+.justify-content-center {
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center
+}
+.Getfund-navbar {
+	width: 100%;
+	height: 70px;
+	padding: .5em 0;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-ms-grid-row-align: center;
+	align-items: center
+}
+.Getfund-navbar .nav-brand {
+	color: #565656;
+	display: inline-block;
+	margin-right: 30px
+}
+.Getfundnav ul li {
+	display: inline-block;
+	clear: both;
+	position: inherit;
+	z-index: 10
+}
+.Getfundnav ul li.cn-dropdown-item, .Getfundnav ul li.cn-dropdown-item ul li {
+	position: relative;
+	z-index: 10
+}
+.Getfundnav ul .megamenu-item {
+    padding: 0 0 0 9px;
+}
+.Getfundnav ul li ul li {
+	display: block
+}
+.Getfundnav ul li ul li a {
+	padding: 0 20px
+}
+.Getfundnav ul li a {
+	padding: 0 3px;
+	display: block;
+	height: 35px;
+	font-size: 14px;
+	line-height: 34px
+}
+.Getfundnav ul li .megamenu li a {
+	padding: 0 12px
+}
+.Getfundnav ul .megamenu-item a {
+    padding-right: 0;
+}
+@font-face {
+	font-family: icomoon;
+	src: url(https://envytheme.com/?fftrrv);
+	src: url(https://envytheme.com/?fftrrv#iefix) format("embedded-opentype"), url(https://envytheme.com/?fftrrv) format("truetype"), url(https://envytheme.com/?fftrrv) format("woff"), url(../fonts/Getfundcb9b.html?fftrrv#icomoon) format("svg");
+	font-weight: 400;
+	font-style: normal
+}
+[class*=" icon-"], [class^=icon-] {
+	font-family: icomoon !important;
+	speak: none;
+	font-style: normal;
+	font-weight: 400;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale
+}
+.Getfundnav ul li.megamenu-item > a:after {
+	font-family: icomoon !important;
+	font-size: 11px;
+	color: #000;
+	padding-left: 3px
+}
+.GetfundcloseIcon {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	z-index: 12;
+	display: none
+}
+.GetfundcloseIcon .cross-wrap {
+	width: 26px;
+	height: 26px;
+	cursor: pointer;
+	position: relative
+}
+.GetfundcloseIcon .cross-wrap span {
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 2px;
+	border-radius: 6px;
+	background: #232323
+}
+.GetfundcloseIcon .cross-wrap span.top {
+	top: 12px;
+	left: 0;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg)
+}
+.GetfundcloseIcon .cross-wrap span.bottom {
+	bottom: 12px;
+	left: 0;
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg)
+}
+.Getfund-navbar-toggler {
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	display: none
+}
+.Getfund-navbar-toggler .navbarToggler {
+	display: inline-block;
+	cursor: pointer
+}
+.Getfund-navbar-toggler .navbarToggler span {
+	position: relative;
+	background-color: #858585;
+	border-radius: 3px;
+	display: block;
+	height: 3px;
+	margin-top: 5px;
+	padding: 0;
+	-webkit-transition-duration: .3s;
+	transition-duration: .3s;
+	width: 30px;
+	cursor: pointer
+}
+.Getfund-navbar-toggler .navbarToggler.active span:nth-of-type(1) {
+	-webkit-transform: rotate3d(0, 0, 1, 45deg);
+	transform: rotate3d(0, 0, 1, 45deg);
+	top: 8px
+}
+.Getfund-navbar-toggler .navbarToggler.active span:nth-of-type(2) {
+	opacity: 0
+}
+.Getfund-navbar-toggler .navbarToggler.active span:nth-of-type(3) {
+	-webkit-transform: rotate3d(0, 0, 1, -45deg);
+	transform: rotate3d(0, 0, 1, -45deg);
+	top: -8px
+}
+.Getfundnav ul li .megamenu {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	top: 100%;
+	background-color: #fff;
+	z-index: 200;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, .15);
+	-webkit-transition-duration: .3s;
+	transition-duration: .3s
+}
+.Getfundnav ul li .megamenu .single-mega.cn-col-5 {
+	width: 20%;
+	display: inline-block;
+	float: left;
+	padding: 15px;
+	border-right: 1px solid #f2f4f8
+}
+.Getfundnav ul li .megamenu .single-mega.cn-col-5:last-of-type {
+	border-right: none
+}
+.Getfundnav ul li .megamenu .single-mega.cn-col-4 {
+	width: 25%;
+	display: inline-block;
+	float: left;
+	padding: 15px;
+	border-right: 1px solid #f2f4f8
+}
+.Getfundnav ul li .megamenu .single-mega.cn-col-4:last-of-type {
+	border-right: none
+}
+.Getfundnav ul li .megamenu .single-mega.cn-col-3 {
+	width: 33.3333334%;
+	display: inline-block;
+	float: left;
+	padding: 15px;
+	border-right: 1px solid #f2f4f8
+}
+.Getfundnav ul li .megamenu .single-mega.cn-col-3:last-of-type {
+	border-right: none
+}
+.Getfundnav ul li .megamenu .single-mega .title {
+	font-size: 14px;
+	border-bottom: 1px solid #f2f4f8;
+	padding: 8px 12px
+}
+.Getfundnav ul li .dropdown li a {
+	border-bottom: 1px solid rgba(242, 244, 248, .7)
+}
+.Getfundnav ul li .dropdown li:last-child a {
+	border-bottom: none
+}
+.Getfundnav ul li .dropdown li .dropdown li a {
+	border-bottom: 1px solid rgba(242, 244, 248, .7)
+}
+.Getfundnav ul li .dropdown li .dropdown li:last-child a {
+	border-bottom: none
+}
+.Getfundnav ul li .dropdown li .dropdown li .dropdown li a {
+	border-bottom: 1px solid rgba(242, 244, 248, .7)
+}
+.Getfundnav ul li .dropdown li .dropdown li .dropdown li:last-child a {
+	border-bottom: none
+}
+.Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li a {
+	border-bottom: 1px solid rgba(242, 244, 248, .7)
+}
+.Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li:last-child a {
+	border-bottom: none
+}
+.Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li a {
+	border-bottom: 1px solid rgba(242, 244, 248, .7)
+}
+.Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:last-child a {
+	border-bottom: none
+}
+.Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li a {
+	border-bottom: 1px solid rgba(242, 244, 248, .7)
+}
+.Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:last-child a {
+	border-bottom: none
+}
+.Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li a {
+	border-bottom: 1px solid rgba(242, 244, 248, .7)
+}
+.Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:last-child a {
+	border-bottom: none
+}
+.Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li a {
+	border-bottom: 1px solid rgba(242, 244, 248, .7)
+}
+.Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:last-child a {
+	border-bottom: none
+}
+.Getfundnav > ul > li.cn-dropdown-item.has-down > .dd-arrow, .Getfundnav > ul > li.megamenu-item > .dd-arrow {
+	top: 17px;
+	-webkit-transform: rotate(0);
+	transform: rotate(0);
+	position: absolute;
+	right: 8px;
+}
+.has-down .dd-arrow, .megamenu-item .dd-arrow {
+	top: 21px;
+	-webkit-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+	position: absolute;
+	right: 20px;
+}
+.Getfundnav > ul > li.has-down.active > .dd-arrow::after, .has-down .dd-arrow::after, .has-down.active > .dd-arrow::after, .megamenu-item .dd-arrow::after, .megamenu-item.active > .dd-arrow::after {
+	width:6px;
+	height: 1px;
+	background-color: #000;
+	content: '';
+	position: absolute;
+	right: -2px;
+	border-radius: 1px;
+	top: 0
+}
+.has-down .dd-arrow::before, .megamenu-item .dd-arrow::before {
+	width: 6px;
+	height: 1px;
+	background-color: #000;
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	border-radius: 1px
+}
+.has-down .dd-arrow::after, .megamenu-item .dd-arrow::after {
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg)
+}
+.Getfundnav > ul > li.has-down.active > .dd-arrow::before {
+	width: 8px;
+	height: 1px;
+	background-color: #000;
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	border-radius: 1px
+}
+.Getfundnav > ul > li.has-down.active > .dd-arrow::after {
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg)
+}
+.has-down.active > .dd-arrow::before, .megamenu-item.active > .dd-arrow::before {
+	width: 8px;
+	height: 1px;
+	background-color: #000;
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	border-radius: 1px
+}
+.has-down.active > .dd-arrow::after, .megamenu-item.active > .dd-arrow::after {
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg)
+}
+.Getfund-btn {
+	position: relative;
+	z-index: 1;
+	min-width: 120px;
+	padding: 0 25px;
+	line-height: 42px;
+	height: 42px;
+	background-color: #1abc9c;
+	border-radius: 50px;
+	color: #fff !important;
+	margin-left: 30px;
+	text-align: center
+}
+.Getfund-btn:focus, .Getfund-btn:hover {
+	box-shadow: 0 0 10px rgba(0, 0, 0, .2)
+}
+.dd-trigger {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: transparent;
+	cursor: pointer;
+	z-index: 500;
+	border-radius: 0;
+	display: none
+}
+.breakpoint-off .Getfundnav {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-ms-grid-row-align: center;
+	align-items: center
+}
+.breakpoint-off .Getfundnav ul li .dropdown {
+	width: 210px;
+	position: absolute;
+	background-color: #fff;
+	top: 120%;
+	left: 0;
+	z-index: 100;
+	height: auto;
+	box-shadow: 0 0 15px 1px rgba(113, 106, 202, .2);
+	-webkit-transition-duration: .3s;
+	transition-duration: .3s;
+	opacity: 0;
+	visibility: hidden;
+	padding: 15px 0;
+	border-radius: 5px;
+}
+.main-header-area .Getfundnav ul li:nth-child(4) .dropdown {
+	left: auto;
+}
+.breakpoint-off .Getfundnav ul li .dropdown li .dropdown {
+	top: 10px;
+	left: -230px;
+	z-index: 200;
+	opacity: 0;
+	visibility: hidden;
+    width: 240px;
+}
+.breakpoint-off .Getfundnav ul li .dropdown li .dropdown li .dropdown, .breakpoint-off .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown, .breakpoint-off .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown, .breakpoint-off .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown, .breakpoint-off .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown, .breakpoint-off .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown, .breakpoint-off .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown, .breakpoint-off .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown {
+	opacity: 0;
+	visibility: hidden;
+	top: 120%
+}
+.breakpoint-off .Getfundnav ul li:hover .dropdown {
+	opacity: 1;
+	visibility: visible;
+	top: 100%
+}
+.breakpoint-off .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown, .breakpoint-off .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown, .breakpoint-off .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown, .breakpoint-off .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown, .breakpoint-off .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown, .breakpoint-off .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown, .breakpoint-off .Getfundnav ul li .dropdown li .dropdown li .dropdown li:hover .dropdown, .breakpoint-off .Getfundnav ul li .dropdown li .dropdown li:hover .dropdown, .breakpoint-off .Getfundnav ul li .dropdown li:hover .dropdown {
+	opacity: 1;
+	visibility: visible;
+	top: -10px
+}
+.breakpoint-off .Getfundnav ul li .megamenu {
+	opacity: 0;
+	visibility: hidden;
+	position: absolute;
+	width: 100%;
+	left: 0;
+	top: 120%;
+	background-color: #fff;
+	z-index: 200;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, .15);
+	-webkit-transition-duration: .3s;
+	transition-duration: .3s
+}
+.breakpoint-off .Getfundnav ul li.megamenu-item:focus .megamenu, .breakpoint-off .Getfundnav ul li.megamenu-item:hover .megamenu {
+	top: 100%;
+	visibility: visible;
+	opacity: 1
+}
+.breakpoint-off .Getfundnav ul li.megamenu-item .dd-arrow {
+	display: none
+}
+@media only screen and (max-width: 991px) {
+	.Getfund-navbar-toggler, .GetfundcloseIcon {
+		display: block
+	}
+	.Getfund-navbar .Getfund-menu {
+		background-color: #fff;
+		position: fixed;
+		top: 0;
+		left: -310px;
+		z-index: 1000;
+		width: 300px;
+		height: 100%;
+		-webkit-transition-duration: .5s;
+		transition-duration: .5s;
+		padding: 0;
+		box-shadow: 0 5px 20px rgba(0, 0, 0, .1);
+		display: block;
+		overflow-x: hidden;
+		overflow-y: scroll
+	}
+	.Getfundnav ul li, .Getfundnav ul li.megamenu-item {
+		position: relative;
+		z-index: 10;
+		padding-left: 15px;
+	}
+	.Getfund-navbar .Getfund-menu.menu-on {
+		left: 0
+	}
+	.Getfundnav ul li {
+		display: block;
+		clear: both
+	}
+	.Getfundnav ul li a {
+		padding: 0 10px;
+		height: 38px;
+		line-height: 38px
+	}
+	.Getfundnav ul li .dropdown {
+		width: 100%;
+		position: relative;
+		top: 0;
+		left: 0;
+		box-shadow: none
+	}
+	.Getfundnav ul li .dropdown li .dropdown {
+		width: 100%;
+		position: relative;
+		top: 0;
+		left: 0
+	}
+	.dd-trigger {
+		position: absolute;
+		width: 100%;
+		height: 38px;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: transparent;
+		cursor: pointer;
+		z-index: 500;
+		display: block
+	}
+	.Getfundnav ul li .dropdown, .Getfundnav ul li .megamenu, .Getfundnav ul li.megamenu-item > a:after {
+		display: none
+	}
+	.Getfundnav {
+		padding-top: 70px
+	}
+	.Getfundnav ul li .megamenu {
+		position: relative;
+		width: 100%;
+		left: 0;
+		top: 0;
+		z-index: 200;
+		box-shadow: none
+	}
+	.Getfundnav ul li .megamenu .single-mega.cn-col-3, .Getfundnav ul li .megamenu .single-mega.cn-col-4, .Getfundnav ul li .megamenu .single-mega.cn-col-5 {
+		width: 100%;
+		border-right: none;
+		border-bottom: 1px solid #f2f4f8
+	}
+	.cn-dropdown-item.has-down.pr12, .megamenu-item.pr12 {
+		padding-right: 0 !important
+	}
+	.Getfundnav > ul > li > a {
+		background-color: #f2f4f8;
+		border-bottom: 1px solid rgba(255, 255, 255, .5)
+	}
+	.Getfundnav > ul > li.cn-dropdown-item.has-down > .dd-arrow, .Getfundnav > ul > li.megamenu-item > .dd-arrow {
+		right: 20px
+	}
+	.Getfundnav ul li ul.dropdown li ul li {
+		margin-left: 15px
+	}
+	.Getfund-btn {
+		width: calc(100% - 30px);
+		margin: 30px 15px
+	}
+}
+.breakpoint-on .Getfund-navbar-toggler, .breakpoint-on .GetfundcloseIcon {
+	display: block
+}
+.breakpoint-on .Getfund-navbar .Getfund-menu {
+	background-color: #fff;
+	position: fixed;
+	top: 0;
+	left: -310px;
+	z-index: 1000;
+	width: 300px;
+	height: 100%;
+	-webkit-transition-duration: .5s;
+	transition-duration: .5s;
+	padding: 0;
+	box-shadow: 0 5px 20px rgba(0, 0, 0, .1);
+	display: block;
+	overflow-x: hidden;
+	overflow-y: scroll
+}
+.breakpoint-on .Getfund-navbar .Getfund-menu.menu-on {
+	left: 0
+}
+.breakpoint-on .Getfundnav ul li {
+	display: block;
+	position: relative;
+	clear: both;
+	z-index: 10
+}
+.breakpoint-on .Getfundnav ul li a {
+	padding: 0 10px;
+	height: 38px;
+	line-height: 38px
+}
+.breakpoint-on .Getfundnav ul li .dropdown {
+	width: 100%;
+	position: relative;
+	top: 0;
+	left: 0;
+	box-shadow: none
+}
+.breakpoint-on .Getfundnav ul li .dropdown li .dropdown {
+	width: 100%;
+	position: relative;
+	top: 0;
+	left: 0
+}
+.breakpoint-on .Getfundnav ul li.megamenu-item {
+	position: relative;
+	z-index: 10
+}
+.breakpoint-on .dd-trigger {
+	position: absolute;
+	width: 100%;
+	height: 38px;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: transparent;
+	cursor: pointer;
+	z-index: 500;
+	display: block
+}
+.breakpoint-on .Getfundnav ul li .dropdown, .breakpoint-on .Getfundnav ul li .megamenu, .breakpoint-on .Getfundnav ul li.megamenu-item > a:after {
+	display: none
+}
+.breakpoint-on .Getfundnav {
+	padding-top: 70px
+}
+.breakpoint-on .Getfundnav ul li .megamenu {
+	position: relative;
+	width: 100%;
+	left: 0;
+	top: 0;
+	z-index: 200;
+	box-shadow: none
+}
+.breakpoint-on .Getfundnav ul li .megamenu .single-mega.cn-col-3, .breakpoint-on .Getfundnav ul li .megamenu .single-mega.cn-col-4, .breakpoint-on .Getfundnav ul li .megamenu .single-mega.cn-col-5 {
+	width: 100%;
+	border-right: none;
+	border-bottom: 1px solid #f2f4f8
+}
+.breakpoint-on .cn-dropdown-item.has-down.pr12, .breakpoint-on .megamenu-item.pr12 {
+	padding-right: 0 !important
+}
+.breakpoint-on .Getfundnav > ul > li > a {
+	background-color: #f2f4f8;
+	border-bottom: 1px solid rgba(255, 255, 255, .5)
+}
+.dark .Getfundnav ul li .dropdown, .dark.Getfund-nav-container {
+	background-color: #192a56
+}
+.light .Getfundnav ul li .dropdown, .light.Getfund-nav-container {
+	background-color: #fff;
+}
+.breakpoint-on .Getfundnav > ul > li.cn-dropdown-item.has-down > .dd-arrow, .breakpoint-on .Getfundnav > ul > li.megamenu-item > .dd-arrow {
+	right: 20px
+}
+.breakpoint-on .Getfundnav ul li ul.dropdown li ul li {
+	margin-left: 15px
+}
+.breakpoint-on .Getfund-btn {
+	width: calc(100% - 30px);
+	margin: 30px 15px
+}
+.dark.Getfund-nav-container a {
+	color: rgba(255, 255, 255, .7)
+}
+.light.Getfund-nav-container a {
+	color: #444444;
+}
+.dark .Getfundnav ul li.megamenu-item > a:after, .dark.Getfund-nav-container a:focus, .dark.Getfund-nav-container a:hover {
+	color: #fff
+}
+.light .Getfundnav ul li.megamenu-item > a:after {
+	color: #444444;
+}
+.dark .Getfundnav > ul > li.has-down.active > .dd-arrow::after, .dark .Getfundnav > ul > li.has-down.active > .dd-arrow::before, .dark .has-down .dd-arrow::after, .dark .has-down .dd-arrow::before, .dark .has-down.active > .dd-arrow::after, .dark .has-down.active > .dd-arrow::before, .dark .megamenu-item .dd-arrow::after, .dark .megamenu-item .dd-arrow::before, .dark .megamenu-item.active > .dd-arrow::after, .dark .megamenu-item.active > .dd-arrow::before {
+	background-color: #fff
+}
+.light .Getfundnav > ul > li.has-down.active > .dd-arrow::after, .light .Getfundnav > ul > li.has-down.active > .dd-arrow::before, .light .has-down .dd-arrow::after, .light .has-down .dd-arrow::before, .light .has-down.active > .dd-arrow::after, .light .has-down.active > .dd-arrow::before, .light .megamenu-item .dd-arrow::after, .light .megamenu-item .dd-arrow::before, .light .megamenu-item.active > .dd-arrow::after, .light .megamenu-item.active > .dd-arrow::before {
+	background-color: #959595
+}
+.dark .Getfundnav ul li .megamenu {
+	background-color: #192a56
+}
+.light .Getfundnav ul li .megamenu {
+	background-color: #f5f5f5;
+}
+.dark .Getfundnav ul li .megamenu .single-mega.cn-col-3, .dark .Getfundnav ul li .megamenu .single-mega.cn-col-4, .dark .Getfundnav ul li .megamenu .single-mega.cn-col-5 {
+	border-right: 1px solid rgba(255, 255, 255, .05)
+}
+.light .Getfundnav ul li .megamenu .single-mega.cn-col-3, .light .Getfundnav ul li .megamenu .single-mega.cn-col-4, .light .Getfundnav ul li .megamenu .single-mega.cn-col-5 {
+	border-right: 1px solid rgba(255, 255, 255, .05)
+}
+.dark .Getfundnav ul li.megamenu-item ul li a {
+	border-bottom: none
+}
+.light .Getfundnav ul li.megamenu-item ul li a {
+    border-bottom: none;
+    text-transform: uppercase;
+}
+.dark .Getfundnav ul li .megamenu .single-mega .title {
+	color: #fff;
+	border-bottom: 1px solid rgba(255, 255, 255, .05)
+}
+.light .Getfundnav ul li .megamenu .single-mega .title {
+	color: #a7400e;
+	border-bottom: 1px solid rgba(0, 0, 0, .05);
+	text-transform: uppercase;
+	font-size: 16px;
+	font-weight: 500;
+}
+@media only screen and (max-width : 767px) {
+    .light .Getfundnav ul li .megamenu .single-mega .title {
+        color: #fff;
+        border-bottom: 1px solid rgba(255, 255, 255, .5);
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .light .Getfundnav ul li .megamenu .single-mega .title {
+        color: #fff;
+        border-bottom: 1px solid rgba(255, 255, 255, .5);
+    }
+}
+.dark .Getfund-navbar-toggler .navbarToggler span {
+	background-color: #fff
+}
+.dark.breakpoint-on .Getfund-navbar .Getfund-menu {
+	background-color: #192a56
+}
+.light.breakpoint-on .Getfund-navbar .Getfund-menu {
+	background-color: #192a56
+}
+.dark .GetfundcloseIcon .cross-wrap span {
+	background-color: #fff
+}
+.light .GetfundcloseIcon .cross-wrap span {
+	background-color: #fff
+}
+.dark.breakpoint-on .Getfundnav > ul > li > a {
+	background-color: #192a56;
+	border-bottom: 1px solid rgba(255, 255, 255, .05)
+}
+.light.breakpoint-on .Getfundnav > ul > li > a {
+	background-color: #192a56;
+	border-bottom: 1px solid rgba(255, 255, 255, .05)
+}
+.dark.breakpoint-on .Getfundnav ul li .megamenu .single-mega.cn-col-3, .dark.breakpoint-on .Getfundnav ul li .megamenu .single-mega.cn-col-4, .dark.breakpoint-on .Getfundnav ul li .megamenu .single-mega.cn-col-5 {
+	border-bottom: 1px solid rgba(255, 255, 255, .05);
+	border-right: none
+}
+.light.breakpoint-on .Getfundnav ul li .megamenu .single-mega.cn-col-3, .light.breakpoint-on .Getfundnav ul li .megamenu .single-mega.cn-col-4, .light.breakpoint-on .Getfundnav ul li .megamenu .single-mega.cn-col-5 {
+	border-bottom: 1px solid rgba(255, 255, 255, .05);
+	border-right: none
+}
+.dark .Getfundnav ul li .dropdown li a {
+	border-bottom: 1px solid rgba(242, 244, 248, .1)
+}
+.light .Getfundnav ul li .dropdown li a {
+	border-bottom: 1px solid rgba(242, 244, 248, .1);
+	font-size: 13px;
+	height: 40px;
+	line-height: 40px;
+}
+.dark .Getfundnav ul li .dropdown li:last-child a {
+	border-bottom: none;
+}
+.light .Getfundnav ul li .dropdown li:last-child a {
+	border-bottom: none;
+}
+.dark .Getfundnav ul li .dropdown li .dropdown li a {
+	border-bottom: 1px solid rgba(242, 244, 248, .1);
+}
+.main-header-area .light .Getfundnav ul li .dropdown li .dropdown li a {
+	border-bottom: 1px solid rgba(242, 244, 248, .1);
+	color: #8b8b8b;
+}
+.dark .Getfundnav ul li .dropdown li .dropdown li:last-child a {
+	border-bottom: none
+}
+.light .Getfundnav ul li .dropdown li .dropdown li:last-child a {
+	border-bottom: none
+}
+.dark .Getfundnav ul li .dropdown li .dropdown li .dropdown li a {
+	border-bottom: 1px solid rgba(242, 244, 248, .1)
+}
+.light .Getfundnav ul li .dropdown li .dropdown li .dropdown li a {
+	border-bottom: 1px solid rgba(242, 244, 248, .1)
+}
+.dark .Getfundnav ul li .dropdown li .dropdown li .dropdown li:last-child a {
+	border-bottom: none
+}
+.light .Getfundnav ul li .dropdown li .dropdown li .dropdown li:last-child a {
+	border-bottom: none
+}
+.dark .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li a {
+	border-bottom: 1px solid rgba(242, 244, 248, .1)
+}
+.light .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li a {
+	border-bottom: 1px solid rgba(242, 244, 248, .1)
+}
+.dark .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li:last-child a {
+	border-bottom: none
+}
+.light .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li:last-child a {
+	border-bottom: none
+}
+.dark .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li a {
+	border-bottom: 1px solid rgba(242, 244, 248, .1)
+}
+.light .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li a {
+	border-bottom: 1px solid rgba(242, 244, 248, .1)
+}
+.dark .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:last-child a {
+	border-bottom: none
+}
+.light .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:last-child a {
+	border-bottom: none
+}
+.dark .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li a {
+	border-bottom: 1px solid rgba(242, 244, 248, .1)
+}
+.light .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li a {
+	border-bottom: 1px solid rgba(242, 244, 248, .1)
+}
+.dark .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:last-child a {
+	border-bottom: none
+}
+.light .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:last-child a {
+	border-bottom: none
+}
+.dark .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li a {
+	border-bottom: 1px solid rgba(242, 244, 248, .1)
+}
+.light .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li a {
+	border-bottom: 1px solid rgba(242, 244, 248, .1)
+}
+.dark .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:last-child a {
+	border-bottom: none
+}
+.light .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:last-child a {
+	border-bottom: none
+}
+.dark .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li a {
+	border-bottom: 1px solid rgba(242, 244, 248, .1)
+}
+.light .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li a {
+	border-bottom: 1px solid rgba(242, 244, 248, .1)
+}
+.dark .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:last-child a {
+	border-bottom: none
+}
+.light .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:last-child a {
+	border-bottom: none
+}
+.right.breakpoint-on .Getfund-navbar .Getfund-menu {
+	left: auto;
+	right: -310px
+}
+.dropdown-rtl.breakpoint-off .Getfundnav ul li .dropdown, .right.breakpoint-on .Getfund-navbar .Getfund-menu.menu-on {
+	left: auto;
+	right: 0
+}
+.dropdown-rtl .Getfundnav ul li .megamenu .single-mega .title, .dropdown-rtl .Getfundnav ul li a {
+	text-align: right
+}
+.dropdown-rtl .Getfundnav > ul > li.cn-dropdown-item.has-down > .dd-arrow {
+	right: 10px !important;
+	left: auto
+}
+.dropdown-rtl .has-down .dd-arrow {
+	right: auto;
+	left: 20px;
+	-webkit-transform: rotate(90deg);
+	transform: rotate(90deg)
+}
+.dropdown-rtl.breakpoint-off .Getfundnav ul li .dropdown li .dropdown, .dropdown-rtl.breakpoint-off .Getfundnav ul li .dropdown li .dropdown li .dropdown, .dropdown-rtl.breakpoint-off .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown, .dropdown-rtl.breakpoint-off .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown, .dropdown-rtl.breakpoint-off .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown, .dropdown-rtl.breakpoint-off .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown, .dropdown-rtl.breakpoint-off .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown, .dropdown-rtl.breakpoint-off .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown, .dropdown-rtl.breakpoint-off .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown {
+	right: 180px;
+	left: auto;
+	opacity: 0;
+	visibility: hidden;
+	top: 10px
+}
+.dropdown-rtl.breakpoint-off .Getfundnav ul li:hover .dropdown {
+	opacity: 1;
+	visibility: visible;
+	top: 90%
+}
+.dropdown-rtl.breakpoint-off .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown, .dropdown-rtl.breakpoint-off .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown, .dropdown-rtl.breakpoint-off .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown, .dropdown-rtl.breakpoint-off .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown, .dropdown-rtl.breakpoint-off .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown, .dropdown-rtl.breakpoint-off .Getfundnav ul li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown, .dropdown-rtl.breakpoint-off .Getfundnav ul li .dropdown li .dropdown li .dropdown li:hover .dropdown, .dropdown-rtl.breakpoint-off .Getfundnav ul li .dropdown li .dropdown li:hover .dropdown, .dropdown-rtl.breakpoint-off .Getfundnav ul li .dropdown li:hover .dropdown {
+	opacity: 1;
+	visibility: visible;
+	top: 0
+}
+.dropdown-rtl.breakpoint-on .Getfundnav > ul > li.cn-dropdown-item.has-down > .dd-arrow {
+	right: auto !important;
+	left: 20px
+}
+.Getfundnav ul li.cn-dropdown-item {
+	padding: 0 15px !important;
+}
+.dropdown-rtl.breakpoint-on .has-down .dd-arrow {
+	right: auto;
+	left: 20px;
+	-webkit-transform: rotate(0);
+	transform: rotate(0)
+}
+.dropdown-rtl.breakpoint-on .Getfundnav ul li ul.dropdown li ul li {
+	margin-left: 0;
+	margin-right: 15px
+}
+.light .Getfundnav ul li.megamenu-item ul li img {
+	margin-top: 15px;
+}
+.light .Getfundnav ul li.megamenu-item ul li p {
+    font-size: 15px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+.light .Getfundnav ul li.megamenu-item ul li .find-out-more-btn {
+	padding: 0;
+	text-decoration: underline;
+}
+.light .Getfundnav ul li.megamenu-item ul li .find-out-more-btn:hover {
+	text-decoration: none;
+}
