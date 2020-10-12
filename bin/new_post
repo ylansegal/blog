@@ -17,14 +17,9 @@ template = <<~MARKDOWN
 
 MARKDOWN
 
-file_name = [
-  "src/_posts/",
-  time.strftime("%Y-%m-%d"),
-  "-",
-  ARGV.map(&:downcase).join("-"),
-  ".md"
-].join
+name = [time.strftime("%Y-%m-%d"), ARGV.map(&:downcase)].join('-')
+path = File.join("src", "_posts", "#{name}.md")
 
-File.open(file_name, File::WRONLY | File::CREAT | File::EXCL) do |file|
+File.open(path, File::WRONLY | File::CREAT | File::EXCL) do |file|
   file.write(ERB.new(template).result)
 end
