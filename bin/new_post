@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+
+require "date"
+require "erb"
+
+title = ARGV.join(" ")
+time = Time.now
+
+template = <<~MARKDOWN
+  ---
+  layout: post
+  title: "#{title}"
+  date: #{time}
+  categories:
+  excerpt_separator: <!-- more -->
+  ---
+
+MARKDOWN
+
+file_name = [
+  "src/_posts/",
+  time.strftime("%Y-%m-%d"),
+  "-",
+  ARGV.map(&:downcase).join("-"),
+  ".md"
+].join
+
+File.open(file_name, File::WRONLY | File::CREAT | File::EXCL) do |file|
+  file.write(ERB.new(template).result)
+end
