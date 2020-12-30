@@ -37,11 +37,24 @@ entity "Signature" as signature {
   participant_id : foreign_key (person)
 }
 
+entity "Household" as household {
+  *id : number <<generated>>
+}
+
+entity "HouseholdPeople" as household_people {
+  *id : number <<generated>>
+  --
+  household_id : foreign_key
+  person_id : foreign_key
+}
+
 program }o-- program_participant
 program_participant }o-- person
 signature_requirement }o-- program_signature_requirement
 program }o-- program_signature_requirement
 signature_requirement }o-- signature
 person }o-- signature
+household }o-- household_people
+person }o-- household_people
 
 @enduml
