@@ -86,10 +86,102 @@ Inspection of the data modeling reveals that both queries -- pending requirement
 
 I tried writing the queries using `ActiveRecord` in several way, using joins and sub-selects, but found myself getting results that were not quite correct and having a hard time reasoning about it. The cognitive load of keeping that many things in my head at once was getting the best of me. Fortunately, I recognize the thought pattern, and the solution: Asking myself, what is the missing abstraction.
 
-Eventually I would settle on `MissingSignature`: It represents the domain concept of some data that we want to exist, but doesn't. I know of two ways to create data abstraction in relational databases: Common Table Expressions (CTEs) and database views. Both are supported to a certain extent in Ruby on Rails, but CTEs only through the use of `arel`, which is not considered public API, and can be awkward to mix and with regular `ActiveRecord` relations. Views on the other hand, are mostly trated by rails as tables, and abstract away how the are defined.
+Eventually I settled on `MissingSignature`: It represents the domain concept of some data that we want to exist, but doesn't. I know of two ways to create data abstraction in relational databases: Common Table Expressions (CTEs) and database views. Both are supported to a certain extent in Ruby on Rails, but CTEs only through the use of `arel`, which is not considered public API, and can be awkward to mix and with regular `ActiveRecord` relations. Views on the other hand, are mostly treated by rails as tables, and abstract away how the are defined.
 
+```sql
+-- db/views/missing_signatures_v01.sql
+WITH current_participant_requirements AS (
+    SELECT
+        program_signature_requirements.signature_requirement_id,
+        program_participants.participant_id
+    FROM
+        program_participants
+        INNER JOIN program_signature_requirements ON program_signature_requirements.program_id = program_participants.program_id
+        INNER JOIN programs ON programs.id = program_signature_requirements.program_id
+            AND programs.id = program_participants.program_id
+        INNER JOIN signature_requirements ON signature_requirements.id = program_signature_requirements.signature_requirement_id
+    WHERE
+        signature_requirements.expires_at >= now())
+SELECT
+    cpr.*
+FROM
+    current_participant_requirements cpr
+    LEFT JOIN signatures ON signatures.participant_id = cpr.participant_id
+        AND signatures.signature_requirement_id = cpr.signature_requirement_id
+WHERE
+    signatures.id IS NULL
+```
 
+With the help of the [scenic gem][scenic], defining a view is simple. The above is defined as `missing_signatures`. Within that view, there is a CTE for `current_participant_requirements` which does the heavy lifting in terms of joins, and also filters to "current" requirements. We don't care for requirements that have expired, since the don't need to be signed anymore. The CTE makes is easy to split the logic between finding the correct requirements, and then only showing the "pending" ones, via the `LEFT JOIN ... WHERE signatures.id IS NULL`.
+
+With the view in hand, using it in Rails is straightforward:
+
+```ruby
+class MissingSignature < ApplicationRecord
+  belongs_to :signature_requirement
+  belongs_to :participant, class_name: "Person"
+
+  def read_only?
+    true
+  end
+end
+```
+
+The `ready_only?` prevents `ActiveRecord` from attempting to write to that view, which would fail anyway. Notice that it can take advantage of regular `ActiveRecord` associations, on both sides:
+
+```ruby
+class SignatureRequirements < ApplicationRecord
+  has_many :missing_signatures
+end
+
+class Person < ApplicationRecord
+  has_many :missing_signatures, inverse_of: :participant, foreign_key: :participant_id
+end
+```
+
+The resulting ERD diagram, illustrates the relationships:
+
+{% include figure.html url="/assets/images/diagrams/community_erd_2.png" description="Fig 2: ERD with missing signatures)" %}
+
+## Simplified Queries
+
+With our new abstraction in place, the once-complicated queries are now straitghforward:
+
+```ruby
+# Pending Requirements
+SignatureRequirement
+  .joins(:missing_signatures, programs: {program_participants: :participant})
+  .merge(household.people)
+  .distinct
+
+# Possible Participants
+Person
+  .joins(:household_people, :missing_signatures)
+  .merge(household_people)
+  .merge(MissingSignature.where(signature_requirement_id: signature_requirement.id))
+  .distinct
+```
+
+Each of the above generates a single SQL statement. The first looks like:
+
+```sql
+SELECT DISTINCT
+    "signature_requirements".*
+FROM
+    "signature_requirements"
+    INNER JOIN "missing_signatures" ON "missing_signatures"."signature_requirement_id" = "signature_requirements"."id"
+    INNER JOIN "program_signature_requirements" ON "program_signature_requirements"."signature_requirement_id" = "signature_requirements"."id"
+    INNER JOIN "programs" ON "programs"."id" = "program_signature_requirements"."program_id"
+    INNER JOIN "program_participants" ON "program_participants"."program_id" = "programs"."id"
+    INNER JOIN "people" ON "people"."id" = "program_participants"."participant_id"
+    INNER JOIN "household_people" ON "people"."id" = "household_people"."person_id"
+WHERE
+    "household_people"."household_id" = 253
+```
+
+## Conclusion
 
 [1]: https://en.wikipedia.org/wiki/Abstraction_(computer_science)
 [2]: https://www.codecademy.com/articles/what-is-crud
+[scenic]: https://github.com/scenic-views/scenic
 [^1]: Code examples target Ruby on Rails 6.0

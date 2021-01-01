@@ -1,0 +1,67 @@
+@startuml
+
+hide circle
+
+skinparam linetype ortho
+
+entity "Person" as person {
+  *id : number <<generated>
+}
+
+entity "Program" as program {
+  *id : number <<generated>>
+}
+
+entity "ProgramParticipant" as program_participant {
+  *id : number <<generated>>
+  --
+  program_id : foreign_key
+  participant_id : foreign_key (person)
+}
+
+entity "SignatureRequirement" as signature_requirement {
+  *id : number <<generated>>
+}
+
+entity "ProgramSignatureRequirement" as program_signature_requirement {
+  *id : number <<generated>>
+  --
+  program_id : foreign_key
+  signature_requirement_id : foreign_key
+}
+
+entity "Signature" as signature {
+  *id : number <<generated>>
+  --
+  signature_requirement_id : foreign_key
+  participant_id : foreign_key (person)
+}
+
+entity "Household" as household {
+  *id : number <<generated>>
+}
+
+entity "HouseholdPeople" as household_people {
+  *id : number <<generated>>
+  --
+  household_id : foreign_key
+  person_id : foreign_key
+}
+
+abstract "MissingSignature" as missing_signature {
+  signature_requirement_id : foreign_key
+  participant_id : foreign_key (person)
+}
+
+program }o-- program_participant
+program_participant }o-- person
+signature_requirement }o-- program_signature_requirement
+program }o-- program_signature_requirement
+signature_requirement }o-- signature
+signature_requirement }o-- missing_signature
+person }o-- signature
+person }o-- missing_signature
+household }o-- household_people
+person }o-- household_people
+
+@enduml
