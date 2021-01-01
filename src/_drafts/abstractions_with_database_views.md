@@ -79,13 +79,15 @@ The relationships are relatively straight-forward, taking advantage of a few joi
 
 To create the simplest experience possible for parents of program participants, we settled on the following UX:
 
-- A parent is shown a list of pending requirements: This is a list documents the have to (electronically) sign.
-- A pending requirements is one that is associated with a program that at least one user in the household is a participant of. It must also not have been met.
+- A parent is shown a list of pending requirements: This is a list documents the have to (electronically) sign. A pending requirements is one that is associated with a program that at least one user in the household is a participant of. It must also not have been met.
+- Once the parent selects the requirements to sign, he can do so with a single submission on behalf of any of the children in the same household, that don't yet have a signature for that requirements.
 
-Once a pending requirement has been found, and a parent selects it for signature, it must select which of the participants in the household to sign for. Typically, the parent is expected to select *all* the participants, but there are a few exceptions: The parent might not want to sign for one of the participants. More likely, a parent will enroll one child and sign the requirements, and later enroll another child. The system should allow the new signature, that only applies to the new participant.
+Inspection of the data modeling reveals that both queries -- pending requirements and eligible participant signatures for a household -- are possible with a single roundtrip (SQL statement) from the database. The query is not trivial. It must join, `household`, `household_people`, `programs`, `program_participants`, `signature_requirements` and `program_signature_requirements` to obtain the set of signature that we _want_ to exist at some point. We also require removing from those list those signatures that already exist. The removal portion suggest to me using a `LEFT JOIN` to the `signatures` table, and filtering `WHERE signatures.id IS NULL`. That removes the existing signatures from the set.
 
+I tried writing the queries using `ActiveRecord` in several way, using joins and sub-selects, but found myself getting results that were not quite correct and having a hard time reasoning about it. The cognitive load of keeping that many things in my head at once was getting the best of me. Fortunately, I recognize the thought pattern, and the solution: Asking myself, what is the missing abstraction.
 
-## Finding Elegible Participants to Fulfill a Requirement
+Eventually I would settle on `MissingSignature`: It represents the domain concept of some data that we want to exist, but doesn't. I know of two ways to create data abstraction in relational databases: Common Table Expressions (CTEs) and database views. Both are supported to a certain extent in Ruby on Rails, but CTEs only through the use of `arel`, which is not considered public API, and can be awkward to mix and with regular `ActiveRecord` relations. Views on the other hand, are mostly trated by rails as tables, and abstract away how the are defined.
+
 
 
 [1]: https://en.wikipedia.org/wiki/Abstraction_(computer_science)
