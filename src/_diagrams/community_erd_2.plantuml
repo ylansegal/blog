@@ -53,15 +53,15 @@ abstract "MissingSignature" as missing_signature {
   participant_id : foreign_key (person)
 }
 
-program }o-- program_participant
-program_participant }o-- person
-signature_requirement }o-- program_signature_requirement
-program }o-- program_signature_requirement
-signature_requirement }o-- signature
-signature_requirement }o-- missing_signature
-person }o-- signature
-person }o-- missing_signature
-household }o-- household_people
-person }o-- household_people
+program }o--|| program_participant
+program_participant }o--|| person
+signature_requirement }o--|| program_signature_requirement
+program }o--|| program_signature_requirement
+signature_requirement }o--|| signature
+signature_requirement }o--|| missing_signature
+person }o--|| signature
+person }o--|| missing_signature
+household }o--|| household_people
+person }o--|| household_people
 
 @enduml
