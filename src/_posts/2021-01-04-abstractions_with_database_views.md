@@ -89,7 +89,7 @@ Inspection of the data modeling reveals that both queries -- pending requirement
 
 I tried writing the queries using `ActiveRecord` in several ways, using joins and sub-selects. I found myself getting results that were not quite correct and having a hard time reasoning about it. The cognitive load of keeping that many things in my head at once was getting the best of me. Fortunately, I recognize the thought pattern, and more importantly the solution: *What can I abstract away to make it easier?*
 
-Eventually I settled on `MissingSignature`: It represents the domain concept of some data that we want to exist, but doesn't. I know of two ways to create data abstraction in relational databases: Common Table Expressions (CTEs) and database views. Both are supported to a certain extent in Ruby on Rails. CTEs are supported through the use of `arel`, which is not considered public API. It can be awkward to mix and with regular `ActiveRecord` queries. Views on the other hand, are mostly treated by rails as tables, and abstract away how the are defined. With the help of the [scenic gem][scenic], defining a view is simple.
+Eventually I settled on `MissingSignature`: It represents the domain concept of some data that we want to exist, but doesn't. I know of two ways to create data abstraction in relational databases: Common Table Expressions (CTEs) and database views. Both are supported to a certain extent in Ruby on Rails. CTEs are supported through the use of `arel`, which is not considered public API. It can be awkward to mix and with regular `ActiveRecord` queries. Views on the other hand, are mostly treated by Rails as tables. That allows us to abstract away how the are defined. With the help of the [scenic gem][scenic], defining a view is simple.
 
 ```sql
 -- db/views/missing_signatures_v01.sql
@@ -162,7 +162,7 @@ SignatureRequirement
 # Possible Participants
 Person
   .joins(:household_people, :missing_signatures)
-  .merge(household_people)
+  .merge(household.people)
   .merge(MissingSignature.where(signature_requirement_id: signature_requirement.id))
   .distinct
 ```
