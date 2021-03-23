@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Abstractions With Database Views"
-# date: 2020-01-14 16:26:07 -0800
+date: 2020-01-14 16:26:07 -0800
 categories:
 - rails
 - databases
