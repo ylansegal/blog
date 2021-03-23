@@ -1,0 +1,30 @@
+@startuml
+
+title Sequenced Deployment
+
+concise "Front End" as fe_v0
+concise "Front End" as fe_v1
+concise "Back End" as be_v0
+concise "Back End" as be_v1
+scale 10 as 200 pixels
+
+fe_v0 is "FEv0"
+be_v0 is "BEv0"
+
+@fe_v0
+17 is {hidden}
+
+@fe_v1
+13 is "FEv1"
+
+fe_v0@13 <-> @17 : "Deployment #1"
+
+@be_v0
+37 is {hidden}
+
+@be_v1
+33 is "BEv1"
+
+fe_v0@33 <-> @37 : "Deployment #2"
+
+@enduml
