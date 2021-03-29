@@ -12,7 +12,7 @@ My name is Ylan Segal. I am a Software Engineer based in beautiful San Diego, Ca
 
 I have a Bachelors degree in Civil Engineering from the [Univerisdad Iberoamericana][uia] in Mexico City, and a Master of Science in Aeronautics and Astronautics degree from [Stanford University][stanford]. I've been writing software for over 20 years.
 
-I am currently a Staff Engineer at Procore. Prior to that, I came to be a Development Expert at [SAP][sap] through it's acquisition of Mellmo, makers of [Roambi][roambi]. Prior to that I was partner in an e-commerce endeavor. See my complete work history in [LinkedIn][linkedin].
+I am currently a Staff Software Engineer at [Procore][procore]. Prior to that, I came to be a Development Expert at [SAP][sap] through it's acquisition of Mellmo, makers of [Roambi][roambi]. Prior to that I was partner in an e-commerce endeavor. See my complete work history in [LinkedIn][linkedin].
 
 I write in this blog about things that interest me as a Software Engineer. All content and opinions are my own.
 
