@@ -43,7 +43,7 @@ To compare the peformance, I focused on to metrics: *Transaction Rate or Through
 
 ![Transaction Rate: Unicorn, Puma](/assets/images/transaction-rate-unicorn-puma.png)
 
-![Average Response Time: Unicorn, Puma]
+![Average Response Time: Unicorn, Puma](/assets/images/average-response-time-unicorn-puma.png)
 
 ## Conclusions
 
