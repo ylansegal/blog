@@ -3,6 +3,7 @@ layout: post
 title: "The REPL: Issue 77 - January 2021"
 date: 2021-02-02 14:38:20 -0800
 categories:
+- the repl
 excerpt_separator: <!-- more -->
 ---
 

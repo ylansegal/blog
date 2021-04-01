@@ -3,6 +3,7 @@ layout: post
 title: "The REPL: Issue 78 - February 2021"
 date: 2021-03-01T14:06:49-08:00
 categories:
+- the repl
 excerpt_separator: <!-- more -->
 ---
 
