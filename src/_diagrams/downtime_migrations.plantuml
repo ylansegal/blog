@@ -1,6 +1,6 @@
 @startuml
 Title Downtime Deployment - Timing Diagram
-
+hide time-axis
 concise "Code Version" as code
 concise "Database Schema State" as state
 scale 10 as 200 pixels

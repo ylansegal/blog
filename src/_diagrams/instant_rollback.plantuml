@@ -1,6 +1,6 @@
 @startuml
 Title Instantaneous Rollback - Timing Diagram
-
+hide time-axis
 concise "Code Version" as code
 concise "Database Schema State" as db_state
 scale 10 as 200 pixels

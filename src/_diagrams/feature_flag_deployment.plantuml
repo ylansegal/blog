@@ -1,6 +1,6 @@
 @startuml
 Title Feature Flag Deployment - Timing Diagram
-
+hide time-axis
 concise "Code Version" as code_v0
 concise "Code Version" as code_v1
 concise "Database Schema State" as db_state

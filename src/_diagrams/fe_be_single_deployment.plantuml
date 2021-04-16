@@ -1,6 +1,7 @@
 @startuml
 
 title Single Deployment
+hide time-axis
 concise "Front End" as fe_v0
 concise "Front End" as fe_v1
 concise "Back End" as be_v0
