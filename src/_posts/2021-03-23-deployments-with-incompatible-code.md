@@ -64,7 +64,7 @@ Is this safe to deploy?
 
 # Deployment Style
 
-In the same vein as [Deployments With Schema Migrations]({% post_url 2020-01-14-deployments-with-schema-migrations %}), *how* the code is deployed matters. The most interesting effects are found when dealing with non-downtime deployments. For the purpose of this analysis, lets assume that:
+In the same vein as [Deployments With Schema Migrations]({% post_url 2020-01-14-deployments-with-schema-migrations %}), *how* the code is deployed matters. The most interesting effects are found when dealing with no-downtime deployments. For the purpose of this analysis, lets assume that:
 
 - Our deployments -- from start to finish -- take ~10 minutes.
 - Our traffic is high enough that every route is exercised ~10 times per minute.

@@ -110,7 +110,7 @@ Note that since the code for the migration -- the instructions to convert `S0` t
 
 Deploying and rolling back with downtime is straightforward, but not always desirable. Businesses usually aim to minimize downtime. The current trend in continuous deployments is to deploy small increments of code multiple times a day. Taking downtime on each deployment is unacceptable.
 
-# The Simplest Non-Downtime Deployment
+# The Simplest No-Downtime Deployment
 
 As a thought exercise, let's imagine an instantaneous deployment: At a given moment in time our server is running `V0`. An instance later, the code swapped and the server is running `V1`.
 
@@ -254,7 +254,7 @@ Our `V0/V1` interval now becomes a `V0/'Soft' V0` interval. `'Soft' V0` is the m
 
 In this post we analyzed a simple product feature that requires a purely additive migration. We established a framework for reasoning about on which "side" of the code swap to run the migration when deploying. The discussion did not touch upon other types of migrations, like removing a table or renaming a column, left for another time.
 
-Then we discussed how our deployment strategy has to be kept in mind while writing our code. A downtime deployment is the easiest to reason about. A Heroku-style deployment improves on that, while still maintaining simple code semantics. True non-downtime deployments cause inescapable complexity. We saw a few ways to deal with it.
+Then we discussed how our deployment strategy has to be kept in mind while writing our code. A downtime deployment is the easiest to reason about. A Heroku-style deployment improves on that, while still maintaining simple code semantics. True no-downtime deployments cause inescapable complexity. We saw a few ways to deal with it.
 
 Also left out of this post is a discussion about changing the schema in large databases. Those concerns will also impose further constraints. For a peek at some of those strategies see the [strong_mirations][strong_mirations] gem.
 
