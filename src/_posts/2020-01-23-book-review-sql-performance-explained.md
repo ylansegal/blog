@@ -8,6 +8,9 @@ categories:
 - databases
 ---
 
+## SQL Performance Explained
+### by Markus Winand
+
 Relational database management systems are battle-tested technology that continues to be the go-to technology for a broad spectrum of applications. While not strictly necessary, the interface the most common RDBMS is through writing SQL. In this book, Markus Winand writes a thorough guide to understanding the performance of SQL databases.
 
 > It turns out that the only thing developers need to learn is how to index. Database indexing is, in fact, a development task.

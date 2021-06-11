@@ -9,6 +9,8 @@ categories:
 excerpt_separator: <!-- more -->
 ---
 
+### Building Git by James Coglan
+
 `git` is a widely successful version control system, it's used in software companies large and small. It's distributed nature changed software development in many ways. In `Building Git`, James Coglan re-implements a subset of `git`'s functionality from the ground up, using Ruby, which has a large standard-library and is higher-level than the original C.
 
 `git` itself is a large project with a lot of functionality. The book covers a lot of ground, in a step-by-step fashion. Each line of code is explained both conceptually and syntactically.
