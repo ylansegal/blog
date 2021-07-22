@@ -5,6 +5,7 @@ date: 2020-01-14 16:26:07 -0800
 categories:
 - rails
 - databases
+- postgres
 excerpt_separator: <!-- more -->
 ---
 
