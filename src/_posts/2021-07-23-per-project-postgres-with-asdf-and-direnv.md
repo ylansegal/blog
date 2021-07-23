@@ -27,7 +27,6 @@ I use [asdf](https://asdf-vm.com/#/) and [asdf-postgres](https://github.com/smas
 ```
 # .tool-versions
 postgres 10.14
-ruby 2.6.3
 ```
 
 This directs the Postgres installation to use `10.14`:
@@ -64,6 +63,8 @@ layout_postgres() {
 ```
 
 On first use for a project, it will create a the needed directories, and configure Postgres to *not* listen on any IP address. It also configures where to look for Unix sockets.
+
+Note that the `direnv_layout_dir` is typically `.direnv` under the project. That means that the Postgres data will leave in `.direnv/postgres`.
 
 To invoke on each project, I add a `.envrc` file:
 
@@ -112,6 +113,18 @@ Time: 0.365 ms
 
 ## Conclusion
 
-This setup allows me to manage the version of Postgres on a per-project basis, with minimal setup. The `~direnv`
+This setup allows me to manage the version of Postgres on a per-project basis, with minimal setup. It requires a bit of `direnv` customization, and then to opt-in on each project by configuring `asdf` and `direnv`:
+
+```
+# .tool-versions
+postgres 10.14
+```
+
+```
+# .envrc
+layout postgres
+```
+
+`asdf` and `direnv` play well together, even though neither has specific knowledge of the other. The Unix dream.
 
 [1]: /blog/2018/10/26/managing-versions-with-asdf/
