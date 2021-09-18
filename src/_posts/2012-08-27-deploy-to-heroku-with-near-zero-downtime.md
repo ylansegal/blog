@@ -6,7 +6,6 @@ comments: true
 categories:
 - heroku
 - deployment
-- most_popular
 ---
 
 Heroku offers a great hosting platform that abstracts away most of the system administration tasks inherent in

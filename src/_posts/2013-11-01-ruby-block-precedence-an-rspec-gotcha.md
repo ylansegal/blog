@@ -7,7 +7,6 @@ categories:
 - rspec
 - ruby
 - tdd
-- most_popular
 ---
 
 Recently I came across a spec that didn't seem to be executing the assertion block passed in to the raise_error expectation. Leaving the bare essentials for the example:

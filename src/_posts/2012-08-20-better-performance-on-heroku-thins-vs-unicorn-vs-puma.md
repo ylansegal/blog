@@ -6,7 +6,6 @@ comments: true
 categories:
 - heroku
 - performance
-- most_popular
 ---
 
 **UPDATE**: These benchmarks where updated in [2013][6] and [2014][7].

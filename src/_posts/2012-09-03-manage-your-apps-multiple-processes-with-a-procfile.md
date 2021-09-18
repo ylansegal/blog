@@ -7,7 +7,6 @@ categories:
 - foreman
 - procfile
 - heroku
-- most_popular
 ---
 
 On simple web applications, it's common to talk about a "develpment server" which one starts before coding. Any rails developer is familiar with ```rails s```. It boots up your application and it's ready to view on
