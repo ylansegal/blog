@@ -7,6 +7,7 @@ categories:
 - books
 - ruby
 - design  
+- most_popular
 ---
 
 *99 Bottles of OOP* [bills itself][book] as a practical guide to writing cost-effective, maintainable and pleasing object-oriented code -- otherwise known as "good" code. It delivers on that promise.

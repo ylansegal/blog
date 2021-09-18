@@ -6,6 +6,7 @@ categories:
 - deployment
 - rails
 - heroku
+- most_popular
 # excerpt:
 ---
 

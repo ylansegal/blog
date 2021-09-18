@@ -7,6 +7,7 @@ categories:
 - jruby
 - delayed_job
 - threading
+- most_popular
 ---
 
 I love [DelayedJob][1]. It's my go-to-gem for background processing in Rails, mainly because it works with whatever

@@ -6,6 +6,7 @@ comments: true
 categories:
 - sublime_text_2
 - ctags
+- most_popular
 ---
 
 Do you want to have a shortcut that takes you from a method call to it's definition, wherever that may be in your code?

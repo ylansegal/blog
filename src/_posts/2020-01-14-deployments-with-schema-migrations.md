@@ -7,6 +7,7 @@ categories:
 - rails
 - heroku
 - databases
+- most_popular
 excerpt: >
   Deploying code that depends on database schema migrations successfully requires putting some thought into when to run them during the deployment. This post develops a framework to reason about it, through analysis of a specific code example and multiple kinds of deployments. While the example is specific to Ruby on Rails, the lesson carries over to any similar web framework.
 ---

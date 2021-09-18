@@ -5,6 +5,7 @@ date: 2016-10-19 09:41:48 -0700
 comments: true
 categories:
 - unix
+- most_popular
 ---
 
 `xargs` is one of my go-to tools in Unix. It reads lines from stdin and executes another command with each line as an argument. It's very useful to glue commands together.

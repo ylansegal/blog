@@ -5,6 +5,7 @@ date: 2018-11-08 12:30:54 -0800
 comments: true
 categories:
 - security
+- most_popular
 ---
 
 At the time of this writing, this blog is hosed on [NearlyFreeSpeech.NET][nfs], and delivered securely over TLS with a certificate from [Let's Encrypt][lets]. I previously wrote about how I [obtained the first certificate][setup] and how to [renew it][renew]. The process is now even easier, because NearlyFreeSpeech.NET automates the [setup and renewal][faq] for it's members.
