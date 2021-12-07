@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The REPL: Issue 85 - September 2021"
+title: "The REPL: Issue 86 - October 2021"
 date: 2021-11-04 14:46:39 -0700
 categories:
 - the repl
