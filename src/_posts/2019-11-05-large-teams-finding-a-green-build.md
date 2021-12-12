@@ -6,6 +6,7 @@ comments: true
 categories:
 - teams
 - unix
+- git
 excerpt_separator: <!-- more -->
 ---
 
