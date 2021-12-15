@@ -8,6 +8,10 @@ categories:
 - foreman
 ---
 
+**UPDATE**: I no longer source my `.env` like described in this post. I now use [direnv]({% post_url 2021-07-23-per-project-postgres-with-asdf-and-direnv %}) to setup per-project local environment, including sourcing `.env`. The described approach here _could_ be exploited to do bad things to your system. Example attack: You clone a repo that includes a `.env` file, when you `cd` into the project, it changes your `PATH` to directory you've just cloned. That overrides `ls` or some other unix utility, which now takes over your system.
+
+---
+
 I [wrote before][1] about using [foreman][2] to manage you app's processes. An additional feature is that it enables you to configure your unix environment when starting an app, by reading environment variables
 located in a ```.env``` file at the root of your project, that looks something like this:
 
