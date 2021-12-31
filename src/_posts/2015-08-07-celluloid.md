@@ -138,5 +138,5 @@ D, [2015-08-05T17:39:14.597275 #49511] DEBUG -- : Terminating 1 actor...
 Working with Actor-based framework, is in some ways different than traditional ruby, but it also fits in nicely. It may be because I was already primed by reading about Elixir and OTP lately, but I found it somewhat liberating to not have to think about all possible errors conditions and just focus on the happy path, with the confidence that any error will be automatically recovered from.
 
 [1]: https://celluloid.io/
-[2]: /blog/categories/elixir/
+[2]: /categories/elixir/
 [3]: https://github.com/celluloid/celluloid/wiki

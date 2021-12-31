@@ -243,7 +243,7 @@ They tried it a few times on my computer and where keen to try it on the home co
 Hmm... Maybe I should look into `mruby` or `crystal-lang`...
 
 
-[1]: /blog/categories/books
+[1]: /categories/books
 [2]: https://www.overdrive.com/
 [3]: https://developer.overdrive.com/
 [4]: http://codeartisan.blogspot.com/2012/07/using-html-as-media-type-for-your-api.html

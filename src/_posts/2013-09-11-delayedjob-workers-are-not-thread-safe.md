@@ -78,6 +78,6 @@ My first instinct was to just make the options a property of each worker. Howeve
 I believe that there is nothing fundamentally wrong with DelayedJob and it could certainly be made to work with threads be removing the global state. However, it would break compatibility with existing back-end implementations, so it's a little bit more involved than a pull request. I tried contacting the authors on the [mailing list][4], but so far it looks like my post has not been approved by the moderator.
 
 [1]: https://github.com/collectiveidea/delayed_job
-[2]: /blog/categories/jruby/
+[2]: /categories/jruby/
 [3]: https://github.com/kares/jruby-rack-worker/blob/master/src/main/ruby/delayed/jruby_worker.rb
 [4]: https://groups.google.com/forum/#!forum/delayed_job
