@@ -19,10 +19,14 @@ Gemfile.lock: Gemfile
 
 build: Gemfile.lock diagrams
 	bundle exec jekyll build
+	touch .make.build
 
 build_with_drafts: $(DRAFT_FILES) build
 
-deploy: build
+test:
+	find_broken_links http://127.0.0.1:4000
+
+deploy: build test
 	git push origin master
 	rsync -av _site/ ylansegal_ylansblog@ssh.phx.nearlyfreespeech.net:/home/public
 	open http://ylan.segal-family.com
