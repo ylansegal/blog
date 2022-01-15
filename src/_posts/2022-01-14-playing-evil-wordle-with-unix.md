@@ -3,7 +3,7 @@ layout: post
 title: "Playing Evil Wordle With Unix"
 date: 2022-01-14 13:48:20 -0800
 categories:
-- Unix
+- unix
 excerpt_separator: <!-- more -->
 ---
 
