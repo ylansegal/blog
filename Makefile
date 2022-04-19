@@ -10,7 +10,7 @@ MAKEFLAGS += --no-builtin-rules
 # Variables
 DIAGRAM_SOURCES = $(shell find src/_diagrams/*.plantuml | sed 's,src/_diagrams,src/assets/images/diagrams,')
 DIAGRAM_FILES= $(DIAGRAM_SOURCES:.plantuml=.png)
-DRAFT_FILES = $(shell find src/drafts/*.md | sed 's,src/_drafts,src/drafts,')
+DRAFT_FILES = $(shell find src/_drafts/*.md | sed 's,src/_drafts,src/drafts,')
 
 .PHONY: build build_with_drafts deploy_with_drafts diagrams clean logs analyze-logs
 
