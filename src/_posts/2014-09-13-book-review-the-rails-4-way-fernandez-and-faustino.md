@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Book Review: The Rails 4 Way - Fernandez &amp; Faustino"
+title: "Book Review: The Rails 4 Way - Fernandez & Faustino"
 date: 2014-09-13 14:41
 comments: true
 categories:
