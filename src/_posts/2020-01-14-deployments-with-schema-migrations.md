@@ -119,7 +119,7 @@ In this scenario, when do we run our migration? Before or after the code is swap
 
 Since we have been writing tests all along to develop our features, we are confident that `V0` is compatible with `S0`, and `V1` is compatible with `S1`. The other possible configuration are `V1`-`S0` and `V0`-`S1`. Are they viable?
 
-Our `S1` code relies on the `comments` table existing in the database (`S1`). If the code boots and the table is missing, we will get exceptions similar to:
+Our `V1` code relies on the `comments` table existing in the database (`S1`). If the code boots and the table is missing, we will get exceptions similar to:
 
 ```ruby
 post.comments
