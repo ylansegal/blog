@@ -8,7 +8,7 @@ categories:
 excerpt_separator: <!-- more -->
 ---
 
-I script that I've been using for years stopped working as expected after I upgraded `bash` and `git`. I use [ctags][ctags] to navigate code in my editor (currently Atom). To automate the generation of the `tags` file, I run the `ctags` executable from git hooks (`post-commit`, `post-merge`, and `post-checkout`), which fits well with my development workflow.
+A script that I've been using for years stopped working as expected after I upgraded `bash` and `git`. I use [ctags][ctags] to navigate code in my editor (currently Atom). To automate the generation of the `tags` file, I run the `ctags` executable from git hooks (`post-commit`, `post-merge`, and `post-checkout`), which fits well with my development workflow.
 
 Some of the projects I work with are quite large, and the `ctags` invocation can take longer than 30 seconds. To avoid waiting that long on each commit, I background the invocation. The hook -- that has worked for years -- looked like this:
 
