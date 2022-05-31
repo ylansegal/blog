@@ -247,7 +247,7 @@ Session affinity, also known as sticky sessions, can provide some relief. System
 
 Another approach is the use of feature flags: New code paths are introduced with conditionals that depend on a run-time setting. For example, `V1` view code could show the comments (and the comment form) only when a runtime flag is enabled. The flag would stay disabled until after the deployment.
 
-<img src="/assets/images/diagrams/feature_flag_deployment.png" alt="Preboot Deployment" class="center">
+<img src="/assets/images/diagrams/feature_flag_deployment.png" alt="Feature Flag Deployment" class="center">
 
 Our `V0/V1` interval now becomes a `V0/'Soft' V0` interval. `'Soft' V0` is the mode in which `V1` runs when the feature flag is disabled. We've made some strides in making it easier to reason about multiple versions of code running at once, at the expense of introducing more complexity in our code, and adding a whole new configuration -- `'Soft' V0` - `S1` -- for QA to test. We've also now have the burden to remove the feature flag conditionals in the code in a follow-up deployment, and the effort that goes along with that.
 
