@@ -6,11 +6,9 @@
 // Theme Overrides
 
 // Use system font when possible
-// https://nathanfriend.io/2018/04/27/fantastic-fast-fonts-with-system-ui.html
-$base-font-family: -apple-system, system-ui, BlinkMacSystemFont,
-  'Segoe UI', Roboto, 'Helvetica Neue',
-  Ubuntu, Arial, sans-serif;
- $base-font-size:   18px;
+// https://systemfontstack.com/
+$base-font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+$base-font-size:   18px;
 
 @import "whiteglass";
 
