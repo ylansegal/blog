@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The REPL: Issue 93 - June 2022"
+title: "The REPL: Issue 93 - May 2022"
 date: 2022-06-07 16:11:56 -0700
 categories:
 - the repl
