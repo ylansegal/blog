@@ -23,7 +23,7 @@ The folks at Honeycomb discuss how they think about their engineering ladder. In
 
 ### [On the Dangers of Cryptocurrencies and the Uselessness of Blockchain][schneier]
 
-I respect Bruce Shneier's opinion on security and technology a lot:
+I respect Bruce Schneier's opinion on security and technology a lot:
 
 > Earlier this month, I and others wrote a letter to Congress, basically saying that cryptocurrencies are an complete and total disaster, and urging them to regulate the space. Nothing in that letter is out of the ordinary, and is in line with what I wrote about blockchain in 2019.
 
