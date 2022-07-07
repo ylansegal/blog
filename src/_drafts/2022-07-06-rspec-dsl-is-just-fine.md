@@ -83,14 +83,20 @@ end
 
 The rewritten spec is readable from top to bottom. The `subject` is introduced close to each context. In particular, I would point the reader to the "at level 6" context. The very next line, introduces a `level` that is hard-coded at 6. It should be painly clear where that comes from, and that it's particularly relevant to this context. The next line will use it to setup the `subject`.
 
-The author also mentions that using ruby methods makes existing tooling work better. While it's true that _my_ tooling doesn't understand `let` and `subject` declarations, I don't see how having nested methods calling `super` on each other improves the situation. When trying to jump to the definition, my tooling would show me all possible definitions. I would still have to choose which one to jump to. How would I know which one is the correct one? Even if they did, the `super` means that they would need to jump to all of them anyway.
+Another argument made in the original article is that:
+
+> But let is not Ruby, and using it is an unnecessary abstraction.
+
+I don't quite follow why the line is drawn at `let`. The author seems quite happy to use other RSpec abstractions like `have_sneak_attack` and `have_expertise`. Since there is no mention of custom matchers, I assume that it is reliant on RSpec [built-in predicate matchers][matchers]. A spec in the form of `have_xxx` passes when the subject's `have_xxx?` method returns true. I personally find that abstraction much harder to internalize than a `let` or `subject` declaration.
+
+The author also mentions that using ruby methods makes existing tooling work better. While it's true that _my_ tooling doesn't understand `let` and `subject` declarations, I don't see how having nested methods calling `super` on each other improves the situation. When trying to jump to the definition, my tooling would show me all possible definitions. I would still have to choose which one to jump to. How would I know which one is the correct one? Even if I did, the `super` means that they would need to jump to all of them anyway.
 
 ## Conclusion
 
-I believe that the code presented as an example of a good spec by the author can be much improved by using RSpec existing DSL. The example is clearly not as complex as specs in most code bases, but that is what the author chose to use.
+I believe that the code presented as an example of a good spec by the author can be much improved by using RSpec existing DSL. The example is clearly not as complex as specs in most production code bases, but I stock to it because that is what the author used.
 
-In practice, I've seen many specs that stick to RSpec's DSL and are very hard to follow, have mystery guests, and are generally painful to use. I don't blame the DSL or think that using methods would immediately improve the situation. Clear, legible specs are possible if they are written intentionally. Collaborators should be defined close to where they are used. Clarity beats brevity. Some repetition in test setup is fine.
-
+In practice, I've seen many specs that stick to RSpec's DSL and are very hard to follow, have mystery guests, and are generally painful to use. I don't blame the DSL or think that using methods would immediately improve the situation. Clear, legible specs are possible if they are written intentionally. Collaborators should be defined close to where they are used. Clarity beats brevity. Some repetition in test setup is fine. RSpec DSL is fine, too.
 
 [article]: https://blog.testdouble.com/posts/2022-06-29-define-methods-in-rspec/
 [mystery]: http://xunitpatterns.com/Obscure%20Test.html#Mystery%20Guest
+[matchers]: https://relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
