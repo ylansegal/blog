@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "RSpec DSL Is Just Fine"
-date: 2022-07-06 11:51:00 -0700
+date: 2022-07-09 9:51:00 -0700
 categories:
 - ruby
 - rspec
