@@ -56,7 +56,7 @@ My second objection is that this code example doesn't accomplish what it set out
 
 There are two assertion in this file. The one on line 4, and the one on line 9. To figure out how `rogue` is defined in line 4, I have to scroll to line 19 and see the method definition. Now, that depends on `pc`, which in turn is defined in line 26 (which by the author's own admission would be actually farther away, since more specs were snipped).
 
-The second assertion is even worse. To know how `rogue` comes from in line 9, I first have to visit the definition on line 12, which in turn calls `super`. that takes me back to line 19, and then to 26. Even worse, the definition of `rogue` on line 12 has a mystery guest of it's own: The `5` in line 14. Where does that come from? The context for the spec calls for "at level 6". Is the `5` an error? It's not clear until we trace the fact that `super` has produced a `rogue` already at level `1`, and we need to add `5` more to get to `6`.
+The second assertion is even worse. To know how `rogue` comes from in line 9, I first have to visit the definition on line 12, which in turn calls `super`. that takes me back to line 19, and then to 26. Even worse, the definition of `rogue` on line 12 has a mystery guest of it's own: The `5` in line 14. Where does that come from? The context for the spec calls for "at level 6". Is the `5` an error? It's not clear until we trace the fact that `super` has produced a `rogue` already at level `1`, and we need to add `5` more to get to `6`. All this indirection requires the reader to keep in mind the bit about RSpec's anonymous classes.
 
 Now, I am not arguing that using RSpec DSL means that your specs are always going to be crystal clear. I argue that it's quite possible to create legible specs with the DSL. Here is the same spec, as I would write it:
 
@@ -93,7 +93,7 @@ The author also mentions that using ruby methods makes existing tooling work bet
 
 ## Conclusion
 
-I believe that the code presented as an example of a good spec by the author can be much improved by using RSpec existing DSL. The example is clearly not as complex as specs in most production code bases, but I stock to it because that is what the author used.
+I believe that the code presented as an example of a good spec by the author can be much improved by using RSpec existing DSL. The example is clearly not as complex as specs in most production code bases, but I stuck with it because that is what the author used.
 
 In practice, I've seen many specs that stick to RSpec's DSL and are very hard to follow, have mystery guests, and are generally painful to use. I don't blame the DSL or think that using methods would immediately improve the situation. Clear, legible specs are possible if they are written intentionally. Collaborators should be defined close to where they are used. Clarity beats brevity. Some repetition in test setup is fine. RSpec DSL is fine, too.
 
