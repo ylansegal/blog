@@ -5,6 +5,7 @@ date: 2020-05-07 15:27:42 -0700
 categories:
 - databases
 - postgres
+- bi temporal data
 excerpt_separator: <!-- more -->
 ---
 
