@@ -26,5 +26,10 @@ layout: default
     {% include custom_comments_provider.html %}
   </div>
   {% endif %}
-
+  {% if site.twitter_username %}
+  <hr />
+  <p>
+    Find me on Twitter at <a href="https://twitter.com/{{ site.twitter_username }}">@{{ site.twitter_username }}</a>
+  </p>
+  {% endif %}
 </article>
