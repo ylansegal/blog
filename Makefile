@@ -60,8 +60,8 @@ logs/report.html: logs/access_log
 	goaccess logs/access_log* -o logs/report.html --log-format=COMBINED
 
 .make.backup_logs: logs/report.html
-	export RCLONE_SFTP_HOST=${RSYNC_NET_HOST}
-	export RCLONE_SFTP_USER=${RSYNC_NET_USER}
+	@export RCLONE_SFTP_HOST=${RSYNC_NET_HOST}
+	@export RCLONE_SFTP_USER=${RSYNC_NET_USER}
 	cat ~/.secure.password | rclone --progress sync logs drive:/blog_logs/
 	cat ~/.secure.password | rclone --progress sync logs rsyncnet:blog_logs/
 	touch .make.backup_logs
