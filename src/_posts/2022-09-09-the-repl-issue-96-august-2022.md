@@ -4,6 +4,7 @@ title: "The REPL: Issue 96 - August 2022"
 date: 2022-09-09 09:49:47 -0700
 categories:
 - the repl
+- unix
 excerpt_separator: <!-- more -->
 ---
 

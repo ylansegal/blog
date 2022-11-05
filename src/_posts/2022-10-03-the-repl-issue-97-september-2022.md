@@ -4,6 +4,9 @@ title: "The REPL: Issue 97 - September 2022"
 date: 2022-10-03 15:54:29 -0700
 categories:
 - the repl
+- git
+- postgres
+- elixir
 excerpt_separator: <!-- more -->
 ---
 
