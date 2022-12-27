@@ -69,7 +69,7 @@ jekyll-archives:
     category: /categories/:name/
     tag: /tags/:name/
 
-lang: en-US
+lang: en
 
 defaults:
   -
