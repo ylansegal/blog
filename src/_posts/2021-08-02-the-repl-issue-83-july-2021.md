@@ -4,6 +4,7 @@ title: "The REPL: Issue 83 - July 2021"
 date: 2021-08-02 15:02:18 -0700
 categories:
 - the repl
+- good_job
 excerpt_separator: <!-- more -->
 ---
 
