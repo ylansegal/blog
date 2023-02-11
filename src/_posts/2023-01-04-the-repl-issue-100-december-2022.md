@@ -3,6 +3,7 @@ layout: post
 title: "The REPL: Issue 100 - December 2022"
 date: 2023-01-04 14:37:07 -0800
 categories:
+- the repl
 - postgres
 - sqlite
 - productivity
