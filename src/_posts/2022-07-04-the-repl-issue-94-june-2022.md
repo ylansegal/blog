@@ -4,6 +4,7 @@ title: "The REPL: Issue 94 - June 2022"
 date: 2022-07-04 12:40:42 -0700
 categories:
 - the repl
+- postgres
 excerpt_separator: <!-- more -->
 ---
 

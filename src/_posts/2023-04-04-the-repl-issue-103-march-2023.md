@@ -3,6 +3,7 @@ layout: post
 title: "The REPL: Issue 103 - March 2023"
 date: 2023-04-04 18:14:25 -0700
 categories:
+- the repl
 - machine_learning
 - git
 excerpt_separator: <!-- more -->
