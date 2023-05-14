@@ -9,8 +9,6 @@ categories:
 excerpt_separator: <!-- more -->
 ---
 
-# GoodJob Bulk Enqueue
-
 A common pattern in Rails application to queue similar jobs for a collection objects. For example:
 
 
