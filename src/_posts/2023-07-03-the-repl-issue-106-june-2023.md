@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The REPL: Issue 105 - May 2023"
+title: "The REPL: Issue 106 - June 2023"
 date: 2023-07-03 15:10:48 -0700
 categories:
 - machine_learning
