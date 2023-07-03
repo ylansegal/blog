@@ -4,7 +4,7 @@ title: "The REPL: Issue 102 - Februrary 2023"
 date: 2023-03-02 16:42:37 -0800
 categories:
 - the repl
-- postgress
+- postgres
 - teams
 excerpt_separator: <!-- more -->
 ---
