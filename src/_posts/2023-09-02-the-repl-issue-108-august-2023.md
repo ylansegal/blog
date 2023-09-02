@@ -3,7 +3,7 @@ layout: post
 title: "The REPL: Issue 108 - August 2023"
 date: 2023-09-02 10:14:05 -0700
 categories:
-- bi-temporal-data
+- bi temporal data
 - rails
 excerpt_separator: <!-- more -->
 ---
