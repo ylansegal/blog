@@ -2,17 +2,18 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
 
-
 // Theme Overrides
 
 // Use system font when possible
 // https://systemfontstack.com/
 $base-font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
-$base-font-size:   18px;
+$monospace-font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+$base-font-size: 18px;
 
 @import "whiteglass";
 
-.site-header, .site-footer {
+.site-header,
+.site-footer {
   background-color: $grey-color-light;
 }
 
@@ -37,5 +38,5 @@ thead tr {
 }
 
 tr:nth-child(even) {
-	background: $grey-color-light;
+  background: $grey-color-light;
 }
