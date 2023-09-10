@@ -28,7 +28,7 @@ test:
 
 deploy: build test
 	git push origin master
-	rsync -av _site/ ylansegal_ylansblog@ssh.phx.nearlyfreespeech.net:/home/public
+	rsync -av _site/ ylansegal_ylansblog@ssh.nyc1.nearlyfreespeech.net:/home/public
 	curl -H 'Cache-Control: no-cache' --head  https://ylan.segal-family.com
 	open https://ylan.segal-family.com
 
