@@ -55,7 +55,7 @@ logs:
 	mkdir -p logs
 
 logs/access_log: logs
-	rsync -av ylansegal_ylansblog@ssh.phx.nearlyfreespeech.net:/home/logs/* logs/
+	rsync -av ylansegal_ylansblog@ssh.nyc1.nearlyfreespeech.net:/home/logs/* logs/
 
 logs/report.html: logs/access_log
 	goaccess logs/access_log* -o logs/report.html --log-format=COMBINED
