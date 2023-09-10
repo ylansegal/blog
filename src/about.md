@@ -8,7 +8,7 @@ footer: true
 
 ![Ylan Segal, Profile Picture](/assets/images/YlanSegal_profile.jpg)
 
-My name is Ylan Segal. I am a Software Engineer based in beautiful San Diego, California, where I lived most of my adult life. I grew up in Mexico City. You can reach me on twitter [@ylansegal][twitter], <a rel="me" href="https://mastodon.sdf.org/@ylansegal">@ylansegal@mastodon.sdf.org</a> or by email at `ylan@{this top domain}`.
+My name is Ylan Segal. I am a Software Engineer based in beautiful San Diego, California, where I lived most of my adult life. I grew up in Mexico City. You can reach me on Mastodon at <a rel="me" href="https://mastodon.sdf.org/@ylansegal">@ylansegal@mastodon.sdf.org</a> or by email at `ylan@{this top domain}`.
 
 I have a Bachelors degree in Civil Engineering from the [Univerisdad Iberoamericana][uia] in Mexico City, and a Master of Science in Aeronautics and Astronautics degree from [Stanford University][stanford]. I've been writing software for over 20 years.
 
@@ -30,7 +30,6 @@ This blog is built using [Jekyll][jekyll], themed with [Whiteglass][whiteglass],
 [whiteglass]: https://github.com/yous/whiteglass
 [markdown]: http://daringfireball.net/projects/markdown/
 [nfs]: https://www.nearlyfreespeech.net/
-[twitter]: https://twitter.com/ylansegal
 
 ## PGP
 
