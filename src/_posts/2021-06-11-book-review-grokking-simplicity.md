@@ -5,10 +5,10 @@ date: 2021-06-11 14:33:35 -0700
 comments: true
 categories:
 - books
+- software
 excerpt_separator: <!-- more -->
 ---
 
-## Grokking Simplicity
 ### Taming complex software with functional thinking
 ### by Eric Normand
 
