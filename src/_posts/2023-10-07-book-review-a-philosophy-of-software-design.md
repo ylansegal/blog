@@ -9,7 +9,7 @@ categories:
 excerpt_separator: <!-- more -->
 ---
 
-### by ReJohn Ousterhout
+### by John Ousterhout
 
 This book focuses on software design, identified as a continuos process that spans the complete lifecycle of a software system. The first part of the book proposes that the main issue in software design lies in managing complexity.
 
