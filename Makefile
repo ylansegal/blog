@@ -11,6 +11,8 @@ MAKEFLAGS += --no-builtin-rules
 DIAGRAM_SOURCES = $(shell find src/_diagrams/*.plantuml | sed 's,src/_diagrams,src/assets/images/diagrams,')
 DIAGRAM_FILES= $(DIAGRAM_SOURCES:.plantuml=.png)
 DRAFT_FILES = $(shell find src/_drafts/*.md | sed 's,src/_drafts,src/drafts,')
+export RCLONE_SFTP_HOST=${RSYNC_NET_HOST}
+export RCLONE_SFTP_USER=${RSYNC_NET_USER}
 
 .PHONY: build build_with_drafts deploy_with_drafts diagrams clean logs analyze-logs
 
@@ -61,8 +63,6 @@ logs/report.html: logs/access_log
 	goaccess logs/access_log* -o logs/report.html --log-format=COMBINED
 
 .make.backup_logs: logs/report.html
-	@export RCLONE_SFTP_HOST=${RSYNC_NET_HOST}
-	@export RCLONE_SFTP_USER=${RSYNC_NET_USER}
 	cat ~/.secure.password | rclone --progress sync logs drive:/blog_logs/
 	cat ~/.secure.password | rclone --progress sync logs rsyncnet:blog_logs/
 	touch .make.backup_logs
