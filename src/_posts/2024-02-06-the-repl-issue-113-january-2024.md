@@ -13,7 +13,7 @@ I agree with the author that there is a lot of Pop Culture in software companies
 
 There also does seem to be a good amount of contagion in the current round of layoffs. Companies are firing people, even if that they are doing well. I disagree that it is irrational. I dislike that characterization. It seems like a crutch for failing to understand the motivation for the people making the decisions. I believe that company executives *do* know that layoffs are bad for morale and create some problems down the line. There are some pretty smart people in company management. I think that they are making those decisions *in spite* of knowing that there are real downsides. Maybe the pressure from boards or investors is too much. Even if it is a case of copying what others are doing, it need not be irrational. There is an incentive to go with the flow: It's safe. [No one ever got fired for buying IBM][IBM]. If things go wrong, you wont be blamed for making the same decision everyone else made.
 
-### [Anti-Pattern: Iteratively Building a Collection ][collections]
+### [Anti-Pattern: Iteratively Building a Collection][collections]
 
 Mike Burns writes about how iteratively building a collection is an anti-pattern:
 
@@ -25,7 +25,7 @@ It resonates with me that the pattern should be avoided. Brevity and clarity are
 
 The style of Ruby that the article encourages removes the state handling from your code. 👍🏻
 
-### Is It Possible for My Internet Router to Wear Out?
+### [Is It Possible for My Internet Router to Wear Out?][routes]
 
 Every few years, my routes start acting up in strange ways. Some devices function great, while others seem to have intermittent downloads. This articles confirms my suspicions. Router just wear out:
 
