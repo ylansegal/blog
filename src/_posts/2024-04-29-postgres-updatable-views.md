@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Postgres Updatable Views"
-date: 2024-04-29 17:44:53 -0700
+date: 2024-04-29 13:44:53 -0700
 categories:
 - postgres
 excerpt_separator: <!-- more -->
