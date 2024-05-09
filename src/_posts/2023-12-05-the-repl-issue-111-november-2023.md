@@ -3,6 +3,7 @@ layout: post
 title: "The REPL: Issue 111 - November 2023"
 date: 2023-12-05 15:40:14 -0800
 categories:
+- the repl
 - postgres
 - software
 excerpt_separator: <!-- more -->

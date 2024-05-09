@@ -3,6 +3,7 @@ layout: post
 title: "The REPL: Issue 107 - July 2023"
 date: 2023-08-04 11:40:20 -0700
 categories:
+- the repl
 - software
 - postgres
 excerpt_separator: <!-- more -->

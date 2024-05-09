@@ -3,6 +3,7 @@ layout: post
 title: "The REPL: Issue 114 - February 2024"
 date: 2024-03-07 09:15:15 -0800
 categories:
+- the repl
 - rails
 - unix
 excerpt_separator: <!-- more -->

@@ -3,6 +3,7 @@ layout: post
 title: "The REPL: Issue 110 - October 2023"
 date: 2023-11-04 12:10:54 -0700
 categories:
+- the repl
 - ruby
 - rails
 - postgres

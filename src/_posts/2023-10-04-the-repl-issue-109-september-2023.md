@@ -3,6 +3,9 @@ layout: post
 title: "The REPL: Issue 109 - September 2023"
 date: 2023-10-04 12:11:12 -0700
 categories:
+- the repl
+- ruby
+- rail
 excerpt_separator: <!-- more -->
 ---
 

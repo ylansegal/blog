@@ -3,6 +3,7 @@ layout: post
 title: "The REPL: Issue 112 - December 2023"
 date: 2024-01-03 14:48:16 -0800
 categories:
+- the repl
 - elixir
 - rails
 - ruby

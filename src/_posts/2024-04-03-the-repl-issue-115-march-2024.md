@@ -3,6 +3,7 @@ layout: post
 title: "The REPL: Issue 115 - March 2024"
 date: 2024-04-03 09:44:40 -0700
 categories:
+- the repl
 - unix
 - postgres
 excerpt_separator: <!-- more -->

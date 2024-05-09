@@ -3,6 +3,7 @@ layout: post
 title: "The REPL: Issue 106 - June 2023"
 date: 2023-07-03 15:10:48 -0700
 categories:
+- the repl
 - machine_learning
 excerpt_separator: <!-- more -->
 ---
