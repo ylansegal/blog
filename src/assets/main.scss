@@ -40,3 +40,14 @@ thead tr {
 tr:nth-child(even) {
   background: $grey-color-light;
 }
+
+// Dark mode
+@media (prefers-color-scheme: dark) {
+  html {
+    filter: invert(90%) hue-rotate(0deg);
+  }
+
+  iframe, img, video {
+    filter: invert(90%) hue-rotate(0  deg);
+  }
+}
