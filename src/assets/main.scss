@@ -10,11 +10,16 @@ $base-font-weight: 300;
 $monospace-font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
 $base-font-size: 18px;
 
-@import "whiteglass";
+@use "whiteglass" with (
+  $base-font-family: $base-font-family,
+  $base-font-weight: $base-font-weight,
+  $monospace-font-family: $monospace-font-family,
+  $base-font-size: $base-font-size
+);
 
 .site-header,
 .site-footer {
-  background-color: $grey-color-light;
+  background-color: whiteglass.$grey-color-light;
 }
 
 img.center {
@@ -34,11 +39,11 @@ figcaption {
 }
 
 thead tr {
-  background: $grey-color-light;
+  background: whiteglass.$grey-color-light;
 }
 
 tr:nth-child(even) {
-  background: $grey-color-light;
+  background: whiteglass.$grey-color-light;
 }
 
 // Dark mode
