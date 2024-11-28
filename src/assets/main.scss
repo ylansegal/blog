@@ -20,6 +20,10 @@ $base-font-size: 18px;
 .site-header,
 .site-footer {
   background-color: whiteglass.$grey-color-light;
+
+  .site-nav a.page-link {
+    font-weight: 600;
+  }
 }
 
 img.center {
