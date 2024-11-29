@@ -32,6 +32,7 @@ deploy: build test
 	git push origin master
 	rsync -av _site/ ylansegal_ylansblog@ssh.nyc1.nearlyfreespeech.net:/home/public
 	curl -H 'Cache-Control: no-cache' --head  https://ylan.segal-family.com
+	curl -H 'Cache-Control: no-cache' --head  https://ylan.segal-family.com/assets/main.css
 	open https://ylan.segal-family.com
 
 deploy_with_drafts: build_with_drafts deploy
