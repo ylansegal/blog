@@ -6,7 +6,7 @@ sharing: false
 footer: true
 ---
 
-![Ylan Segal, Profile Picture](/assets/images/YlanSegal_profile.jpg)
+<img src="/assets/images/YlanSegal_profile.jpg" class="photo" alt="Ylan Segal, profile picture">
 
 My name is Ylan Segal. I am a Software Engineer based in beautiful San Diego, California, where I lived most of my adult life. I grew up in Mexico City. You can reach me on Mastodon at <a rel="me" href="https://mastodon.sdf.org/@ylansegal">@ylansegal@mastodon.sdf.org</a> or by email at `ylan@{this top domain}`.
 
