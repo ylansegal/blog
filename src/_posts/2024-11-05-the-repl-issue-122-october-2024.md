@@ -3,6 +3,7 @@ layout: post
 title: "The REPL: Issue 122 - October 2024"
 date: 2024-11-05 16:06:28 -0800
 categories:
+- the repl
 - postgres
 - bi temporal data
 - ruby

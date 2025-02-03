@@ -3,6 +3,7 @@ layout: post
 title: "The REPL: Issue 123 - November 2024"
 date: 2024-12-02 14:41:11 -0800
 categories:
+- the repl
 - postgres
 - software
 - ruby
