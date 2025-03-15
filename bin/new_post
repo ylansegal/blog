@@ -20,7 +20,7 @@ MARKDOWN
 name = [
   time.strftime("%Y-%m-%d"),
   ARGV.map(&:downcase)
-].join("-").gsub(/[:,]/, '').gsub(" ", "-").gsub(/-+/, '-')
+].join("-").gsub(/[:,']/, '').gsub(" ", "-").gsub(/-+/, '-')
 path = File.join("src", "_posts", "#{name}.md")
 
 File.open(path, File::WRONLY | File::CREAT | File::EXCL) do |file|
