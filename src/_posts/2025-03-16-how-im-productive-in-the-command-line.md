@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How I'm Productive In The Command Line"
-date: 2025-03-16 12:25:42 -0700
+date: 2025-03-16 12:25:00 -0700
 categories:
 - unix
 - productivity
