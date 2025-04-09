@@ -3,6 +3,7 @@ layout: post
 title: "The REPL: Issue 126 - February 2025"
 date: 2025-03-05 13:21:54 -0800
 categories:
+- the repl
 - unix
 excerpt_separator: <!-- more -->
 ---

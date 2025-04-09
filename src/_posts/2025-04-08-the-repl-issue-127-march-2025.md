@@ -3,6 +3,7 @@ layout: post
 title: "The REPL: Issue 127 - March 2025"
 date: 2025-04-08 18:37:53 -0700
 categories:
+- the repl
 - unix
 - bash
 - rails
