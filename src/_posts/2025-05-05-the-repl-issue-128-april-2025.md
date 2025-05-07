@@ -15,7 +15,7 @@ A good explanation why Conway's law makes sense as a response to real communicat
 
 ### [Ruby might be faster than you think]()
 
-Like the a not-for-polite-company adage says, everyone has a benchmark. A recent project made the rounds adding support for using crystal to speed up Ruby very easily. The author of this post shows, that a bit of work on what is actually benchmarked makes it so the Ruby-only version performs faster than the Crystal version. Well, that is interesting. Which benchmark should you trust? The one that is appropriate for your use case, naturally 😄.
+Like the a not-for-polite-company adage says, everyone has a benchmark. A recent project made the rounds adding support for using crystal to speed up Ruby very easily. The author of this post shows, that a bit of work on what is actually benchmarked makes it so the Ruby-only version performs faster than the Crystal version. Well, that is interesting. Which benchmark should you trust? The one that is appropriate for your use case, naturally <span class="emoji">😄</span>.
 
 ### [An unfair advantage: multi-tenant queues in Postgres](https://docs.hatchet.run/blog/multi-tenant-queues)
 
