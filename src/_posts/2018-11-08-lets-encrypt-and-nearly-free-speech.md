@@ -71,6 +71,6 @@ This is a great example of how far we've come. It used to be very expensive to h
 
 [nfs]: https://members.nearlyfreespeech.net/ylansegal/
 [lets]: https://letsencrypt.org/
-[setup]: /blog/2016/09/29/goodbye-startssl-hello-lets-encrypt/
+[setup]: {% post_url 2016-09-29-goodbye-startssl-hello-lets-encrypt %}
 [renew]: /blog/2016/12/07/renewing-a-lets-encrypt-certificate/
 [faq]: https://faq.nearlyfreespeech.net/section/ourservice/sslcertificates#sslcertificates

@@ -21,7 +21,7 @@ What is going on? I selected some SQL, executed in `psql`, and appended the comm
 
 ## Why?
 
-The benefit I get from this workflow is that I can iterate in small steps, get feedback on what the current code does, and continue accordingly. This workflow is heavily inspired by Ruby's [xmpfilter][xmp] or the newer [seeing_is_believing][sib]. Both tools take Ruby code as input, execute it, and then record all (or some) of the evaluated code as comments to the code.  
+The benefit I get from this workflow is that I can iterate in small steps, get feedback on what the current code does, and continue accordingly. This workflow is heavily inspired by Ruby's [xmpfilter][xmp] or the newer [seeing_is_believing][sib]. Both tools take Ruby code as input, execute it, and then record all (or some) of the evaluated code as comments to the code.
 
 ## How?
 
@@ -76,7 +76,7 @@ From my point of view, this is a great example of the Unix philosophy: Composing
 
 
 [pipe]: https://atom.io/packages/pipe
-[pipe-post]: /blog/2017/10/18/pipe-atom-text-into-any-command/
+[pipe-post]: {% post_url 2017-10-18-pipe-atom-text-into-any-command %}
 [xmp]: https://www.rubydoc.info/gems/rcodetools/0.8.5.0/Rcodetools/XMPFilter
 [sib]: https://github.com/JoshCheek/seeing_is_believing
 [psub]: https://www.linuxjournal.com/content/shell-process-redirection

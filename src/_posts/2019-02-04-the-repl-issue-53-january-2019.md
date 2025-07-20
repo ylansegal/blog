@@ -26,4 +26,4 @@ Russ Cox writes about software dependencies, and goes into great detail of what 
 [1]: https://media.defense.gov/2018/Oct/09/2002049591/-1/-1/0/DIB_DETECTING_AGILE_BS_2018.10.05.PDF
 [2]: http://www.grahamlea.com/2016/08/distributed-transactions-microservices-icebergs/
 [3]: https://research.swtch.com/deps
-[4]: /blog/2015/01/05/stagnation/
+[4]: {% post_url 2015-01-05-stagnation %}

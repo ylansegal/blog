@@ -22,9 +22,9 @@ This post covers a lot of detail on the naming conventions Sehrope Sarkuni prefe
 
 ## [How To Index Your Database][index]
 
-The slides for Baron Schwartz's presentation at PostgresConf US 2018 cover a lot of detail on what indexes are, how databases use them and in the uses cases where indexes help: Read less data, read data in bulk, and read data presorted. This is one of those slide decks that contains enough information and context without needing to see the talk -- not available on video at the time of writing.   
+The slides for Baron Schwartz's presentation at PostgresConf US 2018 cover a lot of detail on what indexes are, how databases use them and in the uses cases where indexes help: Read less data, read data in bulk, and read data presorted. This is one of those slide decks that contains enough information and context without needing to see the talk -- not available on video at the time of writing.
 
 [opera]: https://the-composition.com/the-origins-of-opera-and-the-future-of-programming-bcdaf8fbe960
 [sql]: https://launchbylunch.com/posts/2014/Feb/16/sql-naming-conventions/
 [index]: https://www.xaprb.com/talks/index-postgresql-database-postgresconf-2018/
-[conventions]:/blog/2016/12/22/enforcing-style/
+[conventions]: {% post_url 2016-12-22-enforcing-style %}
