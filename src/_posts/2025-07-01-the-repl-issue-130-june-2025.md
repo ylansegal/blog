@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The REPL: Issue 129 - May 2025"
+title: "The REPL: Issue 130 - June 2025"
 date: 2025-07-01 15:32:07 -0700
 categories:
 - machine_learning
