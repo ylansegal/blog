@@ -3,7 +3,7 @@ layout: post
 title: "Use AI Agents to Experiment"
 date: 2025-08-17 10:36:49 -0700
 categories:
-- ai
+- machine_learning
 - fish_shell
 excerpt_separator: <!-- more -->
 ---
