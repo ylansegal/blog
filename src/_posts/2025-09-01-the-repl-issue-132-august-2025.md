@@ -25,7 +25,7 @@ query_params.to_query
 # => "format=json&include=profile"
 ```
 
-## ["I'm sold. Agentic coding is the future of web application development](https://bsky.app/profile/nateberkopec.bsky.social/post/3ltzswz5eob2x)
+## [I'm sold. Agentic coding is the future of web application development](https://bsky.app/profile/nateberkopec.bsky.social/post/3ltzswz5eob2x)
 
 Nate Berkopec is a smart guy, and he points out that agentic coding is a game changer. I feel it too. Once I started using Roo, it felt like there is no going back. I am still working out how to best work with it and improve it, learning how to prompt it and thinking about TDD. Overall, it has certainly been a boost, especially in architectural planning and coding; it's been very effective.
 
