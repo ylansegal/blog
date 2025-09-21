@@ -2,7 +2,9 @@
 layout: post
 title: "Improving Writing with AI: A Zinsser-Inspired Approach"
 date: 2025-09-21 13:05:16 -0700
-categories: machine_learning
+categories:
+- machine_learning
+- writing
 excerpt_separator: <!-- more -->
 ---
 
