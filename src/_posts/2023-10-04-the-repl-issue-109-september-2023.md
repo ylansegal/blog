@@ -5,7 +5,7 @@ date: 2023-10-04 12:11:12 -0700
 categories:
 - the repl
 - ruby
-- rail
+- rails
 excerpt_separator: <!-- more -->
 ---
 
