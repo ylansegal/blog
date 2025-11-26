@@ -18,35 +18,36 @@ $base-font-size: 18px;
 );
 
 // CSS Custom Properties for Light/Dark Mode
+// Using Nord Theme: https://www.nordtheme.com/
 :root {
-  // Light mode colors (default)
-  --color-text: #111;
-  --color-background: #fdfdfd;
-  --color-brand: #2568ba;
-  --color-brand-visited: #1d5294;
-  --color-grey: #757575;
-  --color-grey-light: #e8e8e8;
-  --color-grey-dark: #424242;
-  --color-code-bg: #f8f8f8;
-  --color-code-border: #e8e8e8;
-  --color-blockquote: #757575;
-  --color-border: #e8e8e8;
+  // Light mode colors - Nord Snow Storm palette
+  --color-text: #2e3440;           // nord0 - Polar Night darkest
+  --color-background: #eceff4;     // nord6 - Snow Storm lightest
+  --color-brand: #5e81ac;          // nord10 - Frost blue
+  --color-brand-visited: #81a1c1;  // nord9 - Frost lighter blue
+  --color-grey: #4c566a;           // nord3 - Polar Night
+  --color-grey-light: #e5e9f0;     // nord5 - Snow Storm
+  --color-grey-dark: #3b4252;      // nord1 - Polar Night
+  --color-code-bg: #eceff4;        // nord6 - Snow Storm lightest (lighter)
+  --color-code-border: #d8dee9;    // nord4 - Snow Storm darker
+  --color-blockquote: #4c566a;     // nord3 - Polar Night
+  --color-border: #d8dee9;         // nord4 - Snow Storm darker
 }
 
-// Dark mode colors
+// Dark mode colors - Nord Polar Night palette
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-text: #e0e0e0;
-    --color-background: #1a1a1a;
-    --color-brand: #6ca0dc;
-    --color-brand-visited: #5a8bc4;
-    --color-grey: #a0a0a0;
-    --color-grey-light: #2d2d2d;
-    --color-grey-dark: #c0c0c0;
-    --color-code-bg: #2d2d2d;
-    --color-code-border: #404040;
-    --color-blockquote: #b0b0b0;
-    --color-border: #404040;
+    --color-text: #eceff4;          // nord6 - Snow Storm
+    --color-background: #2e3440;    // nord0 - Polar Night darkest
+    --color-brand: #88c0d0;         // nord8 - Frost cyan
+    --color-brand-visited: #81a1c1; // nord9 - Frost blue
+    --color-grey: #d8dee9;          // nord4 - Snow Storm
+    --color-grey-light: #3b4252;    // nord1 - Polar Night lighter
+    --color-grey-dark: #e5e9f0;     // nord5 - Snow Storm
+    --color-code-bg: #3b4252;       // nord1 - Polar Night lighter
+    --color-code-border: #4c566a;   // nord3 - Polar Night
+    --color-blockquote: #d8dee9;    // nord4 - Snow Storm
+    --color-border: #4c566a;        // nord3 - Polar Night
   }
 }
 
