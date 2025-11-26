@@ -17,9 +17,42 @@ $base-font-size: 18px;
   $base-font-size: $base-font-size
 );
 
+// CSS Custom Properties for Light/Dark Mode
+:root {
+  // Light mode colors (default)
+  --color-text: #111;
+  --color-background: #fdfdfd;
+  --color-brand: #2568ba;
+  --color-brand-visited: #1d5294;
+  --color-grey: #757575;
+  --color-grey-light: #e8e8e8;
+  --color-grey-dark: #424242;
+  --color-code-bg: #f8f8f8;
+  --color-code-border: #e8e8e8;
+  --color-blockquote: #757575;
+  --color-border: #e8e8e8;
+}
+
+// Dark mode colors
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: #e0e0e0;
+    --color-background: #1a1a1a;
+    --color-brand: #6ca0dc;
+    --color-brand-visited: #5a8bc4;
+    --color-grey: #a0a0a0;
+    --color-grey-light: #2d2d2d;
+    --color-grey-dark: #c0c0c0;
+    --color-code-bg: #2d2d2d;
+    --color-code-border: #404040;
+    --color-blockquote: #b0b0b0;
+    --color-border: #404040;
+  }
+}
+
 .site-header,
 .site-footer {
-  background-color: whiteglass.$grey-color-light;
+  background-color: var(--color-grey-light);
 
   .site-nav a.page-link {
     font-weight: 600;
@@ -43,20 +76,113 @@ figcaption {
 }
 
 thead tr {
-  background: whiteglass.$grey-color-light;
+  background: var(--color-grey-light);
 }
 
 tr:nth-child(even) {
-  background: whiteglass.$grey-color-light;
+  background: var(--color-grey-light);
 }
 
-// Dark mode
-@media (prefers-color-scheme: dark) {
-  html {
-    filter: invert(90%) hue-rotate(180deg);
+// Override Sass-generated colors with CSS custom properties
+// This allows dark mode to work at runtime
+body {
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+a {
+  color: var(--color-brand);
+
+  &:visited {
+    color: var(--color-brand-visited);
   }
 
-  iframe, video, img.photo, .emoji {
-    filter: invert(110%) hue-rotate(-180deg);
+  &:hover {
+    color: var(--color-text);
+  }
+}
+
+blockquote {
+  color: var(--color-blockquote);
+  border-left-color: var(--color-grey-light);
+}
+
+hr {
+  background-color: var(--color-grey-light);
+}
+
+pre,
+code {
+  background-color: var(--color-code-bg);
+  border-color: var(--color-code-border);
+}
+
+.post-meta {
+  color: var(--color-grey);
+}
+
+.post-link {
+  &,
+  &:visited {
+    color: var(--color-text);
+  }
+
+  &:hover {
+    color: var(--color-brand);
+  }
+}
+
+.post-continue a {
+  &,
+  &:visited {
+    color: var(--color-grey-dark);
+    background-color: var(--color-grey-light);
+  }
+
+  &:hover {
+    background-color: var(--color-brand);
+  }
+}
+
+.pagination a {
+  &,
+  &:visited {
+    color: var(--color-grey);
+  }
+
+  &:hover {
+    color: var(--color-brand);
+  }
+}
+
+.pagination {
+  border-top-color: var(--color-grey-light);
+  border-bottom-color: var(--color-grey-light);
+}
+
+.post-list > li:not(:first-child) {
+  border-top-color: var(--color-grey-light);
+}
+
+.site-title {
+  &,
+  &:visited {
+    color: var(--color-grey-dark);
+  }
+}
+
+.site-nav .page-link {
+  color: var(--color-text);
+}
+
+.site-footer {
+  color: var(--color-grey);
+}
+
+.highlight {
+  background-color: var(--color-code-bg);
+
+  .highlighter-rouge & {
+    background-color: var(--color-code-bg);
   }
 }
