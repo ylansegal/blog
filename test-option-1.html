@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Option 1: Stack Vertically - Mobile Header Test</title>
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+            font-weight: 300;
+            font-size: 18px;
+            color: #2e3440;
+            background-color: #eceff4;
+        }
+
+        /* Header styles */
+        .site-header {
+            min-height: 56px;
+            position: relative;
+            background-color: #e5e9f0;
+        }
+
+        .wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 15px;
+            overflow: hidden;
+        }
+
+        .site-title {
+            font-size: 26px;
+            font-weight: 300;
+            line-height: 56px;
+            letter-spacing: -1px;
+            margin-bottom: 0;
+            float: left;
+            color: #3b4252;
+            text-decoration: none;
+        }
+
+        .site-nav {
+            float: right;
+            line-height: 56px;
+        }
+
+        .site-nav .page-link {
+            color: #2e3440;
+            line-height: 1.5;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .site-nav .page-link:not(:last-child) {
+            margin-right: 20px;
+        }
+
+        /* OPTION 1: Stack Vertically on Mobile */
+        @media screen and (max-width: 600px) {
+            .site-header .site-title {
+                float: none;
+                display: block;
+                text-align: center;
+                font-size: 22px;
+                line-height: 1.2;
+                padding: 15px 0 5px;
+            }
+
+            .site-header .site-nav {
+                float: none;
+                display: block;
+                text-align: center;
+                line-height: 1.2;
+                padding-bottom: 10px;
+            }
+
+            .site-header .site-nav .page-link {
+                display: inline-block;
+                font-size: 14px;
+                margin: 0 8px !important;
+                padding: 8px 0;
+            }
+        }
+
+        /* Page content */
+        .page-content {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 15px;
+        }
+
+        .test-info {
+            background: #d8dee9;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .test-info h2 {
+            margin-bottom: 10px;
+            color: #2e3440;
+        }
+
+        .test-info ul {
+            margin-left: 20px;
+        }
+
+        .test-info li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="wrapper">
+            <a class="site-title" href="/">on.code && such</a>
+            <nav class="site-nav">
+                <a class="page-link" href="/about/">About</a>
+                <a class="page-link" href="/categories/books">Book Reviews</a>
+                <a class="page-link" href="/categories/">Categories</a>
+                <a class="page-link" href="/archives/">Archives</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-content">
+        <div class="test-info">
+            <h2>Option 1: Stack Vertically</h2>
+            <p><strong>How it works:</strong></p>
+            <ul>
+                <li>Title and navigation stack vertically on mobile (≤600px)</li>
+                <li>Both elements are centered</li>
+                <li>Title font size reduced slightly (22px)</li>
+                <li>Navigation links displayed as inline blocks with even spacing</li>
+                <li>Link font size reduced to 14px for better fit</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Testing:</strong></p>
+            <ul>
+                <li>✅ Resize your browser window to see the mobile layout</li>
+                <li>✅ Or open DevTools (F12) and toggle device toolbar</li>
+                <li>✅ Try widths: 320px (small phone), 375px (iPhone), 414px (large phone)</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Pros:</strong> Clean, readable, large tap targets</p>
+            <p><strong>Cons:</strong> Uses more vertical space</p>
+        </div>
+
+        <h1>Sample Blog Content</h1>
+        <p>This is sample content to show how the page looks below the header. The header above demonstrates Option 1's vertical stacking approach for mobile screens.</p>
+    </div>
+</body>
+</html>
