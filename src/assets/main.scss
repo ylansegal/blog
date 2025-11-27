@@ -198,6 +198,10 @@ code {
 .pagination {
   border-top-color: var(--color-grey-light);
   border-bottom-color: var(--color-grey-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
 }
 
 .post-list > li:not(:first-child) {
