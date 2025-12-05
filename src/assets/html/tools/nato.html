@@ -4,17 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NATO Phonetic Alphabet</title>
+    <link rel="stylesheet" href="/assets/main.css">
     <style>
+        /* Tool-specific styles */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             max-width: 800px;
             margin: 50px auto;
             padding: 20px;
-            background-color: #1e1e1e;
-            color: #d4d4d4;
         }
         h1 {
-            color: #4ec9b0;
             text-align: center;
         }
         .input-section {
@@ -24,19 +22,20 @@
             width: 100%;
             padding: 15px;
             font-size: 18px;
-            border: 2px solid #4ec9b0;
+            border: 2px solid var(--color-brand);
             border-radius: 5px;
-            background-color: #2d2d2d;
-            color: #d4d4d4;
+            background-color: var(--color-code-bg);
+            color: var(--color-text);
             box-sizing: border-box;
         }
         #input:focus {
             outline: none;
-            border-color: #6ee7b7;
+            border-color: var(--color-brand);
+            opacity: 0.8;
         }
         #output {
             margin-top: 20px;
-            font-family: 'Courier New', monospace;
+            font-family: var(--monospace-font-family, Menlo, Consolas, Monaco, monospace);
             font-size: 16px;
             line-height: 1.8;
         }
@@ -47,18 +46,17 @@
             padding: 2px 0;
         }
         .char {
-            color: #4ec9b0;
+            color: var(--color-brand);
             font-weight: bold;
             display: inline-block;
             min-width: 20px;
         }
         .nato {
-            color: #d4d4d4;
             margin-left: 10px;
         }
         .instructions {
             text-align: center;
-            color: #808080;
+            color: var(--color-grey);
             margin-bottom: 20px;
         }
     </style>
