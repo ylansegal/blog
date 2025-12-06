@@ -14,9 +14,9 @@ layout: null
   <id>{{ '/' | absolute_url | xml_escape }}</id>
 
   {% if site.title %}
-    <title type="html">{{ site.title | smartify | xml_escape }}</title>
+    <title type="html">{{ site.title | xml_escape }}</title>
   {% elsif site.name %}
-    <title type="html">{{ site.name | smartify | xml_escape }}</title>
+    <title type="html">{{ site.name | xml_escape }}</title>
   {% endif %}
 
   {% if site.description %}
