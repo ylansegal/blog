@@ -230,3 +230,33 @@ code {
     background-color: var(--color-code-bg);
   }
 }
+
+// Syndication links
+.post-syndication {
+  margin-top: 2rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.9em;
+
+  .syndication-header {
+    margin-bottom: 0.5rem;
+    color: var(--color-grey);
+    font-weight: 600;
+  }
+
+  .syndication-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin: 0.25rem 0;
+
+      time {
+        color: var(--color-grey);
+        font-size: 0.9em;
+        margin-left: 0.25rem;
+      }
+    }
+  }
+}
