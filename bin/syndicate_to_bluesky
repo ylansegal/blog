@@ -104,8 +104,8 @@ class BlogPost
   end
 
   def excerpt
-    # Use custom excerpt from front matter if provided
-    return @front_matter["excerpt"] if @front_matter["excerpt"]
+    # Use custom syndication excerpt from front matter if provided
+    return @front_matter["syndication_excerpt"] if @front_matter["syndication_excerpt"]
 
     # Otherwise, get first paragraph or first 200 chars
     first_para = @content.strip.split("\n\n").first
