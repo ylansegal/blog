@@ -1,0 +1,25 @@
+{% if page.syndicated %}
+<div class="post-syndication">
+  <p class="syndication-header">Also posted on:</p>
+  <ul class="syndication-links">
+    {% for syndication in page.syndicated %}
+    <li>
+      <a href="{{ syndication.url }}" rel="syndication" class="u-syndication">
+        {% if syndication.platform == "bluesky" %}
+        Bluesky
+        {% elsif syndication.platform == "mastodon" %}
+        Mastodon
+        {% elsif syndication.platform == "twitter" %}
+        Twitter
+        {% else %}
+        {{ syndication.platform | capitalize }}
+        {% endif %}
+      </a>
+      <time datetime="{{ syndication.date | date_to_xmlschema }}">
+        ({{ syndication.date | date: "%b %-d, %Y" }})
+      </time>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}

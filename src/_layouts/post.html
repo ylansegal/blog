@@ -18,6 +18,7 @@ layout: default
   <div class="post-content" itemprop="articleBody">
     {{ content }}
   </div>
+  {% include syndication_links.html %}
   {% if site.comments == true and page.comments != false %}
   <div class="post-comments" itemprop="comment">
     {% include custom_comments_provider.html %}

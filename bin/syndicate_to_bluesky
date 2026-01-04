@@ -1,0 +1,269 @@
+#!/usr/bin/env ruby
+
+require "net/http"
+require "json"
+require "uri"
+require "yaml"
+require "time"
+
+# Configuration
+BLUESKY_IDENTIFIER = ENV["BLUESKY_IDENTIFIER"] || "you.bsky.social"
+BLUESKY_PASSWORD = ENV["BLUESKY_APP_PASSWORD"]
+SITE_URL = "https://ylan.segal-family.com"
+MAX_POST_LENGTH = 300
+
+class BlueskyClient
+  API_BASE = "https://bsky.social/xrpc"
+
+  def initialize(identifier, password)
+    @identifier = identifier
+    @password = password
+    @session = nil
+  end
+
+  def authenticate
+    uri = URI("#{API_BASE}/com.atproto.server.createSession")
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+
+    request = Net::HTTP::Post.new(uri)
+    request["Content-Type"] = "application/json"
+    request.body = JSON.generate({
+      identifier: @identifier,
+      password: @password
+    })
+
+    response = http.request(request)
+
+    unless response.is_a?(Net::HTTPSuccess)
+      raise "Authentication failed: #{response.code} #{response.body}"
+    end
+
+    @session = JSON.parse(response.body)
+  end
+
+  def create_post(text, facets: [])
+    authenticate unless @session
+
+    uri = URI("#{API_BASE}/com.atproto.repo.createRecord")
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+
+    request = Net::HTTP::Post.new(uri)
+    request["Content-Type"] = "application/json"
+    request["Authorization"] = "Bearer #{@session['accessJwt']}"
+
+    record = {
+      text: text,
+      createdAt: Time.now.utc.iso8601,
+      "$type": "app.bsky.feed.post"
+    }
+
+    record[:facets] = facets unless facets.empty?
+
+    request.body = JSON.generate({
+      repo: @session["did"],
+      collection: "app.bsky.feed.post",
+      record: record
+    })
+
+    response = http.request(request)
+
+    unless response.is_a?(Net::HTTPSuccess)
+      raise "Post creation failed: #{response.code} #{response.body}"
+    end
+
+    JSON.parse(response.body)
+  end
+end
+
+class BlogPost
+  attr_reader :path, :front_matter, :content
+
+  def initialize(path)
+    @path = path
+    parse_file
+  end
+
+  def parse_file
+    content = File.read(@path)
+
+    # Extract front matter
+    if content =~ /\A---\s*\n(.*?\n)---\s*\n(.*)\z/m
+      @front_matter = YAML.load($1)
+      @content = $2
+    else
+      raise "No front matter found in #{@path}"
+    end
+  end
+
+  def title
+    @front_matter["title"]
+  end
+
+  def date
+    Time.parse(@front_matter["date"].to_s)
+  end
+
+  def url
+    # Generate URL based on permalink format: /blog/:year/:month/:day/:title/
+    slug = File.basename(@path, ".md").sub(/^\d{4}-\d{2}-\d{2}-/, "")
+    "#{SITE_URL}/blog/#{date.strftime('%Y/%m/%d')}/#{slug}/"
+  end
+
+  def excerpt
+    # Get first paragraph or first 200 chars
+    first_para = @content.strip.split("\n\n").first
+    return first_para if first_para && first_para.length < 200
+
+    @content.strip[0..200].gsub(/\s\w+\s*$/, '...')
+  end
+
+  def build_bluesky_post
+    # Format: Title + link (or excerpt + link for longer posts)
+    post_text = "#{title}\n\n#{url}"
+
+    # If we have room, add excerpt
+    if post_text.length < MAX_POST_LENGTH - 50
+      excerpt_text = excerpt.gsub(/\[([^\]]+)\]\([^\)]+\)/, '\1') # Strip markdown links
+      excerpt_text = excerpt_text.gsub(/[#*_`]/, '') # Strip markdown formatting
+
+      test_text = "#{title}\n\n#{excerpt_text}\n\n#{url}"
+      if test_text.length <= MAX_POST_LENGTH
+        post_text = test_text
+      end
+    end
+
+    post_text
+  end
+
+  def create_link_facet(text, url)
+    # Find URL position in text
+    start_pos = text.index(url)
+    return [] unless start_pos
+
+    # Bluesky facets are in bytes, not characters
+    byte_start = text[0...start_pos].bytesize
+    byte_end = byte_start + url.bytesize
+
+    [{
+      index: {
+        byteStart: byte_start,
+        byteEnd: byte_end
+      },
+      features: [{
+        "$type": "app.bsky.richtext.facet#link",
+        uri: url
+      }]
+    }]
+  end
+
+  def update_front_matter(bluesky_url)
+    # Read original file
+    content = File.read(@path)
+
+    # Parse front matter
+    if content =~ /\A(---\s*\n)(.*?\n)(---\s*\n)(.*)\z/m
+      front_matter_start = $1
+      front_matter_content = $2
+      front_matter_end = $3
+      body = $4
+
+      # Add syndication info
+      syndication_entry = {
+        "platform" => "bluesky",
+        "url" => bluesky_url,
+        "date" => Time.now.to_s
+      }
+
+      current_fm = YAML.load(front_matter_content)
+      current_fm["syndicated"] ||= []
+      current_fm["syndicated"] << syndication_entry
+
+      # Write updated file
+      new_content = front_matter_start +
+                    YAML.dump(current_fm).sub(/\A---\n/, '') +
+                    front_matter_end +
+                    body
+
+      File.write(@path, new_content)
+      puts "✓ Updated front matter in #{@path}"
+    end
+  end
+end
+
+# Main script
+def main
+  unless BLUESKY_PASSWORD
+    puts "Error: BLUESKY_APP_PASSWORD environment variable not set"
+    puts ""
+    puts "To set up:"
+    puts "1. Go to https://bsky.app/settings/app-passwords"
+    puts "2. Create a new app password"
+    puts "3. Add to your environment:"
+    puts "   export BLUESKY_APP_PASSWORD='your-app-password'"
+    puts "   export BLUESKY_IDENTIFIER='your-handle.bsky.social'"
+    exit 1
+  end
+
+  unless ARGV[0]
+    puts "Usage: bin/syndicate_to_bluesky <path-to-post.md>"
+    puts ""
+    puts "Example:"
+    puts "  bin/syndicate_to_bluesky src/_posts/2026-01-04-my-post.md"
+    exit 1
+  end
+
+  post_path = ARGV[0]
+
+  unless File.exist?(post_path)
+    puts "Error: File not found: #{post_path}"
+    exit 1
+  end
+
+  puts "Processing #{post_path}..."
+  post = BlogPost.new(post_path)
+
+  puts "\nPost details:"
+  puts "  Title: #{post.title}"
+  puts "  Date:  #{post.date}"
+  puts "  URL:   #{post.url}"
+  puts ""
+
+  bluesky_text = post.build_bluesky_post
+  puts "Bluesky post (#{bluesky_text.length} chars):"
+  puts "─" * 50
+  puts bluesky_text
+  puts "─" * 50
+  puts ""
+
+  print "Post to Bluesky? [y/N] "
+  response = STDIN.gets.chomp
+
+  if response.downcase == "y"
+    puts "Posting to Bluesky..."
+    client = BlueskyClient.new(BLUESKY_IDENTIFIER, BLUESKY_PASSWORD)
+
+    facets = post.create_link_facet(bluesky_text, post.url)
+    result = client.create_post(bluesky_text, facets: facets)
+
+    # Build Bluesky post URL
+    bluesky_url = "https://bsky.app/profile/#{BLUESKY_IDENTIFIER}/post/#{result['uri'].split('/').last}"
+
+    puts "✓ Posted to Bluesky: #{bluesky_url}"
+    puts ""
+
+    puts "Updating front matter..."
+    post.update_front_matter(bluesky_url)
+
+    puts ""
+    puts "✓ Done! Next steps:"
+    puts "  1. Review the changes: git diff #{post_path}"
+    puts "  2. Commit: git add #{post_path} && git commit -m 'Add Bluesky syndication link'"
+    puts "  3. Deploy: make deploy"
+  else
+    puts "Cancelled."
+  end
+end
+
+main if __FILE__ == $0
