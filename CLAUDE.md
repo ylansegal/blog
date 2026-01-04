@@ -45,6 +45,75 @@ This script creates a new post in `src/_posts/` with:
 - Proper date-prefixed filename format: `YYYY-MM-DD-title.md`
 - YAML front matter template with layout, title, date, categories, and excerpt_separator
 
+### Syndicating to Bluesky (POSSE)
+
+This blog follows the POSSE (Publish Own Site, Syndicate Elsewhere) philosophy - posts are published on the blog first, then syndicated to social media.
+
+```bash
+# Syndicate a published post to Bluesky
+bin/syndicate_to_bluesky src/_posts/2026-01-04-post-title.md
+```
+
+**Setup (one-time):**
+
+1. Create a Bluesky app password:
+   - Go to https://bsky.app/settings/app-passwords
+   - Click "Add App Password"
+   - Give it a name (e.g., "Blog Syndication")
+   - Copy the generated password
+
+2. Set environment variables (add to `~/.bashrc`, `~/.zshrc`, or `.envrc`):
+   ```bash
+   export BLUESKY_IDENTIFIER='your-handle.bsky.social'
+   export BLUESKY_APP_PASSWORD='your-app-password-here'
+   ```
+
+**Workflow:**
+
+1. Write and deploy your post:
+   ```bash
+   bin/new_post "My Post Title"
+   # ... write content ...
+   make deploy
+   ```
+
+2. Syndicate to Bluesky (after post is live):
+   ```bash
+   bin/syndicate_to_bluesky src/_posts/2026-01-04-my-post-title.md
+   ```
+
+   The script will:
+   - Show you a preview of the Bluesky post
+   - Ask for confirmation
+   - Post to Bluesky with a link back to your blog
+   - Update the post's front matter with syndication metadata
+
+3. Deploy the updated metadata:
+   ```bash
+   git add src/_posts/2026-01-04-my-post-title.md
+   git commit -m "Add Bluesky syndication link"
+   make deploy
+   ```
+
+**Front Matter with Syndication:**
+
+After syndication, posts will have a `syndicated` field added:
+
+```yaml
+---
+layout: post
+title: "Post Title"
+date: 2026-01-04 10:00:00 -0800
+categories:
+- ruby
+excerpt_separator: <!-- more -->
+syndicated:
+- platform: bluesky
+  url: https://bsky.app/profile/you.bsky.social/post/xyz123
+  date: 2026-01-04 10:05:00 -0800
+---
+```
+
 ### Deployment
 
 ```bash
@@ -97,6 +166,7 @@ make analyze-logs
 - `src/_data/`: Jekyll data files
 - `_site/`: Generated static site (git-ignored)
 - `bin/new_post`: Script to create new posts
+- `bin/syndicate_to_bluesky`: Script to syndicate posts to Bluesky
 - `logs/`: Server access logs (downloaded via rsync)
 
 ## Blog Post Format
