@@ -5,9 +5,10 @@ require "json"
 require "uri"
 require "yaml"
 require "time"
+require "date"
 
 # Configuration
-BLUESKY_IDENTIFIER = ENV["BLUESKY_IDENTIFIER"] || "you.bsky.social"
+BLUESKY_IDENTIFIER = ENV["BLUESKY_IDENTIFIER"]
 BLUESKY_PASSWORD = ENV["BLUESKY_APP_PASSWORD"]
 SITE_URL = "https://ylan.segal-family.com"
 MAX_POST_LENGTH = 300
@@ -90,7 +91,7 @@ class BlogPost
 
     # Extract front matter
     if content =~ /\A---\s*\n(.*?\n)---\s*\n(.*)\z/m
-      @front_matter = YAML.load($1)
+      @front_matter = YAML.safe_load($1, permitted_classes: [Time, Date, Symbol])
       @content = $2
     else
       raise "No front matter found in #{@path}"
@@ -176,7 +177,7 @@ class BlogPost
         "date" => Time.now.to_s
       }
 
-      current_fm = YAML.load(front_matter_content)
+      current_fm = YAML.safe_load(front_matter_content, permitted_classes: [Time, Date, Symbol])
       current_fm["syndicated"] ||= []
       current_fm["syndicated"] << syndication_entry
 
