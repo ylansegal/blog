@@ -1,8 +1,7 @@
 #!/usr/bin/env ruby
 
-require "net/http"
+require "faraday"
 require "json"
-require "uri"
 require "yaml"
 require "time"
 require "date"
@@ -20,39 +19,30 @@ class BlueskyClient
     @identifier = identifier
     @password = password
     @session = nil
+    @conn = Faraday.new(url: API_BASE) do |f|
+      f.request :json
+      f.response :json
+      f.adapter Faraday.default_adapter
+    end
   end
 
   def authenticate
-    uri = URI("#{API_BASE}/com.atproto.server.createSession")
-    http = Net::HTTP.new(uri.host, uri.port)
-    http.use_ssl = true
-
-    request = Net::HTTP::Post.new(uri)
-    request["Content-Type"] = "application/json"
-    request.body = JSON.generate({
-      identifier: @identifier,
-      password: @password
-    })
-
-    response = http.request(request)
-
-    unless response.is_a?(Net::HTTPSuccess)
-      raise "Authentication failed: #{response.code} #{response.body}"
+    response = @conn.post("com.atproto.server.createSession") do |req|
+      req.body = {
+        identifier: @identifier,
+        password: @password
+      }
     end
 
-    @session = JSON.parse(response.body)
+    unless response.success?
+      raise "Authentication failed: #{response.status} #{response.body}"
+    end
+
+    @session = response.body
   end
 
   def create_post(text, facets: [])
     authenticate unless @session
-
-    uri = URI("#{API_BASE}/com.atproto.repo.createRecord")
-    http = Net::HTTP.new(uri.host, uri.port)
-    http.use_ssl = true
-
-    request = Net::HTTP::Post.new(uri)
-    request["Content-Type"] = "application/json"
-    request["Authorization"] = "Bearer #{@session['accessJwt']}"
 
     record = {
       text: text,
@@ -62,19 +52,20 @@ class BlueskyClient
 
     record[:facets] = facets unless facets.empty?
 
-    request.body = JSON.generate({
-      repo: @session["did"],
-      collection: "app.bsky.feed.post",
-      record: record
-    })
-
-    response = http.request(request)
-
-    unless response.is_a?(Net::HTTPSuccess)
-      raise "Post creation failed: #{response.code} #{response.body}"
+    response = @conn.post("com.atproto.repo.createRecord") do |req|
+      req.headers["Authorization"] = "Bearer #{@session['accessJwt']}"
+      req.body = {
+        repo: @session["did"],
+        collection: "app.bsky.feed.post",
+        record: record
+      }
     end
 
-    JSON.parse(response.body)
+    unless response.success?
+      raise "Post creation failed: #{response.status} #{response.body}"
+    end
+
+    response.body
   end
 end
 

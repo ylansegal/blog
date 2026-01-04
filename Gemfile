@@ -3,6 +3,7 @@ ruby File.readlines('.tool-versions').find { |l| l =~ /^ruby/ }.split.last
 source "https://rubygems.org"
 gem "base64"
 gem "csv"
+gem "faraday"
 gem "jekyll", "~> 4.1"
 gem "logger"
 gem "webrick"
