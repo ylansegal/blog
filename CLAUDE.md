@@ -114,6 +114,22 @@ syndicated:
 ---
 ```
 
+**Custom Syndication Excerpt (Optional):**
+
+To customize what text appears in the Bluesky post, add a `syndication_excerpt` field:
+
+```yaml
+---
+layout: post
+title: "Post Title"
+syndication_excerpt: |-
+  Custom teaser for social media.
+  Can include multiple lines!
+---
+```
+
+This is separate from Jekyll's `excerpt` field and won't affect your blog's post previews.
+
 ### Deployment
 
 ```bash

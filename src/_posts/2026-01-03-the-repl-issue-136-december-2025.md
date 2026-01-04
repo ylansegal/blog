@@ -1,11 +1,19 @@
 ---
 layout: post
-title: "The REPL: Issue 136 - December 2025"
-date: 2026-01-03 14:18:22 -0800
+title: 'The REPL: Issue 136 - December 2025'
+date: 2026-01-03 14:18:22.000000000 -08:00
 categories:
 - machine_learning
 - software
-excerpt_separator: <!-- more -->
+excerpt_separator: "<!-- more -->"
+syndication_excerpt: |-
+  - RFD 576 Using LLMs at Oxide
+  - Has the cost of building software just dropped 90%?
+  - Horse
+syndicated:
+- platform: bluesky
+  url: https://bsky.app/profile/ylan.segal-family.com/post/3mbmunux4rt2e
+  date: '2026-01-04 13:30:44 -0800'
 ---
 
 ### [RFD 576 Using LLMs at Oxide](https://rfd.shared.oxide.computer/rfd/0576)
