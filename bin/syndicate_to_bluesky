@@ -113,7 +113,10 @@ class BlogPost
   end
 
   def excerpt
-    # Get first paragraph or first 200 chars
+    # Use custom excerpt from front matter if provided
+    return @front_matter["excerpt"] if @front_matter["excerpt"]
+
+    # Otherwise, get first paragraph or first 200 chars
     first_para = @content.strip.split("\n\n").first
     return first_para if first_para && first_para.length < 200
 
