@@ -1,12 +1,17 @@
 ---
 layout: post
-title: "I've been POSSE all along"
-date: 2026-01-18 12:07:26 -0800
+title: I've been POSSE all along
+date: 2026-01-18 12:07:26.000000000 -08:00
 categories:
 - writing
-excerpt_separator: <!-- more -->
-syndication_excerpt: |-
-  In 1995, I realized switching ISPs would mean changing my email. The solution? Buy my own domain. That same instinct led me to self-host this blog. Turns out there's a name for it: POSSE.
+excerpt_separator: "<!-- more -->"
+syndication_excerpt: 'In 1995, I realized switching ISPs would mean changing my email.
+  The solution? Buy my own domain. That same instinct led me to self-host this blog.
+  Turns out there''s a name for it: POSSE.'
+syndicated:
+- platform: bluesky
+  url: https://bsky.app/profile/ylan.segal-family.com/post/3mcpyl3rj352r
+  date: '2026-01-18 12:43:56 -0800'
 ---
 
 I recently learned that Publish (on your) Own Site, Syndicate Elsewhere [POSSE](https://indieweb.org/POSSE) is a thing -- about 10 years old. It caught me by surprise. Not because I find it novel, but because I've always followed these principles.
