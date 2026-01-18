@@ -117,6 +117,7 @@ class BlogPost
   def build_bluesky_post
     # Format: Title + link (or excerpt + link for longer posts)
     post_text = "#{title}\n\n#{url}"
+    @excerpt_dropped = false
 
     # If we have room, add excerpt
     if post_text.length < MAX_POST_LENGTH - 50
@@ -126,10 +127,21 @@ class BlogPost
       test_text = "#{title}\n\n#{excerpt_text}\n\n#{url}"
       if test_text.length <= MAX_POST_LENGTH
         post_text = test_text
+      elsif @front_matter["syndication_excerpt"]
+        @excerpt_dropped = true
+        @excerpt_max_length = MAX_POST_LENGTH - post_text.length - 4 # 4 for "\n\n" x2
       end
     end
 
     post_text
+  end
+
+  def excerpt_dropped?
+    @excerpt_dropped
+  end
+
+  def excerpt_max_length
+    @excerpt_max_length
   end
 
   def create_link_facet(text, url)
@@ -230,6 +242,15 @@ def main
   puts "─" * 50
   puts bluesky_text
   puts "─" * 50
+
+  if post.excerpt_dropped?
+    puts ""
+    puts "⚠️  Warning: syndication_excerpt was too long and was dropped."
+    puts "   Current excerpt: #{post.excerpt.length} chars"
+    puts "   Maximum allowed: #{post.excerpt_max_length} chars"
+    puts "   Shorten the excerpt by #{post.excerpt.length - post.excerpt_max_length} chars to include it."
+  end
+
   puts ""
 
   print "Post to Bluesky? [y/N] "
