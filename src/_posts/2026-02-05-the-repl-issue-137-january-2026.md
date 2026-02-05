@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'The REPL: Issue 137 - January 2026'
-date: 2026-02-05 09:53:41 -0800
+date: 2026-02-05 09:53:41.000000000 -08:00
 categories:
 - machine_learning
 - software
@@ -10,6 +10,10 @@ syndication_excerpt: |-
   - AI is a horse
   - Karpathy on Claude
   - Taming Claude Code
+syndicated:
+- platform: bluesky
+  url: https://bsky.app/profile/ylan.segal-family.com/post/3me4xw5d2g42c
+  date: '2026-02-05 10:02:02 -0800'
 ---
 
 ### [AI is a horse](https://kconner.com/2024/08/02/ai-is-a-horse.html)
