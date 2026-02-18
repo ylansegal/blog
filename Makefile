@@ -64,8 +64,8 @@ logs/report.html: logs/access_log
 	goaccess logs/access_log* -o logs/report.html --log-format=COMBINED
 
 .make.backup_logs: logs/report.html
-	cat ~/.secure.password | rclone --progress sync logs drive:/blog_logs/
-	cat ~/.secure.password | rclone --progress sync logs rsyncnet:blog_logs/
+	op item get "rclone Secure Backup Password" --fields password --reveal | rclone --progress sync logs drive:/blog_logs/
+	op item get "rclone Secure Backup Password" --fields password --reveal | rclone --progress sync logs rsyncnet:blog_logs/
 	touch .make.backup_logs
 
 analyze-logs: .make.backup_logs
