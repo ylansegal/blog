@@ -1,12 +1,16 @@
 ---
 layout: post
-title: "I've Disallowed LLMs"
-date: 2026-02-17 16:24:00 -0800
+title: I've Disallowed LLMs
+date: 2026-02-17 16:24:00.000000000 -08:00
 categories:
 - web
-excerpt_separator: <!-- more -->
-syndication_excerpt: |-
-  As an experiment, I changed the `robots.txt` on this blog to disallow LLMs from crawling it. It didn't make a difference.
+excerpt_separator: "<!-- more -->"
+syndication_excerpt: As an experiment, I changed the `robots.txt` on this blog to
+  disallow LLMs from crawling it. It didn't make a difference.
+syndicated:
+- platform: bluesky
+  url: https://bsky.app/profile/ylan.segal-family.com/post/3mf3tmq7vcp2w
+  date: '2026-02-17 16:37:42 -0800'
 ---
 
 As an experiment, I changed the `robots.txt` on this blog to disallow LLMs from crawling it. I saw a reference -- lost now in my notes -- to something like this:
