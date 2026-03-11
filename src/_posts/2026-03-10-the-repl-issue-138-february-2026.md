@@ -1,12 +1,18 @@
 ---
 layout: post
 title: 'The REPL: Issue 138 - February 2026'
-date: 2026-03-11 10:01:15 -0700
+date: 2026-03-11 10:01:15.000000000 -07:00
 categories:
 - machine_learning
 - git
 excerpt_separator: "<!-- more -->"
 syndication_excerpt: |-
+  - GitButler CLI Is Really Good
+  - Demystifying evals for AI agents
+syndicated:
+- platform: bluesky
+  url: https://bsky.app/profile/ylan.segal-family.com/post/3mgsevbunfq2e
+  date: '2026-03-11 10:10:29 -0700'
 ---
 
 ### [GitButler CLI Is Really Good](https://matduggan.com/gitbutler-cli-is-really-good/)
