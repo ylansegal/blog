@@ -1,10 +1,17 @@
 ---
 layout: post
-title: "Stop Using next in Ruby Loops"
-date: 2026-03-20 15:18:30 -0700
+title: Stop Using next in Ruby Loops
+date: 2026-03-20 15:18:30.000000000 -07:00
 categories:
 - ruby
-excerpt_separator: <!-- more -->
+syndication_excerpt: LLM-generated Ruby code tends to reach for `next` inside `.each`
+  loops. It works, but it's not idiomatic. When you find yourself using `next`, there's
+  almost always a more expressive alternative.
+excerpt_separator: "<!-- more -->"
+syndicated:
+- platform: bluesky
+  url: https://bsky.app/profile/ylan.segal-family.com/post/3mhjll5zczb2m
+  date: '2026-03-20 15:41:19 -0700'
 ---
 
 LLM-generated Ruby code tends to reach for `next` inside `.each` loops. It works, but it's not idiomatic. When you find yourself using `next`, there's almost always a more expressive alternative using Enumerable methods.
