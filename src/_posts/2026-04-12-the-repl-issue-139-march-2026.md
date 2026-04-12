@@ -1,13 +1,19 @@
 ---
 layout: post
 title: 'The REPL: Issue 139 - March 2026'
-date: 2026-04-12 14:05:13 -0700
+date: 2026-04-12 14:05:13.000000000 -07:00
 categories:
 - machine_learning
 excerpt_separator: "<!-- more -->"
-# syndication_excerpt: |-
-#   - GitButler CLI Is Really Good
-#   - Demystifying evals for AI agents
+syndication_excerpt: |-
+  - LLMs can be absolutely exhausting
+  - What is agentic engineering? - Agentic Engineering Patterns
+  - Warranty Void If Regenerated
+  - Reports of code's death are greatly exaggerated
+syndicated:
+- platform: bluesky
+  url: https://bsky.app/profile/ylan.segal-family.com/post/3mjdbieimtw2p
+  date: '2026-04-12 14:15:13 -0700'
 ---
 
 ### [LLMs can be absolutely exhausting](https://tomjohnell.com/llms-can-be-absolutely-exhausting/)
