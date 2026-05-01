@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'The REPL: Issue 140 - April 2026'
-date: 2026-05-01 09:30:55 -0700
+date: 2026-05-01 09:30:55.000000000 -07:00
 categories:
 - postgres
 - machine_learning
@@ -11,6 +11,10 @@ syndication_excerpt: |-
   - Keeping a Postgres queue healthy
   - Highlights from Git 2.54
   - Do I belong in tech anymore?
+syndicated:
+- platform: bluesky
+  url: https://bsky.app/profile/ylan.segal-family.com/post/3mkslxkmqsb2a
+  date: '2026-05-01 09:57:48 -0700'
 ---
 
 # [Keeping a Postgres queue healthy — PlanetScale](https://planetscale.com/blog/keeping-a-postgres-queue-healthy)
