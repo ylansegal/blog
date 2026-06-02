@@ -3,6 +3,7 @@ layout: post
 title: "The REPL: Issue 130 - June 2025"
 date: 2025-07-01 15:32:07 -0700
 categories:
+- the repl
 - machine_learning
 - writing
 excerpt_separator: <!-- more -->

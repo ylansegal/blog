@@ -3,6 +3,7 @@ layout: post
 title: "The REPL: Issue 135 - November 2025"
 date: 2025-12-04 12:12:25 -0800
 categories:
+- the repl
 - machine_learning
 - software
 excerpt_separator: <!-- more -->

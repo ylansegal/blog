@@ -3,6 +3,7 @@ layout: post
 title: 'The REPL: Issue 140 - April 2026'
 date: 2026-05-01 09:30:55.000000000 -07:00
 categories:
+- the repl
 - postgres
 - machine_learning
 - git

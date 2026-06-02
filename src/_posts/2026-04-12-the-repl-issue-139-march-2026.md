@@ -3,6 +3,7 @@ layout: post
 title: 'The REPL: Issue 139 - March 2026'
 date: 2026-04-12 14:05:13.000000000 -07:00
 categories:
+- the repl
 - machine_learning
 excerpt_separator: "<!-- more -->"
 syndication_excerpt: |-

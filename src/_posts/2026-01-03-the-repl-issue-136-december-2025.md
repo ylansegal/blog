@@ -3,6 +3,7 @@ layout: post
 title: 'The REPL: Issue 136 - December 2025'
 date: 2026-01-03 14:18:22.000000000 -08:00
 categories:
+- the repl
 - machine_learning
 - software
 excerpt_separator: "<!-- more -->"

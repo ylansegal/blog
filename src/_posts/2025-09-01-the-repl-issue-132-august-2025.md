@@ -3,6 +3,7 @@ layout: post
 title: "The REPL: Issue 132 - August 2025"
 date: 2025-09-01 18:26:06 -0700
 categories:
+- the repl
 - machine_learning
 - ruby
 excerpt_separator: <!-- more -->

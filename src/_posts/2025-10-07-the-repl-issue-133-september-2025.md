@@ -3,6 +3,7 @@ layout: post
 title: "The REPL: Issue 133 - September 2025"
 date: 2025-10-07 15:57:07 -0700
 categories:
+- the repl
 - machine_learning
 - software
 excerpt_separator: <!-- more -->

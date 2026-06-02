@@ -3,6 +3,7 @@ layout: post
 title: 'The REPL: Issue 138 - February 2026'
 date: 2026-03-11 10:01:15.000000000 -07:00
 categories:
+- the repl
 - machine_learning
 - git
 excerpt_separator: "<!-- more -->"

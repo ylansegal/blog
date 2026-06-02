@@ -3,6 +3,7 @@ layout: post
 title: "The REPL: Issue 134 - October 2025"
 date: 2025-11-02 13:13:06 -0800
 categories:
+- the repl
 - machine_learning
 - software
 - ruby
