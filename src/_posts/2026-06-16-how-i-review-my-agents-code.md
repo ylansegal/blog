@@ -1,14 +1,18 @@
 ---
 layout: post
-title: "How I Review My Agents' Code"
-date: 2026-06-16 17:14:24 -0700
+title: How I Review My Agents' Code
+date: 2026-06-16 17:14:24.000000000 -07:00
 categories:
 - machine_learning
 - productivity
-excerpt_separator: <!-- more -->
+excerpt_separator: "<!-- more -->"
 syndication_excerpt: 'Coding agents changed my workflow: I now give code-review-style
   feedback many times a day. I dropped the copy-paste shuffle for revdiff, a TUI made
   for annotating diffs and plans.'
+syndicated:
+- platform: bluesky
+  url: https://bsky.app/profile/ylan.segal-family.com/post/3moh2ot572a2f
+  date: '2026-06-16 17:30:11 -0700'
 ---
 
 Coding agents have changed how I work. I now give code-review-style feedback to agents many times a day.
