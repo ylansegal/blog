@@ -1,14 +1,18 @@
 ---
 layout: post
-title: "The Backlog Is Infinite"
-date: 2026-08-22 13:47:24 -0700
+title: The Backlog Is Infinite
+date: 2026-08-22 13:47:24.000000000 -07:00
 categories:
 - machine_learning
 - productivity
-excerpt_separator: <!-- more -->
+excerpt_separator: "<!-- more -->"
 syndication_excerpt: A friend who doesn't write software built an app with Claude
   Code, then asked if my company will fire half my team. I'm not worried. Our backlog
   has never once run dry.
+syndicated:
+- platform: bluesky
+  url: https://bsky.app/profile/ylan.segal-family.com/post/3mtp766hej42y
+  date: '2026-08-22 14:17:37 -0700'
 ---
 
 A friend asked me if my company is going to fire half of my team. He doesn't write software. A few weeks earlier he had installed [Claude Code][claude-code], described an app he wanted, and got one. More or less. If he can do that knowing no programming at all, what does a company need a whole team of engineers for?
