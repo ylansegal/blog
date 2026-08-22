@@ -6,6 +6,9 @@ categories:
 - machine_learning
 - productivity
 excerpt_separator: <!-- more -->
+syndication_excerpt: A friend who doesn't write software built an app with Claude
+  Code, then asked if my company will fire half my team. I'm not worried. Our backlog
+  has never once run dry.
 ---
 
 A friend asked me if my company is going to fire half of my team. He doesn't write software. A few weeks earlier he had installed [Claude Code][claude-code], described an app he wanted, and got one. More or less. If he can do that knowing no programming at all, what does a company need a whole team of engineers for?
