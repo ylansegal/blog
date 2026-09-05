@@ -1,12 +1,16 @@
 ---
 layout: post
 title: 'The REPL: Issue 144 - August 2026'
-date: 2026-09-05 12:19:08 -0700
+date: 2026-09-05 12:19:08.000000000 -07:00
 categories:
-  - the_repl
-  - git
+- the_repl
+- git
 excerpt_separator: "<!-- more -->"
 syndication_excerpt:
+syndicated:
+- platform: bluesky
+  url: https://bsky.app/profile/ylan.segal-family.com/post/3mus7vkeyt22c
+  date: '2026-09-05 12:33:52 -0700'
 ---
 
 Today's REPL is different from most. I usually point to a few interesting articles. This time I found myself writing at length about a single one.
