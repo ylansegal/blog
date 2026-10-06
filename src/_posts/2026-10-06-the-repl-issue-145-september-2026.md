@@ -1,13 +1,20 @@
 ---
 layout: post
 title: 'The REPL: Issue 145 - September 2026'
-date: 2026-10-06 16:18:00 -0700
+date: 2026-10-06 16:18:00.000000000 -07:00
 categories:
 - the repl
 - postgres
 - machine_learning
 - security
 excerpt_separator: "<!-- more -->"
+syndication_excerpt: |-
+  - Kafgres: Embedding a Kafka Broker into Postgres
+  - It’s Time to Investigate the AI Labs
+syndicated:
+- platform: bluesky
+  url: https://bsky.app/profile/ylan.segal-family.com/post/3mxalnejjrp2r
+  date: '2026-10-06 16:31:42 -0700'
 ---
 
 ### [Kafgres: Embedding a Kafka Broker into Postgres](https://rynr.dev/blog/kafgres/)
