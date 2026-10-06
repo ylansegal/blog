@@ -3,7 +3,7 @@ layout: post
 title: 'The REPL: Issue 144 - August 2026'
 date: 2026-09-05 12:19:08.000000000 -07:00
 categories:
-- the_repl
+- the repl
 - git
 excerpt_separator: "<!-- more -->"
 syndication_excerpt:
